@@ -1,0 +1,2 @@
+import { ArrowUpRight } from 'lucide-react';
+export default function NotFound(){return <main id="main" className="not-found wrap"><a href="/" className="brand">ofirma<span>●</span></a><p className="eyebrow">404 / SAYFA BULUNAMADI</p><h1>Bu sayfa<br/>burada görünmüyor.</h1><p>Bağlantı değişmiş olabilir. Ürün kataloğundan devam edebilirsiniz.</p><a className="cta" href="/">Ürünlere dön <ArrowUpRight size={20}/></a></main>;}

@@ -29,10 +29,11 @@ export default function ProductInquiry({product}:{product:InquiryProduct}){
  <div className="form-head"><span>{product.title}</span><span>TEKLİF TALEBİ</span></div><div className="form-grid">
  <label className="full" htmlFor="customer">Adınız / Firma adınız <span>*</span><Input id="customer" name="customer" required maxLength={120} autoComplete="organization" placeholder="Ad veya firma adı"/></label>
  <label className="full" htmlFor="quantity">Talep ettiğiniz ürün adedi <span>*</span><Input id="quantity" name="quantity" type="number" min="1" max="1000000" step="1" required placeholder="Kaç ürün için teklif istiyorsunuz?"/></label>
- <p className="form-subtitle">Bildiğiniz teknik bilgileri ekleyin</p>
+ <p className="form-subtitle">Bildiğiniz teknik bilgileri ekleyin; bilmiyorsanız numune gönderebilirsiniz</p>
  {product.fields.map(field=><label key={field.id} htmlFor={field.id} className={field.kind==='text'?'full':undefined}>{field.label}<div className={field.unit?'input-unit':undefined}><Input id={field.id} name={field.id} type={field.kind==='number'?'number':'text'} min={field.kind==='number'?(field.unit==='adet'?1:0.01):undefined} max={field.kind==='number'?1000000:undefined} step={field.kind==='number'?(field.unit==='adet'?1:'any'):undefined} maxLength={field.kind==='text'?300:undefined} placeholder={field.hint}/>{field.unit && <span>{field.unit}</span>}</div></label>)}
  <label className="full" htmlFor="notes">Ek bilgiler<Textarea id="notes" name="notes" rows={3} maxLength={1500} placeholder="Kullanım yeri, mevcut ekipman, özel istek veya açıklama…"/></label></div>
- <p className="form-note">* Zorunlu alanlar. Bilmediğiniz teknik bilgileri boş bırakabilirsiniz. Fotoğraf ve teknik resimleri WhatsApp görüşmesine ekleyin.</p>
+ <label className="sample-option full"><input type="checkbox" name="sample" value="Evet"/> Elimde numune var; ürünü numuneye göre üretmenizi istiyorum.</label>
+ <p className="form-note">* Zorunlu alanlar. Teknik bilgileri bilmiyorsanız boş bırakabilirsiniz. Numuneyi kargo ile gönderebilir, fotoğraf ve teknik resimleri WhatsApp görüşmesine ekleyebilirsiniz.</p>
  <Button type="submit" className="submit-button"><MessageCircle size={19}/> WhatsApp’ta teklif iste <ArrowUpRight size={20}/></Button>
  <p className="privacy-note">Bilgileriniz bu sitede kaydedilmez. Mesajı WhatsApp’ta siz gönderirsiniz.</p>
  {error && <p className="form-status" role="alert">{error}</p>}

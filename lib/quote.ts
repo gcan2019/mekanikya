@@ -22,5 +22,6 @@ export function quoteMessage(data: FormData, material: string): string {
     ...(value('shaftEnd')?['Mevcut mil ucu: '+value('shaftEnd')]:[]),
     ...(value('weight')?['Taşınan ürünün toplam ağırlığı: '+value('weight')+' kg']:[]),
     ...(value('environment')?['Çalışma ortamı: '+value('environment')]:[]),
-    ...(value('notes')?['Kullanım / Notlar: '+value('notes')]:[])].join('\n');
+    ...(value('notes')?['Kullanım / Notlar: '+value('notes')]:[]),
+    ...(value('sample')?['Numune: Ürünü göndereceğim numuneye göre üretmenizi istiyorum.']:[])].join('\n');
 }

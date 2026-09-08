@@ -17,5 +17,6 @@ export function productInquiryMessage(product:InquiryProduct, data:FormData):str
   }
   if(value('notes').length>1500) throw new Error('Ek bilgiler en fazla 1500 karakter olabilir.');
   if(value('notes')) lines.push('Ek bilgiler: '+value('notes'));
+  if(value('sample')) lines.push('Numune: Ürünü göndereceğim numuneye göre üretmenizi istiyorum.');
   return lines.join('\n');
 }

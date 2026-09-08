@@ -1,0 +1,1 @@
+export default function ProductImage({id,title,priority=false}:{id:string;title:string;priority?:boolean}){return <figure className="catalog-photo"><img src={'/images/'+id+'.png'} alt={title+' — temsili ürün görseli'} width={1200} height={900} loading={priority?'eager':'lazy'}/><figcaption>Temsili ürün görseli</figcaption></figure>;}

@@ -4,9 +4,9 @@ import {additionalProducts} from '../lib/additional-products.ts';
 import {productInquiryMessage} from '../lib/product-inquiry.ts';
 
 function form(){const data=new FormData();data.set('customer','Örnek & Firma');data.set('quantity','2');return data;}
-test('six product families have unique routes and field names',()=>{
- assert.equal(additionalProducts.length,6);
- assert.equal(new Set(additionalProducts.map(p=>p.id)).size,6);
+test('eleven additional product families have unique routes and field names',()=>{
+ assert.equal(additionalProducts.length,11);
+ assert.equal(new Set(additionalProducts.map(p=>p.id)).size,11);
  for(const product of additionalProducts){assert.equal(product.href,'/'+product.id);assert.equal(new Set(product.fields.map(f=>f.id)).size,product.fields.length);for(const field of product.fields)assert.ok(!['customer','quantity','notes'].includes(field.id));}
 });
 for(const product of additionalProducts){

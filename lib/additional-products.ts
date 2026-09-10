@@ -1,6 +1,327 @@
 export type InquiryField = {id:string;label:string;kind:'text'|'number';unit?:string;hint:string};
 export type InquiryProduct = {id:string;href:string;title:string;category:string;description:string;details:string[];uses:string[];checks:{title:string;text:string}[];fields:InquiryField[];note:string;source:string};
 export const additionalProducts:InquiryProduct[] = [
+{
+  "id": "sac-levha-tasima-arabasi",
+  "title": "Sac ve levha taşıma arabası",
+  "category": "Atölye taşıma ekipmanları",
+  "description": "Sac, panel ve levhalarınızın ebatlarına göre taşıma arabası için teklif alın. Bölme düzenini, temas yüzeyini ve geçiş ölçülerini kullanımınıza göre birlikte belirleyelim.",
+  "details": [
+    "Levha ebadına göre tasarım",
+    "Yatay veya dikey yerleşim talebi",
+    "Özel ölçü ve temas yüzeyi"
+  ],
+  "uses": [
+    "Sac ve lazer kesim atölyeleri",
+    "Panel ve levha hazırlama alanları",
+    "Üretim içi malzeme taşıma"
+  ],
+  "checks": [
+    {
+      "title": "Levha ve yüzey",
+      "text": "En büyük levha ölçüsünü ve yüzeyinin çizilmeye duyarlı olup olmadığını belirtin. Temas yüzeyi ve destek aralığı buna göre değerlendirilir."
+    },
+    {
+      "title": "Yük ve yerleşim",
+      "text": "Bir seferde taşınacak levha adedi ile toplam ağırlığı paylaşın. Tek veya çift taraflı yerleşim ve bölme ihtiyacınızı konuşalım."
+    },
+    {
+      "title": "Atölyedeki hareket",
+      "text": "Kapı genişliği, koridorlar ve zemin koşulları tekerlek ve dış ölçü seçiminde dikkate alınır."
+    }
+  ],
+  "fields": [
+    {
+      "id": "sheetSize",
+      "label": "En büyük levha ölçüsü",
+      "kind": "text",
+      "hint": "En × boy × kalınlık, mm"
+    },
+    {
+      "id": "load",
+      "label": "Toplam taşıma yükü",
+      "kind": "number",
+      "hint": "Levhaların toplam ağırlığı",
+      "unit": "kg"
+    },
+    {
+      "id": "layout",
+      "label": "Yerleşim ve yüzey tercihi",
+      "kind": "text",
+      "hint": "Dikey / yatay, bölme ve yüzey koruma ihtiyacı"
+    },
+    {
+      "id": "clearance",
+      "label": "En dar geçiş genişliği",
+      "kind": "number",
+      "hint": "Kapı veya koridor genişliği",
+      "unit": "mm"
+    }
+  ],
+  "note": "Gövde, denge, tekerlek ve levha sabitleme düzeni kullanım bilgileriyle netleştirilir.",
+  "source": "https://www.formkar.com.tr/urunler/dairesel-sac-tasima-arabasi/",
+  "href": "/sac-levha-tasima-arabasi"
+},
+{
+  "id": "talas-hurda-arabasi",
+  "title": "Talaş ve hurda taşıma arabası",
+  "category": "Atölye taşıma ekipmanları",
+  "description": "CNC, torna ve freze çevresindeki talaş ve üretim artıklarını toplamak için özel ölçü araba talebinizi paylaşın. Tezgâh altı yerleşim, hacim ve boşaltma şekline göre teklif hazırlayalım.",
+  "details": [
+    "Tezgâh altına uygun ölçü",
+    "Hacim ve yük değerlendirmesi",
+    "Boşaltma ve sıvı tahliye talebi"
+  ],
+  "uses": [
+    "CNC işleme merkezleri",
+    "Torna ve freze atölyeleri",
+    "Üretim artığı toplama noktaları"
+  ],
+  "checks": [
+    {
+      "title": "Talaşın yapısı",
+      "text": "Kısa veya uzun talaş, keskin hurda ve beraberindeki soğutma sıvısını belirtin. Kasa ve taban yapısını malzemeye göre değerlendirelim."
+    },
+    {
+      "title": "Yerleşim ve hacim",
+      "text": "Tezgâh çıkışının yerden yüksekliğini, kullanılabilir alanı ve toplama hacmini paylaşın. Hacim ile taşıma yükü ayrı değerlendirilir."
+    },
+    {
+      "title": "Boşaltma yöntemi",
+      "text": "Elle boşaltma, devirmeli kullanım veya başka ekipmanla aktarım talebinizi belirtin. Sıvı tahliyesi gerekiyorsa bunu da ekleyin."
+    }
+  ],
+  "fields": [
+    {
+      "id": "material",
+      "label": "Talaş / hurda türü",
+      "kind": "text",
+      "hint": "Metal türü, talaş biçimi ve sıvı durumu"
+    },
+    {
+      "id": "volume",
+      "label": "İstenen toplama hacmi",
+      "kind": "number",
+      "hint": "Biliyorsanız belirtin",
+      "unit": "litre"
+    },
+    {
+      "id": "load",
+      "label": "Biriktirilecek toplam yük",
+      "kind": "number",
+      "hint": "Talaş ve sıvı dahil",
+      "unit": "kg"
+    },
+    {
+      "id": "space",
+      "label": "Tezgâh altındaki kullanılabilir alan",
+      "kind": "text",
+      "hint": "En × boy × yükseklik, mm"
+    },
+    {
+      "id": "emptying",
+      "label": "Boşaltma şekli",
+      "kind": "text",
+      "hint": "Elle, devirmeli veya diğer"
+    }
+  ],
+  "note": "Devirmeli mekanizma, tahliye ve sızdırmazlık talebi ayrıca değerlendirilir; görseldeki yapı kesin teknik özellik değildir.",
+  "source": "https://sarigolkonveyor.com/tr/urunlerimiz/talas-tahliye-ve-depolama-sistemleri/talas-arabasi/",
+  "href": "/talas-hurda-arabasi"
+},
+{
+  "id": "metal-tasima-kasasi",
+  "title": "Metal taşıma kasası",
+  "category": "Depolama ve düzen",
+  "description": "Parçalarınızı üretim, depo ve sevkiyat arasında taşımak için özel ölçü metal kasa talep edin. İç ölçü, yük, istifleme ve forklift erişimini ihtiyacınıza göre değerlendirelim.",
+  "details": [
+    "Parçaya göre iç ölçü",
+    "Forklift / transpalet erişimi",
+    "Kapak ve bölme talebi"
+  ],
+  "uses": [
+    "Fabrika içi parça taşıma",
+    "Depo ve sevkiyat hazırlığı",
+    "Metal ve otomotiv parçası muhafazası"
+  ],
+  "checks": [
+    {
+      "title": "Taşınacak parçalar",
+      "text": "Parçaların ölçülerini, bir kasaya yerleştirilecek adedi ve toplam ağırlığı paylaşın. Hassas yüzeyler için ayırıcı veya destek ihtiyacını belirtin."
+    },
+    {
+      "title": "Taşıma ekipmanı",
+      "text": "Forklift veya transpalet kullanımınızı ve çatal ölçülerini bildirin. Kasa altındaki giriş boşlukları ekipmanınıza göre ele alınır."
+    },
+    {
+      "title": "İstifleme ve ortam",
+      "text": "Dolu kasaları üst üste koyma ihtiyacınızı, kat sayısını ve iç/dış ortam koşullarını açıklayın. İstif uygunluğu ayrıca değerlendirilir."
+    }
+  ],
+  "fields": [
+    {
+      "id": "innerSize",
+      "label": "İstenen iç ölçü",
+      "kind": "text",
+      "hint": "En × boy × yükseklik, mm"
+    },
+    {
+      "id": "load",
+      "label": "Kasa başına yük",
+      "kind": "number",
+      "hint": "Taşınan parçaların toplam ağırlığı",
+      "unit": "kg"
+    },
+    {
+      "id": "parts",
+      "label": "Parça ve yerleşim bilgisi",
+      "kind": "text",
+      "hint": "Parça türü, ölçüsü, bölme veya kapak ihtiyacı"
+    },
+    {
+      "id": "handling",
+      "label": "Taşıma ve istifleme yöntemi",
+      "kind": "text",
+      "hint": "Forklift / transpalet, istif katı ve ortam"
+    }
+  ],
+  "note": "Taşıma kapasitesi ve dolu istifleme uygunluğu tasarım değerlendirmesiyle belirlenir. Standart kapasite taahhüdü verilmez.",
+  "source": "https://www.eksenraf.com/metal-tasima-kasasi/",
+  "href": "/metal-tasima-kasasi"
+},
+{
+  "id": "rulolu-destek-sehpasi",
+  "title": "Rulolu boru ve profil destek sehpası",
+  "category": "Atölye yardımcı ekipmanları",
+  "description": "Uzun boru ve profilleri işleme sırasında desteklemek için rulolu sehpa talebinizi paylaşın. Çalışma yüksekliği, malzeme kesiti ve besleme yönüne göre birlikte değerlendirelim.",
+  "details": [
+    "Çalışma yüksekliğine göre",
+    "Rulo ve temas biçimi seçimi",
+    "Boru / profil desteği"
+  ],
+  "uses": [
+    "Şerit testere giriş ve çıkışı",
+    "Boru ve profil hazırlama",
+    "Uzun malzemeli atölye işleri"
+  ],
+  "checks": [
+    {
+      "title": "Malzeme ve hareket",
+      "text": "Boru çapını veya profil kesitini, uzunluğunu ve malzemenin ilerleme yönünü belirtin. Düz rulo ya da farklı destek başlığı ihtiyacı buna göre değerlendirilir."
+    },
+    {
+      "title": "Çalışma yüksekliği",
+      "text": "Makinenin malzeme alma yüksekliğini ve gerekli ayar aralığını paylaşın. Destek noktasının makineyle hizası önemlidir."
+    },
+    {
+      "title": "Destek noktaları",
+      "text": "Toplam malzeme ağırlığını ve kullanılacak sehpa sayısını belirtin. Yük dağılımı, ayak açıklığı ve zemin birlikte ele alınır."
+    }
+  ],
+  "fields": [
+    {
+      "id": "materialSize",
+      "label": "Boru / profil ölçüsü",
+      "kind": "text",
+      "hint": "Kesit veya çap ve toplam uzunluk"
+    },
+    {
+      "id": "heightRange",
+      "label": "Çalışma yüksekliği aralığı",
+      "kind": "text",
+      "hint": "En düşük – en yüksek, mm"
+    },
+    {
+      "id": "load",
+      "label": "Desteklenecek toplam yük",
+      "kind": "number",
+      "hint": "İş parçasının toplam ağırlığı",
+      "unit": "kg"
+    },
+    {
+      "id": "standCount",
+      "label": "Birlikte kullanılacak sehpa sayısı",
+      "kind": "number",
+      "hint": "Planlanan destek sayısı",
+      "unit": "adet"
+    },
+    {
+      "id": "process",
+      "label": "Makine ve besleme yönü",
+      "kind": "text",
+      "hint": "Testere, boru işleme vb."
+    }
+  ],
+  "note": "Destek sehpası malzemeyi kendiliğinden sabitlemez. Yük dağılımı ve makineyle birlikte kullanım koşulları değerlendirilir.",
+  "source": "https://www.ridgid.com/us/en/adjustable-stand-with-steel-rollers",
+  "href": "/rulolu-destek-sehpasi"
+},
+{
+  "id": "parca-yikama-sepeti",
+  "title": "Parça yıkama sepeti",
+  "category": "Atölye yardımcı ekipmanları",
+  "description": "Küçük parçaların yıkama sırasında bir arada tutulması için özel ölçü sepet talep edin. Parça boyutu, tank ölçüsü, yıkama sıvısı ve sıcaklığa göre malzeme ile göz açıklığını belirleyelim.",
+  "details": [
+    "Tank ve parçaya göre ölçü",
+    "Tel göz açıklığı seçimi",
+    "Sap, kapak ve bölme talebi"
+  ],
+  "uses": [
+    "Endüstriyel parça temizliği",
+    "Bakım ve revizyon atölyeleri",
+    "Talaşlı imalat sonrası yıkama"
+  ],
+  "checks": [
+    {
+      "title": "Parça ve göz açıklığı",
+      "text": "Yıkanacak en küçük parçanın ölçüsünü paylaşın. Parçanın düşmesini önleyecek göz açıklığı ile sıvının geçiş ihtiyacı birlikte değerlendirilir."
+    },
+    {
+      "title": "Yıkama koşulları",
+      "text": "Kullanılan kimyasalı, yaklaşık sıcaklığı ve yıkama yöntemini belirtin. Paslanmaz malzeme sınıfı bu koşullara göre seçilir."
+    },
+    {
+      "title": "Makineye yerleşim",
+      "text": "Tank veya makine iç ölçüsünü, toplam parça yükünü ve tutamak ihtiyacını ekleyin. Mevcut sepetinizin fotoğrafı veya numunesiyle de başlayabiliriz."
+    }
+  ],
+  "fields": [
+    {
+      "id": "basketSize",
+      "label": "Sepet / tank ölçüsü",
+      "kind": "text",
+      "hint": "En × boy × yükseklik, mm"
+    },
+    {
+      "id": "partSize",
+      "label": "En küçük parça ölçüsü",
+      "kind": "text",
+      "hint": "Parçanın türü ve yaklaşık ölçüleri"
+    },
+    {
+      "id": "load",
+      "label": "Sepetteki toplam parça yükü",
+      "kind": "number",
+      "hint": "Bir yıkamadaki toplam ağırlık",
+      "unit": "kg"
+    },
+    {
+      "id": "washing",
+      "label": "Yıkama sıvısı ve sıcaklık",
+      "kind": "text",
+      "hint": "Kimyasal adı, sıcaklık ve yöntem"
+    },
+    {
+      "id": "accessories",
+      "label": "Sap, kapak veya bölme ihtiyacı",
+      "kind": "text",
+      "hint": "Mevcut sepete göre veya özel düzen"
+    }
+  ],
+  "note": "Malzeme seçimi kimyasal ve sıcaklık uyumuna göre yapılır. Ultrasonik veya başka bir makineye uyum ayrıca kontrol edilir.",
+  "source": "https://www.threemtool.com/parts-cleaning-washing-custom-wire-baskets/",
+  "href": "/parca-yikama-sepeti"
+},
   {
     "id": "profil-tasima-arabasi",
     "href": "/profil-tasima-arabasi",
@@ -438,4 +759,3 @@ export const additionalProducts:InquiryProduct[] = [
     "source": "https://emapro-metal.com/products"
   }
 ];
-

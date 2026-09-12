@@ -69,6 +69,10 @@ export default function QuoteForm(){
       </div>
       <label htmlFor="weight">Taşınan ürün ağırlığı<div className="input-unit"><Input id="weight" name="weight" type="number" min="0.01" max="1000000" step="any" placeholder="Toplam ürün ağırlığı"/><span>kg</span></div></label>
       <label htmlFor="environment">Çalışma ortamı<Input id="environment" name="environment" maxLength={200} placeholder="Örn. kuru, nemli, tozlu"/></label>
+      <label htmlFor="application" className="full">Taşınan ürün / Taban ölçüsü<Input id="application" name="application" maxLength={200} placeholder="Örn. düz tabanlı koli, 400 × 300 mm"/></label>
+      <label htmlFor="pitch">Rulolar arası merkez mesafesi<div className="input-unit"><Input id="pitch" name="pitch" type="number" min="0.01" max="100000" step="any" placeholder="Biliyorsanız"/><span>mm</span></div></label>
+      <label htmlFor="speed">Hat hızı<div className="input-unit"><Input id="speed" name="speed" type="number" min="0.01" max="100000" step="any" placeholder="Biliyorsanız"/><span>m/dk</span></div></label>
+      <label htmlFor="reference" className="full">Referans model / Rulman kodu<Input id="reference" name="reference" maxLength={200} placeholder="Varsa katalog örneği veya mevcut parçanın kodu"/></label>
       <label htmlFor="notes" className="full">Kullanım yeri / Ek bilgiler<Textarea id="notes" name="notes" maxLength={1500} placeholder="Taşınan ürün, hat hızı, rulman bilgisi veya mevcut rulodaki sorun…" rows={3}/></label>
       <label className="sample-option full"><input type="checkbox" name="sample" value="Evet"/> Elimde numune var; ürünü numuneye göre üretmenizi istiyorum.</label>
     </div>

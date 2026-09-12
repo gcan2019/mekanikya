@@ -22,6 +22,14 @@ test('unknown dimensions remain optional and are not invented', () => {
   assert.ok(!message.includes(' kg'));
 });
 
+test('sample requests carry optional roller selection information without requiring dimensions', () => {
+  const message=quoteMessage(form({application:'Koli, 400 × 300 mm',pitch:'100',speed:'12.5',reference:'Fuji FF7 örneği',sample:'Evet'}),'Birlikte belirleyelim');
+  for (const text of ['Koli, 400 × 300 mm','merkez mesafesi: 100 mm','Hat hızı: 12.5 m/dk','Fuji FF7 örneği','Numune:']) assert.ok(message.includes(text));
+  assert.ok(!message.includes('Dış çap (D)'));
+  for(const key of ['pitch','speed']) for(const invalid of ['0','-1','NaN','Infinity','100001']) assert.throws(()=>quoteMessage(form({[key]:invalid}),'Çelik'));
+  for(const key of ['application','reference']) assert.throws(()=>quoteMessage(form({[key]:'x'.repeat(201)}),'Çelik'));
+});
+
 test('inconsistent total shaft length is rejected', () => {
   assert.throws(()=>quoteMessage(form({body:'400',length:'390'}),'Çelik'),/Toplam mil boyu/);
 });

@@ -1,9 +1,9 @@
 import { ArrowUpRight, PackageCheck } from 'lucide-react';
 
 const references = [
-  {title:'Metal konveyör rulosu',tag:'GENEL TAŞIMA HATLARI',image:'https://content.misumi-ec.com/image/upload/t_product_main/t_misumi_wm/v1/p/jp/product/series/110302650050/10302650050_20230801115836.jpg',description:'Çelik, paslanmaz çelik ve alüminyum gövde seçenekleri. Malzeme ve yüzey seçimi, taşınan ürün ve çalışma ortamıyla birlikte değerlendirilir.',detail:'Gövde çapı ve boyu · Mil bağlantısı · Yüzey tercihi'},
-  {title:'Mini konveyör rulosu',tag:'DAR ALAN / KISA GÖVDE',image:'https://content.misumi-ec.com/image/upload/t_product_main/t_misumi_wm/v1/p/jp/product/series/110300425360/110300425360_001.jpg',description:'Kompakt yerleşimler için kısa gövdeli rulolar. Taşınan parçanın tabanı, temas alanı ve rulman düzeni birlikte incelenir.',detail:'Montaj alanı · Temas yüzeyi · Rulman yerleşimi'},
-  {title:'PVC ve çelik borulu rulo',tag:'YÜK VE ÇALIŞMA KOŞULLARI',image:'https://content.misumi-ec.com/image/upload/t_product_main/t_misumi_wm/v1/p/jp/product/series/221000846126/221000846126_20230801115837.jpg',description:'Gövde, rulman ve yatak yapısı; taşınan yüke, çalışma ortamına ve ses ihtiyacına göre birlikte değerlendirilir.',detail:'Boru malzemesi · Rulman tipi · Çalışma sesi'},
+  {title:'Metal konveyör rulosu',tag:'GENEL TAŞIMA HATLARI',image:'/images/rollers/roller-1-clean.png',description:'Çelik, paslanmaz çelik ve alüminyum gövde seçenekleri. Malzeme ve yüzey seçimi, taşınan ürün ve çalışma ortamıyla birlikte değerlendirilir.',detail:'Gövde çapı ve boyu · Mil bağlantısı · Yüzey tercihi'},
+  {title:'Mini konveyör rulosu',tag:'DAR ALAN / KISA GÖVDE',image:'/images/rollers/roller-2-clean.png',description:'Kompakt yerleşimler için kısa gövdeli rulolar. Taşınan parçanın tabanı, temas alanı ve rulman düzeni birlikte incelenir.',detail:'Montaj alanı · Temas yüzeyi · Rulman yerleşimi'},
+  {title:'PVC ve çelik borulu rulo',tag:'YÜK VE ÇALIŞMA KOŞULLARI',image:'/images/rollers/roller-3-clean.png',description:'Gövde, rulman ve yatak yapısı; taşınan yüke, çalışma ortamına ve ses ihtiyacına göre birlikte değerlendirilir.',detail:'Boru malzemesi · Rulman tipi · Çalışma sesi'},
 ];
 const criteria = [
   ['Taşınan ürün','Toplam ağırlık, taban ölçüsü ve taban yapısı','Yükün kaç ruloya ve nasıl dağıldığını anlamak için.'],

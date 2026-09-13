@@ -327,29 +327,31 @@ export const additionalProducts:InquiryProduct[] = [
     "href": "/profil-tasima-arabasi",
     "title": "Profil taşıma arabası",
     "category": "Atölye taşıma ekipmanları",
-    "description": "Uzun profilleri ve profil paketlerini taşıma ihtiyacınıza göre ölçü, bölme ve yüzey temas detaylarını belirleyin.",
+    "description": "Profil, boru ve uzun malzemeler için atölyenize uygun taşıma arabası. Modüler, bölmeli veya platformlu düzeni fotoğraf, numune ve kullanım bilgilerinize göre birlikte belirleyelim.",
     "details": [
-      "Profil boyuna göre",
-      "Bölmeli yerleşim",
-      "Atölye içi taşıma"
+      "Profil ve boru boyuna uygun destek düzeni",
+      "Modüler, bölmeli veya platformlu şase talebi",
+      "Yüzey koruma, tutamak ve fren seçeneklerinin değerlendirilmesi"
     ],
     "uses": [
       "Profil işleme atölyeleri",
       "Kapı ve pencere üretimi",
-      "Uzun malzeme hazırlama alanları"
+      "Boru ve metal işleme",
+      "Ahşap ve uzun malzeme hazırlama",
+      "İstasyonlar arası taşıma"
     ],
     "checks": [
       {
-        "title": "Taşınan profil",
-        "text": "En uzun profilin boyunu, kesitini ve bir seferde taşınacak toplam ağırlığı paylaşın."
+        "title": "Malzeme ve toplam yük",
+        "text": "En uzun parça boyunu, kesitini, paket genişliğini ve bir seferde taşınacak toplam yükü belirtin. Yük dağılımı ve destek noktaları birlikte değerlendirilir."
       },
       {
-        "title": "Yerleşim düzeni",
-        "text": "Yatay veya dikey kullanım isteğinizi, bölme sayısını ve yerleştirme yönünü belirtin."
+        "title": "Şase ve yerleşim",
+        "text": "Modüler, bölmeli veya açık platform tercihini; yükleme yönünü ve hassas yüzeyler için koruma ihtiyacını paylaşın."
       },
       {
-        "title": "Zemin ve geçiş",
-        "text": "Kapı genişliği, koridor, eşik ve zemin bilgileri dış ölçülerin değerlendirilmesine yardımcı olur."
+        "title": "Geçiş ve tekerlek",
+        "text": "Dar kapı ve koridorlar, dönüş alanı, eşikler ve zemin durumunu belirtin. Tekerlek yerleşimi ve fren ihtiyacını kullanım alanına göre görüşelim."
       }
     ],
     "fields": [
@@ -386,9 +388,33 @@ export const additionalProducts:InquiryProduct[] = [
         "kind": "number",
         "unit": "mm",
         "hint": "Kapı veya koridor genişliği"
+      },
+      {
+        "id": "cartType",
+        "label": "İstediğiniz taşıma düzeni",
+        "kind": "text",
+        "hint": "Modüler, açık platform, iki yandan tutamaklı veya birlikte belirleyelim"
+      },
+      {
+        "id": "sectionSize",
+        "label": "Profil kesiti / Paket genişliği",
+        "kind": "text",
+        "hint": "Biliyorsanız en × yükseklik; malzeme türünü de yazabilirsiniz"
+      },
+      {
+        "id": "surfaceProtection",
+        "label": "Yüzey koruma / Yükleme ihtiyacı",
+        "kind": "text",
+        "hint": "Örn. çizilmeye duyarlı profil, üstten yükleme, çıkarılabilir bölme"
+      },
+      {
+        "id": "floor",
+        "label": "Zemin ve fren ihtiyacı",
+        "kind": "text",
+        "hint": "Örn. düz beton, eşik, döner tekerlek veya fren isteği"
       }
     ],
-    "note": "Tekerlek, temas yüzeyi ve taşıma kapasitesi kullanım koşullarına göre değerlendirilir.",
+    "note": "Taşıma kapasitesi yalnızca tekerlek kapasitesinden belirlenmez. Şase, destekler, toplam yük ve yük dağılımı birlikte değerlendirilir. Fiyat ve teslim süresi bu bilgiler netleşince paylaşılır.",
     "source": "https://www.yilmazmachine.com.tr/urunler/pc-4000-profil-tasima-arabasi/"
   },
   {

@@ -1,6 +1,8 @@
+import { factoryProducts } from './factory-products';
 export type InquiryField = {id:string;label:string;kind:'text'|'number';unit?:string;hint:string};
 export type InquiryProduct = {id:string;href:string;title:string;category:string;description:string;details:string[];uses:string[];checks:{title:string;text:string}[];fields:InquiryField[];note:string;source:string};
 export const additionalProducts:InquiryProduct[] = [
+...factoryProducts,
 {
   "id": "sac-levha-tasima-arabasi",
   "title": "Sac ve levha taşıma arabası",

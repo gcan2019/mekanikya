@@ -3,17 +3,15 @@ import { ArrowUpRight } from 'lucide-react';
 import { catalogItems } from '@/lib/presentation';
 import { business } from '@/lib/catalog';
 import ProductCards from '@/components/product-cards';
-export const metadata:Metadata={title:'Fabrika İçi Taşıma ve Malzeme Yönetimi | ofirma',description:'Palet arabası, konteyner taşıyıcısı, fileli kasa ve uzun malzeme çözümleri. Numune veya fotoğrafla özel ölçü teklif alın.',alternates:{canonical:business.siteUrl+'/fabrika-ici-tasima'}};
+export const metadata:Metadata={title:'Fabrika İçi Taşıma ve Malzeme Yönetimi | ofirma',description:'Talaş ve hurda arabaları, metal taşıma kasaları, profil, boru, sac ve levha taşıma çözümleri. Numune veya fotoğrafla özel ölçü teklif alın.',alternates:{canonical:business.siteUrl+'/fabrika-ici-tasima'}};
 export default function Factory(){return <main id="main">
-<section className="page-banner"><div className="wrap"><p className="overline">OFİRMA / FABRİKA İÇİ TAŞIMA</p><h1>Malzemeye göre taşıma,<br/>üretime göre düzen.</h1><p>Paletten küçük parça kasasına, uzun profilden üretim artığına kadar. Taşıdığınız malzemeyi ve çalışma alanını anlatın; uygun düzeni birlikte seçelim.</p></div></section>
+<section className="page-banner"><div className="wrap"><p className="overline">OFİRMA / FABRİKA İÇİ TAŞIMA</p><h1>Malzemeye göre taşıma,<br/>üretime göre düzen.</h1><p>Üretim artığından metal parçaya, uzun profilden sac ve panele kadar. Taşıdığınız malzemeyi ve çalışma alanını anlatın; uygun düzeni birlikte seçelim.</p></div></section>
 <section className="wrap company-products"><div className="company-section-heading"><div><p className="overline">ÜRÜN SEÇENEKLERİ</p><h2>Ne taşımak istiyorsunuz?</h2></div></div><ProductCards items={catalogItems.filter(p=>p.group==='fabrika-tasima')}/></section>
 <section className="company-about"><div className="wrap"><p className="overline">TAŞIMA DÜZENLERİ</p><h2>Günlük işinize uygun seçenekler.</h2><div className="factory-options">{[
-['Paletli yük','Açık şase, tutamaklı veya frenli palet arabası. Palet altına giriş ve oturma yüzeyleri mevcut palete göre belirlenir.','palet-tasima-arabasi'],
-['Parça kasaları','Sabit ölçülü ya da ayarlanabilir alt taşıyıcı. Birden fazla kasa taşınacaksa toplam yükseklik ve denge birlikte değerlendirilir.','konteyner-tasima-arabasi'],
-['Dökme parçalar','Kapalı metal kasa veya içeriği görünür fileli kasa. Katlanır duvar, ön kapak ve iç bölme ihtiyacını belirtin.','fileli-palet-kasasi'],
+['Metal parçalar','Açık, ön erişimli, istiflenebilir veya tekerlekli metal kasa düzenleri. Bölme, kapak ve forklift cebi ihtiyaca göre değerlendirilir.','metal-tasima-kasasi'],
 ['Uzun malzemeler','Modüler bölmeler, açık platform ve iki yandan tutamak seçenekleri. Profilin boyu ve yükleme yönü destek düzenini belirler.','profil-tasima-arabasi'],
 ['Üretim artıkları','Tezgâh altı toplama, devirmeli boşaltma ve sıvı tahliyesi seçenekleri; talaş türüne ve yerleşime göre değerlendirilir.','talas-hurda-arabasi'],
-['Sac ve levhalar','Dikey bölmeler veya yüzey korumalı destekler. Levha boyutu ve üretim istasyonuna yaklaşma yönüne göre düzenlenir.','sac-levha-tasima-arabasi']
+['Sac, levha ve paneller','Dikey bölmeler veya yüzey korumalı destekler. Malzeme boyutu ve üretim istasyonuna yaklaşma yönüne göre düzenlenir.','sac-levha-tasima-arabasi']
 ].map(([title,text,id])=><article key={id}><h3>{title}</h3><p>{text}</p><a className="text-link" href={'/'+id}>Seçenekleri incele <ArrowUpRight size={18}/></a></article>)}</div></div></section>
 <section className="wrap profile-cart-guide factory-guide"><p className="overline">TAŞIMA VE DEPOLAMAYI BİRLİKTE PLANLAYIN</p><h2>Malzeme beklerken de düzenli kalsın.</h2><div className="profile-cart-factors">{[
 ['Uzun malzeme rafları','Boru ve profiller için kollu raf veya istiflenebilir taşıyıcı düzeni değerlendirilebilir. Malzeme boyu, destek aralığı, kat başına yük ve yükleme ekipmanı birlikte belirlenir.'],

@@ -1,2 +1,7 @@
-const references=['palet-tasima-arabasi','konteyner-tasima-arabasi','fileli-palet-kasasi'];
-export default function ProductImage({id,title,priority=false}:{id:string;title:string;priority?:boolean}){return <figure className="catalog-photo"><img src={'/images/'+id+(references.includes(id)?'.jpg':'.png')} alt={title+' — örnek ürün düzeni'} width={1200} height={900} loading={priority?'eager':'lazy'}/><figcaption>{references.includes(id)?'Örnek ürün düzeni':'Temsili ürün görseli'}</figcaption></figure>;}
+import { verifiedProductImages } from '@/lib/verified-product-images';
+
+export default function ProductImage({id,priority=false}:{id:string;title:string;priority?:boolean}){
+  const image = verifiedProductImages[id];
+  if (!image) return null;
+  return <figure className="catalog-photo"><img src={image.src} alt={image.alt} width={1200} height={900} loading={priority?'eager':'lazy'}/><figcaption>MISUMI kataloğundan örnek ürün düzeni</figcaption></figure>;
+}

@@ -1,12 +1,13 @@
 import QuoteForm from '../quote-form';
 import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import { ArrowDown, ArrowUpRight, MessageCircle, FileText } from 'lucide-react';
 import { business } from '@/lib/catalog';
-export const metadata: Metadata = {title:'Özel Ölçü ve Yedek Konveyör Rulosu | ofirma',description:'Merzifon’da özel ölçü ve yedek konveyör rulosu: metal ve mini rulo örneklerini inceleyin. Numune veya fotoğrafla başlayın, WhatsApp üzerinden teklif isteyin.',alternates:{canonical:business.siteUrl+'/konveyor-rulosu'}};
+export const metadata: Metadata = {title:'Ürün bulunamadı | ofirma',robots:{index:false,follow:false}};
 import ProductImage from '@/components/product-image';
 import RollerDiagram from '@/components/roller-diagram';
 import RollerSelection from '@/components/roller-selection';
-export default function Home(){return (<main id="main"><section className="hero wrap" id="urun"><div className="hero-copy"><p className="eyebrow"><span className="orange-dot"/> KONVEYÖR BİLEŞENLERİ / 01</p><h1>Hattınıza uygun.<br/><span>Ölçünüze özel.</span></h1><p className="lead">Konveyör rulosu ihtiyacınızı birlikte netleştirelim. Elinizdeki rulonun fotoğrafını paylaşın veya numune gönderin. Ölçü ve teknik çizim bilmeniz gerekmez.</p><div className="hero-actions"><a className="cta" href="#teklif">Rulonuz için teklif isteyin <ArrowUpRight size={20}/></a><a className="text-link" href="#rulo-turleri">Rulo türlerini inceleyin <ArrowDown size={17}/></a></div><div className="hero-tags"><span>Özel ölçü talebi</span><span>Yedek rulo değerlendirmesi</span></div></div>
+export default function Home(){const isActive=false;if(!isActive)notFound();return (<main id="main"><section className="hero wrap" id="urun"><div className="hero-copy"><p className="eyebrow"><span className="orange-dot"/> KONVEYÖR BİLEŞENLERİ / 01</p><h1>Hattınıza uygun.<br/><span>Ölçünüze özel.</span></h1><p className="lead">Konveyör rulosu ihtiyacınızı birlikte netleştirelim. Elinizdeki rulonun fotoğrafını paylaşın veya numune gönderin. Ölçü ve teknik çizim bilmeniz gerekmez.</p><div className="hero-actions"><a className="cta" href="#teklif">Rulonuz için teklif isteyin <ArrowUpRight size={20}/></a><a className="text-link" href="#rulo-turleri">Rulo türlerini inceleyin <ArrowDown size={17}/></a></div><div className="hero-tags"><span>Özel ölçü talebi</span><span>Yedek rulo değerlendirmesi</span></div></div>
 <ProductImage id="konveyor-rulosu" title="Konveyör rulosu" priority/></section>
 <div className="spec-strip wrap"><div><span>ÜRÜN</span><strong>Konveyör rulosu</strong></div><div><span>İHTİYAÇ</span><strong>Yeni hat veya yedek parça</strong></div><div><span>BAŞLANGIÇ</span><strong>Numune, fotoğraf veya ölçü</strong></div><a href="#teklif">İhtiyacınızı paylaşın <ArrowUpRight size={23}/></a></div>
 <RollerSelection/>

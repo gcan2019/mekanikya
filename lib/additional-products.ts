@@ -1,22 +1,22 @@
 import { factoryProducts } from './factory-products';
 export type InquiryField = {id:string;label:string;kind:'text'|'number';unit?:string;hint:string};
-export type InquiryProduct = {id:string;href:string;title:string;category:string;description:string;details:string[];uses:string[];checks:{title:string;text:string}[];fields:InquiryField[];note:string;source:string};
+export type InquiryProduct = {id:string;href:string;title:string;category:string;description:string;details:string[];uses:string[];checks:{title:string;text:string}[];fields:InquiryField[];note:string;source:string;status?:'active'|'inactive'};
 export const additionalProducts:InquiryProduct[] = [
 ...factoryProducts,
 {
   "id": "sac-levha-tasima-arabasi",
-  "title": "Sac ve levha taşıma arabası",
+  "title": "Sac, levha, cam ve panel taşıma arabaları",
   "category": "Atölye taşıma ekipmanları",
-  "description": "Sac, panel ve levhalarınızın ebatlarına göre taşıma arabası için teklif alın. Bölme düzenini, temas yüzeyini ve geçiş ölçülerini kullanımınıza göre birlikte belirleyelim.",
+  "description": "Lazer kesim, pres ve montaj istasyonları arasında sac, levha ve panelleri bükülmeden ve çizilmeden taşımak için A tipi dikey veya bölmeli taşıma arabası. Plaka ebadı ve zemin koşullarınıza göre teklif alın.",
   "details": [
     "Levha ebadına göre tasarım",
     "Yatay veya dikey yerleşim talebi",
-    "Özel ölçü ve temas yüzeyi"
+    "Özel ölçü ve temas yüzeyi koruması"
   ],
   "uses": [
     "Sac ve lazer kesim atölyeleri",
-    "Panel ve levha hazırlama alanları",
-    "Üretim içi malzeme taşıma"
+    "Panel, cam ve levha hazırlama alanları",
+    "Üretim içi güvenli malzeme taşıma"
   ],
   "checks": [
     {
@@ -60,24 +60,25 @@ export const additionalProducts:InquiryProduct[] = [
       "unit": "mm"
     }
   ],
-  "note": "Gövde, denge, tekerlek ve levha sabitleme düzeni kullanım bilgileriyle netleştirilir.",
+  "note": "Gövde, denge, tekerlek ve levha sabitleme düzeni kullanım bilgileriyle netleştirilir. Standart kapasite taahhüdü verilmez.",
   "source": "https://www.formkar.com.tr/urunler/dairesel-sac-tasima-arabasi/",
-  "href": "/sac-levha-tasima-arabasi"
+  "href": "/sac-levha-tasima-arabasi",
+  "status": "active"
 },
 {
   "id": "talas-hurda-arabasi",
-  "title": "Talaş ve hurda taşıma arabası",
-  "category": "Atölye taşıma ekipmanları",
-  "description": "CNC, torna ve freze çevresindeki talaş ve üretim artıklarını toplamak için özel ölçü araba talebinizi paylaşın. Tezgâh altı yerleşim, hacim ve boşaltma şekline göre teklif hazırlayalım.",
+  "title": "Talaş, hurda ve fire arabaları",
+  "category": "Fabrika içi taşıma ve malzeme yönetimi",
+  "description": "CNC, torna, freze ve pres çevresindeki talaş ve üretim artıklarını toplamak için tezgâh altı ölçüye uygun araba. Süzgeçli hazne, sıvı tahliyesi ve devirmeli boşaltma seçenekleriyle teklif hazırlayalım.",
   "details": [
-    "Tezgâh altına uygun ölçü",
-    "Hacim ve yük değerlendirmesi",
-    "Boşaltma ve sıvı tahliye talebi"
+    "Tezgâh altı çıkış kotuna uygun ölçü",
+    "Sıvı süzme ve tahliye musluğu talebi",
+    "Forkliftle devirmeli veya elle boşaltma"
   ],
   "uses": [
     "CNC işleme merkezleri",
     "Torna ve freze atölyeleri",
-    "Üretim artığı toplama noktaları"
+    "Pres fire ve hurda toplama noktaları"
   ],
   "checks": [
     {
@@ -127,15 +128,16 @@ export const additionalProducts:InquiryProduct[] = [
       "hint": "Elle, devirmeli veya diğer"
     }
   ],
-  "note": "Devirmeli mekanizma, tahliye ve sızdırmazlık talebi ayrıca değerlendirilir; görseldeki yapı kesin teknik özellik değildir.",
+  "note": "Devirmeli mekanizma, tahliye ve sızdırmazlık talebi ayrıca değerlendirilir; kesin kapasite ve özellikler proje değerlendirmesiyle netleşir.",
   "source": "https://sarigolkonveyor.com/tr/urunlerimiz/talas-tahliye-ve-depolama-sistemleri/talas-arabasi/",
-  "href": "/talas-hurda-arabasi"
+  "href": "/talas-hurda-arabasi",
+  "status": "active"
 },
 {
   "id": "metal-tasima-kasasi",
-  "title": "Metal taşıma kasası",
-  "category": "Depolama ve düzen",
-  "description": "Parçalarınızı üretim, depo ve sevkiyat arasında taşımak için özel ölçü metal kasa talep edin. İç ölçü, yük, istifleme ve forklift erişimini ihtiyacınıza göre değerlendirelim.",
+  "title": "Metal taşıma, istif kasaları ve malzeme sepetleri",
+  "category": "Depolama ve fabrika içi taşıma",
+  "description": "Döküm, pres ve talaşlı imalat parçalarını üretim, depo ve sevkiyat arasında taşımak için özel ölçü metal kasa ve sepetler. İstif ayakları, ön erişim kapağı, bölmeler, palet şaseleri ve forklift ceplerini ihtiyacınıza göre değerlendirelim.",
   "details": [
     "Parçaya göre iç ölçü",
     "Forklift / transpalet erişimi",
@@ -189,11 +191,12 @@ export const additionalProducts:InquiryProduct[] = [
   ],
   "note": "Taşıma kapasitesi ve dolu istifleme uygunluğu tasarım değerlendirmesiyle belirlenir. Standart kapasite taahhüdü verilmez.",
   "source": "https://www.eksenraf.com/metal-tasima-kasasi/",
-  "href": "/metal-tasima-kasasi"
+  "href": "/metal-tasima-kasasi",
+  "status": "active"
 },
 {
   "id": "rulolu-destek-sehpasi",
-  "title": "Rulolu boru ve profil destek sehpası",
+  "title": "Rulolu boru ve profil destek sehpaları",
   "category": "Atölye yardımcı ekipmanları",
   "description": "Uzun boru ve profilleri işleme sırasında desteklemek için rulolu sehpa talebinizi paylaşın. Çalışma yüksekliği, malzeme kesiti ve besleme yönüne göre birlikte değerlendirelim.",
   "details": [
@@ -256,7 +259,8 @@ export const additionalProducts:InquiryProduct[] = [
   ],
   "note": "Destek sehpası malzemeyi kendiliğinden sabitlemez. Yük dağılımı ve makineyle birlikte kullanım koşulları değerlendirilir.",
   "source": "https://www.ridgid.com/us/en/adjustable-stand-with-steel-rollers",
-  "href": "/rulolu-destek-sehpasi"
+  "href": "/rulolu-destek-sehpasi",
+  "status": "active"
 },
 {
   "id": "parca-yikama-sepeti",
@@ -322,468 +326,475 @@ export const additionalProducts:InquiryProduct[] = [
   ],
   "note": "Malzeme seçimi kimyasal ve sıcaklık uyumuna göre yapılır. Ultrasonik veya başka bir makineye uyum ayrıca kontrol edilir.",
   "source": "https://www.threemtool.com/parts-cleaning-washing-custom-wire-baskets/",
-  "href": "/parca-yikama-sepeti"
+  "href": "/parca-yikama-sepeti",
+  "status": "inactive"
 },
-  {
-    "id": "profil-tasima-arabasi",
-    "href": "/profil-tasima-arabasi",
-    "title": "Profil taşıma arabası",
-    "category": "Atölye taşıma ekipmanları",
-    "description": "Profil, boru ve uzun malzemeler için atölyenize uygun taşıma arabası. Modüler, bölmeli veya platformlu düzeni fotoğraf, numune ve kullanım bilgilerinize göre birlikte belirleyelim.",
-    "details": [
-      "Profil ve boru boyuna uygun destek düzeni",
-      "Modüler, bölmeli veya platformlu şase talebi",
-      "Yüzey koruma, tutamak ve fren seçeneklerinin değerlendirilmesi"
-    ],
-    "uses": [
-      "Profil işleme atölyeleri",
-      "Kapı ve pencere üretimi",
-      "Boru ve metal işleme",
-      "Ahşap ve uzun malzeme hazırlama",
-      "İstasyonlar arası taşıma"
-    ],
-    "checks": [
-      {
-        "title": "Malzeme ve toplam yük",
-        "text": "En uzun parça boyunu, kesitini, paket genişliğini ve bir seferde taşınacak toplam yükü belirtin. Yük dağılımı ve destek noktaları birlikte değerlendirilir."
-      },
-      {
-        "title": "Şase ve yerleşim",
-        "text": "Modüler, bölmeli veya açık platform tercihini; yükleme yönünü ve hassas yüzeyler için koruma ihtiyacını paylaşın."
-      },
-      {
-        "title": "Geçiş ve tekerlek",
-        "text": "Dar kapı ve koridorlar, dönüş alanı, eşikler ve zemin durumunu belirtin. Tekerlek yerleşimi ve fren ihtiyacını kullanım alanına göre görüşelim."
-      }
-    ],
-    "fields": [
-      {
-        "id": "profileLength",
-        "label": "En uzun profil boyu",
-        "kind": "number",
-        "unit": "mm",
-        "hint": "Profilin toplam boyu"
-      },
-      {
-        "id": "load",
-        "label": "Bir seferde taşınacak toplam yük",
-        "kind": "number",
-        "unit": "kg",
-        "hint": "Profil paketi toplam ağırlığı"
-      },
-      {
-        "id": "divisions",
-        "label": "İstenen bölme sayısı",
-        "kind": "number",
-        "unit": "adet",
-        "hint": "Biliyorsanız belirtin"
-      },
-      {
-        "id": "layout",
-        "label": "Yerleşim tercihi",
-        "kind": "text",
-        "hint": "Yatay, dikey veya birlikte belirleyelim"
-      },
-      {
-        "id": "clearance",
-        "label": "En dar geçiş genişliği",
-        "kind": "number",
-        "unit": "mm",
-        "hint": "Kapı veya koridor genişliği"
-      },
-      {
-        "id": "cartType",
-        "label": "İstediğiniz taşıma düzeni",
-        "kind": "text",
-        "hint": "Modüler, açık platform, iki yandan tutamaklı veya birlikte belirleyelim"
-      },
-      {
-        "id": "sectionSize",
-        "label": "Profil kesiti / Paket genişliği",
-        "kind": "text",
-        "hint": "Biliyorsanız en × yükseklik; malzeme türünü de yazabilirsiniz"
-      },
-      {
-        "id": "surfaceProtection",
-        "label": "Yüzey koruma / Yükleme ihtiyacı",
-        "kind": "text",
-        "hint": "Örn. çizilmeye duyarlı profil, üstten yükleme, çıkarılabilir bölme"
-      },
-      {
-        "id": "floor",
-        "label": "Zemin ve fren ihtiyacı",
-        "kind": "text",
-        "hint": "Örn. düz beton, eşik, döner tekerlek veya fren isteği"
-      }
-    ],
-    "note": "Taşıma kapasitesi yalnızca tekerlek kapasitesinden belirlenmez. Şase, destekler, toplam yük ve yük dağılımı birlikte değerlendirilir. Fiyat ve teslim süresi bu bilgiler netleşince paylaşılır.",
-    "source": "https://www.yilmazmachine.com.tr/urunler/pc-4000-profil-tasima-arabasi/"
-  },
-  {
-    "id": "abkant-kalip-arabasi",
-    "href": "/abkant-kalip-arabasi",
-    "title": "Abkant kalıp taşıma arabası",
-    "category": "Kalıp ve takım düzeni",
-    "description": "Abkant kalıplarınızın kesitine, boyuna ve ağırlığına göre taşıma ve saklama düzeni için teklif isteyin.",
-    "details": [
-      "Kalıp kesitine göre",
-      "Takım yerleşimi",
-      "Özel ölçü talebi"
-    ],
-    "uses": [
-      "Abkant pres çevresi",
-      "Sac işleme atölyeleri",
-      "Kalıp hazırlama alanları"
-    ],
-    "checks": [
-      {
-        "title": "Kalıp uyumu",
-        "text": "Kalıp markası veya tipiyle birlikte bağlantı kesitini paylaşın. Yalnızca marka adı uyumu doğrulamak için yeterli olmayabilir."
-      },
-      {
-        "title": "Takım dağılımı",
-        "text": "Saklanacak kalıp adedini, en uzun parçayı ve toplam takım ağırlığını belirtin."
-      },
-      {
-        "title": "Kullanım alanı",
-        "text": "Arabanın duracağı alanı, geçiş genişliğini ve kalıpların nasıl alınacağını açıklayın."
-      }
-    ],
-    "fields": [
-      {
-        "id": "toolType",
-        "label": "Kalıp markası / bağlantı tipi",
-        "kind": "text",
-        "hint": "Marka, model veya kesit açıklaması"
-      },
-      {
-        "id": "toolLength",
-        "label": "En uzun kalıp boyu",
-        "kind": "number",
-        "unit": "mm",
-        "hint": "En uzun tek parçanın boyu"
-      },
-      {
-        "id": "toolCount",
-        "label": "Saklanacak kalıp adedi",
-        "kind": "number",
-        "unit": "adet",
-        "hint": "Toplam kalıp sayısı"
-      },
-      {
-        "id": "load",
-        "label": "Toplam kalıp ağırlığı",
-        "kind": "number",
-        "unit": "kg",
-        "hint": "Tüm takımların toplamı"
-      },
-      {
-        "id": "space",
-        "label": "Kullanılabilir alan",
-        "kind": "text",
-        "hint": "En × boy × yükseklik, mm"
-      }
-    ],
-    "note": "Kalıp yerleşimi ve taşıma uygunluğu teknik resim ve yük bilgisiyle netleştirilir.",
-    "source": "https://www.fersametal.com.tr/products/abkant-kalip-tasima-arabasi"
-  },
-  {
-    "id": "sac-stoklama-rafi",
-    "href": "/sac-stoklama-rafi",
-    "title": "Dikey sac stoklama rafı",
-    "category": "Depolama ve düzen",
-    "description": "Sac ve levhaların ebatlarına, bölme ihtiyacına ve yükleme şekline göre stoklama düzeni için teklif isteyin.",
-    "details": [
-      "Levha ebadına göre",
-      "Bölme planlaması",
-      "Alan değerlendirmesi"
-    ],
-    "uses": [
-      "Sac işleme tesisleri",
-      "Lazer kesim hazırlık alanları",
-      "Levha ve plaka stok alanları"
-    ],
-    "checks": [
-      {
-        "title": "Levha ölçüleri",
-        "text": "En büyük levhanın enini, boyunu ve kullanılan kalınlık aralığını paylaşın."
-      },
-      {
-        "title": "Stok dağılımı",
-        "text": "Kaç bölme istediğinizi ve her bölmede tutulacak yükü ayrı belirtin."
-      },
-      {
-        "title": "Yerleştirme yöntemi",
-        "text": "Levhaların nasıl yüklenip alınacağını ve rafın konulacağı alanı açıklayın."
-      }
-    ],
-    "fields": [
-      {
-        "id": "sheetWidth",
-        "label": "En büyük levha eni",
-        "kind": "number",
-        "unit": "mm",
-        "hint": "Levhanın kısa kenarı"
-      },
-      {
-        "id": "sheetLength",
-        "label": "En büyük levha boyu",
-        "kind": "number",
-        "unit": "mm",
-        "hint": "Levhanın uzun kenarı"
-      },
-      {
-        "id": "thickness",
-        "label": "Sac kalınlığı aralığı",
-        "kind": "text",
-        "hint": "En ince – en kalın, mm"
-      },
-      {
-        "id": "divisions",
-        "label": "İstenen bölme sayısı",
-        "kind": "number",
-        "unit": "adet",
-        "hint": "Stok grubuna göre"
-      },
-      {
-        "id": "sectionLoad",
-        "label": "Bölme başına planlanan yük",
-        "kind": "number",
-        "unit": "kg",
-        "hint": "Tek bölmedeki toplam ağırlık"
-      },
-      {
-        "id": "loading",
-        "label": "Yükleme / boşaltma şekli",
-        "kind": "text",
-        "hint": "Ekipman ve yaklaşma yönü"
-      }
-    ],
-    "note": "Yük dağılımı, denge ve kurulum koşulları değerlendirilmeden kapasite belirlenmez.",
-    "source": "https://platinvinc.com/sac-stoklama-rafi/"
-  },
-  {
-    "id": "tekstil-tasima-arabasi",
-    "href": "/tekstil-tasima-arabasi",
-    "title": "Tekstil ve kumaş taşıma arabası",
-    "category": "Atölye taşıma ekipmanları",
-    "description": "Kumaş topu, parça tekstil veya çamaşır taşıma ihtiyacınızı yük ve çalışma ortamıyla birlikte tanımlayın.",
-    "details": [
-      "Kumaş türüne göre",
-      "Hacim ve yük bilgisi",
-      "Geçiş alanına göre"
-    ],
-    "uses": [
-      "Tekstil üretim alanları",
-      "Kumaş hazırlama bölümleri",
-      "Çamaşırhane içi taşıma"
-    ],
-    "checks": [
-      {
-        "title": "Malzeme biçimi",
-        "text": "Kumaş topu, parça tekstil veya çamaşır taşınacağını belirtin. Top kumaş için boy ve çapı ekleyin."
-      },
-      {
-        "title": "Yük ve hacim",
-        "text": "Bir seferde taşınacak toplam yükü, gerekiyorsa hacim ihtiyacını paylaşın."
-      },
-      {
-        "title": "Çalışma koşulları",
-        "text": "Islak veya kuru kullanım, temizlik şekli, kapı geçişi ve zemin bilgisini açıklayın."
-      }
-    ],
-    "fields": [
-      {
-        "id": "textileType",
-        "label": "Taşınacak tekstil türü",
-        "kind": "text",
-        "hint": "Kumaş topu, parça tekstil, çamaşır…"
-      },
-      {
-        "id": "rollSize",
-        "label": "Kumaş topu ölçüsü",
-        "kind": "text",
-        "hint": "Varsa boy × çap, mm"
-      },
-      {
-        "id": "load",
-        "label": "Bir seferde taşınacak yük",
-        "kind": "number",
-        "unit": "kg",
-        "hint": "Toplam ağırlık"
-      },
-      {
-        "id": "volume",
-        "label": "İstenen hacim",
-        "kind": "number",
-        "unit": "litre",
-        "hint": "Biliyorsanız belirtin"
-      },
-      {
-        "id": "environment",
-        "label": "Kullanım ve temizlik koşulları",
-        "kind": "text",
-        "hint": "Islak / kuru, temizlik yöntemi"
-      },
-      {
-        "id": "clearance",
-        "label": "En dar geçiş genişliği",
-        "kind": "number",
-        "unit": "mm",
-        "hint": "Kapı veya koridor genişliği"
-      }
-    ],
-    "note": "Gövde, tekerlek ve temas yüzeyi kullanım koşullarına göre netleştirilir.",
-    "source": "https://www.permak.com.tr/urunler/camasirhane-yardimci-ekipmanlari/permak-utp275-tekstil-tasima-arabasi"
-  },
-  {
-    "id": "forklift-catal-uzatma",
-    "href": "/forklift-catal-uzatma",
-    "title": "Forklift çatal uzatma kılıfı",
-    "category": "Forklift ekipmanları",
-    "description": "Mevcut çatal ölçüsü, forklift bilgisi ve yükünüzle birlikte çatal uzatma ihtiyacınızı değerlendirmeye açın.",
-    "details": [
-      "Mevcut çatala göre",
-      "Özel boy talebi",
-      "Uyumluluk değerlendirmesi"
-    ],
-    "uses": [
-      "Depo içi yük elleçleme talepleri",
-      "Farklı boydaki yükler için ekipman değerlendirmesi",
-      "Mevcut ataşmanın yenilenmesi"
-    ],
-    "checks": [
-      {
-        "title": "Mevcut çatal",
-        "text": "Çatalın enini, kalınlığını ve boyunu ölçün; uç ve sabitleme bölgesinin fotoğrafını paylaşın."
-      },
-      {
-        "title": "Forklift ve yük",
-        "text": "Forklift marka/modelini, kapasite etiketi bilgisini ve taşınacak yükün ölçülerini ekleyin."
-      },
-      {
-        "title": "İstenen uzatma",
-        "text": "Hedef uzunluğu ve kullanım amacını belirtin. Sabitleme biçimi ve makine uyumu birlikte değerlendirilir."
-      }
-    ],
-    "fields": [
-      {
-        "id": "forkWidth",
-        "label": "Mevcut çatal eni",
-        "kind": "number",
-        "unit": "mm",
-        "hint": "Tek çatalın genişliği"
-      },
-      {
-        "id": "forkThickness",
-        "label": "Mevcut çatal kalınlığı",
-        "kind": "number",
-        "unit": "mm",
-        "hint": "Çatal kesitinin kalınlığı"
-      },
-      {
-        "id": "forkLength",
-        "label": "Mevcut çatal boyu",
-        "kind": "number",
-        "unit": "mm",
-        "hint": "Yatay çatal uzunluğu"
-      },
-      {
-        "id": "extensionLength",
-        "label": "Talep edilen uzatma boyu",
-        "kind": "number",
-        "unit": "mm",
-        "hint": "Kılıfın istenen toplam boyu"
-      },
-      {
-        "id": "forklift",
-        "label": "Forklift marka / model",
-        "kind": "text",
-        "hint": "Model ve kapasite etiketi bilgisi"
-      },
-      {
-        "id": "loadInfo",
-        "label": "Yük ölçüsü ve ağırlığı",
-        "kind": "text",
-        "hint": "En × boy × yükseklik (mm), ağırlık (kg)"
-      }
-    ],
-    "note": "Uzatma forkliftin taşıma kapasitesini artırmaz. Kullanım uygunluğu, yük merkezi ve üretici talimatlarıyla birlikte doğrulanmalıdır.",
-    "source": "https://www.tvh.com/tr-tr/yedek-parcalar/yedek-parcalar-icin/forkliftler/forklift-catal-uzaticilar"
-  },
-  {
-    "id": "tup-tasima-kafesi",
-    "href": "/tup-tasima-kafesi",
-    "title": "Gaz tüpü taşıma kafesi",
-    "category": "Taşıma ve muhafaza",
-    "description": "Tüp türü, boyutu, adedi ve kullanım yöntemiyle taşıma veya depolama ihtiyacınızı paylaşın.",
-    "details": [
-      "Tüp ölçüsüne göre",
-      "Yerleşim planı",
-      "Kullanım yöntemine göre"
-    ],
-    "uses": [
-      "Tüp yerleşimi ve muhafaza talepleri",
-      "Atölye içi ekipman planlaması",
-      "Mevcut tüp taşıyıcının yenilenmesi"
-    ],
-    "checks": [
-      {
-        "title": "Tüp bilgileri",
-        "text": "Tüpün içerdiği gazı, dış çapını, yüksekliğini ve dolu ağırlığını belirtin."
-      },
-      {
-        "title": "Yerleşim",
-        "text": "Bir kafeste kaç tüp bulunacağını ve tüplere erişim şeklinizi açıklayın."
-      },
-      {
-        "title": "Kullanım yöntemi",
-        "text": "Yalnızca depolama mı, forkliftle taşıma mı veya başka bir kaldırma yöntemi mi gerektiğini açıkça yazın."
-      }
-    ],
-    "fields": [
-      {
-        "id": "gasType",
-        "label": "Gaz / tüp türü",
-        "kind": "text",
-        "hint": "İçerik ve tüp tipi"
-      },
-      {
-        "id": "cylinderDiameter",
-        "label": "Tüp dış çapı",
-        "kind": "number",
-        "unit": "mm",
-        "hint": "En büyük tüp çapı"
-      },
-      {
-        "id": "cylinderHeight",
-        "label": "Tüp toplam yüksekliği",
-        "kind": "number",
-        "unit": "mm",
-        "hint": "Koruyucu başlık dahil"
-      },
-      {
-        "id": "cylinderCount",
-        "label": "Bir kafesteki tüp sayısı",
-        "kind": "number",
-        "unit": "adet",
-        "hint": "Planlanan tüp adedi"
-      },
-      {
-        "id": "fullWeight",
-        "label": "Tek tüpün dolu ağırlığı",
-        "kind": "number",
-        "unit": "kg",
-        "hint": "Gaz dahil toplam tüp ağırlığı"
-      },
-      {
-        "id": "handling",
-        "label": "Kullanım / taşıma yöntemi",
-        "kind": "text",
-        "hint": "Depolama, forkliftle taşıma, diğer…"
-      }
-    ],
-    "note": "Depolama kafesi otomatik olarak kaldırma ekipmanı sayılmaz. Kaldırma talebi varsa bağlantılar, yük ve uygunluk ayrıca değerlendirilir.",
-    "source": "https://emapro-metal.com/products"
-  }
+{
+  "id": "profil-tasima-arabasi",
+  "href": "/profil-tasima-arabasi",
+  "title": "Profil, boru ve uzun malzeme taşıma arabaları",
+  "category": "Atölye taşıma ekipmanları",
+  "description": "Profil, boru ve uzun malzemeler için atölyenize uygun taşıma arabası. Modüler, bölmeli veya platformlu düzeni fotoğraf, numune ve kullanım bilgilerinize göre birlikte belirleyelim.",
+  "details": [
+    "Profil ve boru boyuna uygun destek düzeni",
+    "Modüler, bölmeli veya platformlu şase talebi",
+    "Yüzey koruma, tutamak ve fren seçeneklerinin değerlendirilmesi"
+  ],
+  "uses": [
+    "Profil işleme atölyeleri",
+    "Kapı ve pencere üretimi",
+    "Boru ve metal işleme",
+    "Ahşap ve uzun malzeme hazırlama",
+    "İstasyonlar arası taşıma"
+  ],
+  "checks": [
+    {
+      "title": "Malzeme ve toplam yük",
+      "text": "En uzun parça boyunu, kesitini, paket genişliğini ve bir seferde taşınacak toplam yükü belirtin. Yük dağılımı ve destek noktaları birlikte değerlendirilir."
+    },
+    {
+      "title": "Şase ve yerleşim",
+      "text": "Modüler, bölmeli veya açık platform tercihini; yükleme yönünü ve hassas yüzeyler için koruma ihtiyacını paylaşın."
+    },
+    {
+      "title": "Geçiş ve tekerlek",
+      "text": "Dar kapı ve koridorlar, dönüş alanı, eşikler ve zemin durumunu belirtin. Tekerlek yerleşimi ve fren ihtiyacını kullanım alanına göre görüşelim."
+    }
+  ],
+  "fields": [
+    {
+      "id": "profileLength",
+      "label": "En uzun profil boyu",
+      "kind": "number",
+      "unit": "mm",
+      "hint": "Profilin toplam boyu"
+    },
+    {
+      "id": "load",
+      "label": "Bir seferde taşınacak toplam yük",
+      "kind": "number",
+      "unit": "kg",
+      "hint": "Profil paketi toplam ağırlığı"
+    },
+    {
+      "id": "divisions",
+      "label": "İstenen bölme sayısı",
+      "kind": "number",
+      "unit": "adet",
+      "hint": "Biliyorsanız belirtin"
+    },
+    {
+      "id": "layout",
+      "label": "Yerleşim tercihi",
+      "kind": "text",
+      "hint": "Yatay, dikey veya birlikte belirleyelim"
+    },
+    {
+      "id": "clearance",
+      "label": "En dar geçiş genişliği",
+      "kind": "number",
+      "unit": "mm",
+      "hint": "Kapı veya koridor genişliği"
+    },
+    {
+      "id": "cartType",
+      "label": "İstediğiniz taşıma düzeni",
+      "kind": "text",
+      "hint": "Modüler, açık platform, iki yandan tutamaklı veya birlikte belirleyelim"
+    },
+    {
+      "id": "sectionSize",
+      "label": "Profil kesiti / Paket genişliği",
+      "kind": "text",
+      "hint": "Biliyorsanız en × yükseklik; malzeme türünü de yazabilirsiniz"
+    },
+    {
+      "id": "surfaceProtection",
+      "label": "Yüzey koruma / Yükleme ihtiyacı",
+      "kind": "text",
+      "hint": "Örn. çizilmeye duyarlı profil, üstten yükleme, çıkarılabilir bölme"
+    },
+    {
+      "id": "floor",
+      "label": "Zemin ve fren ihtiyacı",
+      "kind": "text",
+      "hint": "Örn. düz beton, eşik, döner tekerlek veya fren isteği"
+    }
+  ],
+  "note": "Taşıma kapasitesi yalnızca tekerlek kapasitesinden belirlenmez. Şase, destekler, toplam yük ve yük dağılımı birlikte değerlendirilir. Fiyat ve teslim süresi bu bilgiler netleşince paylaşılır.",
+  "source": "https://www.yilmazmachine.com.tr/urunler/pc-4000-profil-tasima-arabasi/",
+  "status": "active"
+},
+{
+  "id": "abkant-kalip-arabasi",
+  "href": "/abkant-kalip-arabasi",
+  "title": "Abkant kalıp taşıma ve saklama arabaları",
+  "category": "Kalıp ve takım düzeni",
+  "description": "Abkant kalıplarınızın kesitine, boyuna ve ağırlığına göre taşıma ve saklama düzeni için teklif isteyin.",
+  "details": [
+    "Kalıp kesitine göre",
+    "Takım yerleşimi",
+    "Özel ölçü talebi"
+  ],
+  "uses": [
+    "Abkant pres çevresi",
+    "Sac işleme atölyeleri",
+    "Kalıp hazırlama alanları"
+  ],
+  "checks": [
+    {
+      "title": "Kalıp uyumu",
+      "text": "Kalıp markası veya tipiyle birlikte bağlantı kesitini paylaşın. Yalnızca marka adı uyumu doğrulamak için yeterli olmayabilir."
+    },
+    {
+      "title": "Takım dağılımı",
+      "text": "Saklanacak kalıp adedini, en uzun parçayı ve toplam takım ağırlığını belirtin."
+    },
+    {
+      "title": "Kullanım alanı",
+      "text": "Arabanın duracağı alanı, geçiş genişliğini ve kalıpların nasıl alınacağını açıklayın."
+    }
+  ],
+  "fields": [
+    {
+      "id": "toolType",
+      "label": "Kalıp markası / bağlantı tipi",
+      "kind": "text",
+      "hint": "Marka, model veya kesit açıklaması"
+    },
+    {
+      "id": "toolLength",
+      "label": "En uzun kalıp boyu",
+      "kind": "number",
+      "unit": "mm",
+      "hint": "En uzun tek parçanın boyu"
+    },
+    {
+      "id": "toolCount",
+      "label": "Saklanacak kalıp adedi",
+      "kind": "number",
+      "unit": "adet",
+      "hint": "Toplam kalıp sayısı"
+    },
+    {
+      "id": "load",
+      "label": "Toplam kalıp ağırlığı",
+      "kind": "number",
+      "unit": "kg",
+      "hint": "Tüm takımların toplamı"
+    },
+    {
+      "id": "space",
+      "label": "Kullanılabilir alan",
+      "kind": "text",
+      "hint": "En × boy × yükseklik, mm"
+    }
+  ],
+  "note": "Kalıp yerleşimi ve taşıma uygunluğu teknik resim ve yük bilgisiyle netleştirilir.",
+  "source": "https://www.fersametal.com.tr/products/abkant-kalip-tasima-arabasi",
+  "status": "active"
+},
+{
+  "id": "sac-stoklama-rafi",
+  "href": "/sac-stoklama-rafi",
+  "title": "Dikey sac stoklama rafı",
+  "category": "Depolama ve düzen",
+  "description": "Sac ve levhaların ebatlarına, bölme ihtiyacına ve yükleme şekline göre stoklama düzeni için teklif isteyin.",
+  "details": [
+    "Levha ebadına göre",
+    "Bölme planlaması",
+    "Alan değerlendirmesi"
+  ],
+  "uses": [
+    "Sac işleme tesisleri",
+    "Lazer kesim hazırlık alanları",
+    "Levha ve plaka stok alanları"
+  ],
+  "checks": [
+    {
+      "title": "Levha ölçüleri",
+      "text": "En büyük levhanın enini, boyunu ve kullanılan kalınlık aralığını paylaşın."
+    },
+    {
+      "title": "Stok dağılımı",
+      "text": "Kaç bölme istediğinizi ve her bölmede tutulacak yükü ayrı belirtin."
+    },
+    {
+      "title": "Yerleştirme yöntemi",
+      "text": "Levhaların nasıl yüklenip alınacağını ve rafın konulacağı alanı açıklayın."
+    }
+  ],
+  "fields": [
+    {
+      "id": "sheetWidth",
+      "label": "En büyük levha eni",
+      "kind": "number",
+      "unit": "mm",
+      "hint": "Levhanın kısa kenarı"
+    },
+    {
+      "id": "sheetLength",
+      "label": "En büyük levha boyu",
+      "kind": "number",
+      "unit": "mm",
+      "hint": "Levhanın uzun kenarı"
+    },
+    {
+      "id": "thickness",
+      "label": "Sac kalınlığı aralığı",
+      "kind": "text",
+      "hint": "En ince – en kalın, mm"
+    },
+    {
+      "id": "divisions",
+      "label": "İstenen bölme sayısı",
+      "kind": "number",
+      "unit": "adet",
+      "hint": "Stok grubuna göre"
+    },
+    {
+      "id": "sectionLoad",
+      "label": "Bölme başına planlanan yük",
+      "kind": "number",
+      "unit": "kg",
+      "hint": "Tek bölmedeki toplam ağırlık"
+    },
+    {
+      "id": "loading",
+      "label": "Yükleme / boşaltma şekli",
+      "kind": "text",
+      "hint": "Ekipman ve yaklaşma yönü"
+    }
+  ],
+  "note": "Yük dağılımı, denge ve kurulum koşulları değerlendirilmeden kapasite belirlenmez.",
+  "source": "https://platinvinc.com/sac-stoklama-rafi/",
+  "status": "inactive"
+},
+{
+  "id": "tekstil-tasima-arabasi",
+  "href": "/tekstil-tasima-arabasi",
+  "title": "Tekstil ve kumaş taşıma arabaları",
+  "category": "Atölye taşıma ekipmanları",
+  "description": "Kumaş topu, parça tekstil veya çamaşır taşıma ihtiyacınızı yük ve çalışma ortamıyla birlikte tanımlayın.",
+  "details": [
+    "Kumaş türüne göre",
+    "Hacim ve yük bilgisi",
+    "Geçiş alanına göre"
+  ],
+  "uses": [
+    "Tekstil üretim alanları",
+    "Kumaş hazırlama bölümleri",
+    "Çamaşırhane içi taşıma"
+  ],
+  "checks": [
+    {
+      "title": "Malzeme biçimi",
+      "text": "Kumaş topu, parça tekstil veya çamaşır taşınacağını belirtin. Top kumaş için boy ve çapı ekleyin."
+    },
+    {
+      "title": "Yük ve hacim",
+      "text": "Bir seferde taşınacak toplam yükü, gerekiyorsa hacim ihtiyacını paylaşın."
+    },
+    {
+      "title": "Çalışma koşulları",
+      "text": "Islak veya kuru kullanım, temizlik şekli, kapı geçişi ve zemin bilgisini açıklayın."
+    }
+  ],
+  "fields": [
+    {
+      "id": "textileType",
+      "label": "Taşınacak tekstil türü",
+      "kind": "text",
+      "hint": "Kumaş topu, parça tekstil, çamaşır…"
+    },
+    {
+      "id": "rollSize",
+      "label": "Kumaş topu ölçüsü",
+      "kind": "text",
+      "hint": "Varsa boy × çap, mm"
+    },
+    {
+      "id": "load",
+      "label": "Bir seferde taşınacak yük",
+      "kind": "number",
+      "unit": "kg",
+      "hint": "Toplam ağırlık"
+    },
+    {
+      "id": "volume",
+      "label": "İstenen hacim",
+      "kind": "number",
+      "unit": "litre",
+      "hint": "Biliyorsanız belirtin"
+    },
+    {
+      "id": "environment",
+      "label": "Kullanım ve temizlik koşulları",
+      "kind": "text",
+      "hint": "Islak / kuru, temizlik yöntemi"
+    },
+    {
+      "id": "clearance",
+      "label": "En dar geçiş genişliği",
+      "kind": "number",
+      "unit": "mm",
+      "hint": "Kapı veya koridor genişliği"
+    }
+  ],
+  "note": "Gövde, tekerlek ve temas yüzeyi kullanım koşullarına göre netleştirilir.",
+  "source": "https://www.permak.com.tr/urunler/camasirhane-yardimci-ekipmanlari/permak-utp275-tekstil-tasima-arabasi",
+  "status": "active"
+},
+{
+  "id": "forklift-catal-uzatma",
+  "href": "/forklift-catal-uzatma",
+  "title": "Forklift çatal uzatma kılıfı",
+  "category": "Forklift ekipmanları",
+  "description": "Mevcut çatal ölçüsü, forklift bilgisi ve yükünüzle birlikte çatal uzatma ihtiyacınızı değerlendirmeye açın.",
+  "details": [
+    "Mevcut çatala göre",
+    "Özel boy talebi",
+    "Uyumluluk değerlendirmesi"
+  ],
+  "uses": [
+    "Depo içi yük elleçleme talepleri",
+    "Farklı boydaki yükler için ekipman değerlendirmesi",
+    "Mevcut ataşmanın yenilenmesi"
+  ],
+  "checks": [
+    {
+      "title": "Mevcut çatal",
+      "text": "Çatalın enini, kalınlığını ve boyunu ölçün; uç ve sabitleme bölgesinin fotoğrafını paylaşın."
+    },
+    {
+      "title": "Forklift ve yük",
+      "text": "Forklift marka/modelini, kapasite etiketi bilgisini ve taşınacak yükün ölçülerini ekleyin."
+    },
+    {
+      "title": "İstenen uzatma",
+      "text": "Hedef uzunluğu ve kullanım amacını belirtin. Sabitleme biçimi ve makine uyumu birlikte değerlendirilir."
+    }
+  ],
+  "fields": [
+    {
+      "id": "forkWidth",
+      "label": "Mevcut çatal eni",
+      "kind": "number",
+      "unit": "mm",
+      "hint": "Tek çatalın genişliği"
+    },
+    {
+      "id": "forkThickness",
+      "label": "Mevcut çatal kalınlığı",
+      "kind": "number",
+      "unit": "mm",
+      "hint": "Çatal kesitinin kalınlığı"
+    },
+    {
+      "id": "forkLength",
+      "label": "Mevcut çatal boyu",
+      "kind": "number",
+      "unit": "mm",
+      "hint": "Yatay çatal uzunluğu"
+    },
+    {
+      "id": "extensionLength",
+      "label": "Talep edilen uzatma boyu",
+      "kind": "number",
+      "unit": "mm",
+      "hint": "Kılıfın istenen toplam boyu"
+    },
+    {
+      "id": "forklift",
+      "label": "Forklift marka / model",
+      "kind": "text",
+      "hint": "Model ve kapasite etiketi bilgisi"
+    },
+    {
+      "id": "loadInfo",
+      "label": "Yük ölçüsü ve ağırlığı",
+      "kind": "text",
+      "hint": "En × boy × yükseklik (mm), ağırlık (kg)"
+    }
+  ],
+  "note": "Uzatma forkliftin taşıma kapasitesini artırmaz. Kullanım uygunluğu, yük merkezi ve üretici talimatlarıyla birlikte doğrulanmalıdır.",
+  "source": "https://www.tvh.com/tr-tr/yedek-parcalar/yedek-parcalar-icin/forkliftler/forklift-catal-uzaticilar",
+  "status": "inactive"
+},
+{
+  "id": "tup-tasima-kafesi",
+  "href": "/tup-tasima-kafesi",
+  "title": "Tüp taşıma arabaları ve sabit depolama kafesleri",
+  "category": "Taşıma ve muhafaza",
+  "description": "Tüp türü, boyutu, adedi ve kullanım yöntemiyle taşıma veya depolama ihtiyacınızı paylaşın.",
+  "details": [
+    "Tüp ölçüsüne göre",
+    "Yerleşim planı",
+    "Kullanım yöntemine göre"
+  ],
+  "uses": [
+    "Tüp yerleşimi ve muhafaza talepleri",
+    "Atölye içi ekipman planlaması",
+    "Mevcut tüp taşıyıcının yenilenmesi"
+  ],
+  "checks": [
+    {
+      "title": "Tüp bilgileri",
+      "text": "Tüpün içerdiği gazı, dış çapını, yüksekliğini ve dolu ağırlığını belirtin."
+    },
+    {
+      "title": "Yerleşim",
+      "text": "Bir kafeste kaç tüp bulunacağını ve tüplere erişim şeklinizi açıklayın."
+    },
+    {
+      "title": "Kullanım yöntemi",
+      "text": "Yalnızca depolama mı, forkliftle taşıma mı veya başka bir kaldırma yöntemi mi gerektiğini açıkça yazın."
+    }
+  ],
+  "fields": [
+    {
+      "id": "gasType",
+      "label": "Gaz / tüp türü",
+      "kind": "text",
+      "hint": "İçerik ve tüp tipi"
+    },
+    {
+      "id": "cylinderDiameter",
+      "label": "Tüp dış çapı",
+      "kind": "number",
+      "unit": "mm",
+      "hint": "En büyük tüp çapı"
+    },
+    {
+      "id": "cylinderHeight",
+      "label": "Tüp toplam yüksekliği",
+      "kind": "number",
+      "unit": "mm",
+      "hint": "Koruyucu başlık dahil"
+    },
+    {
+      "id": "cylinderCount",
+      "label": "Bir kafesteki tüp sayısı",
+      "kind": "number",
+      "unit": "adet",
+      "hint": "Planlanan tüp adedi"
+    },
+    {
+      "id": "fullWeight",
+      "label": "Tek tüpün dolu ağırlığı",
+      "kind": "number",
+      "unit": "kg",
+      "hint": "Gaz dahil toplam tüp ağırlığı"
+    },
+    {
+      "id": "handling",
+      "label": "Kullanım / taşıma yöntemi",
+      "kind": "text",
+      "hint": "Depolama, forkliftle taşıma, diğer…"
+    }
+  ],
+  "note": "Depolama kafesi otomatik olarak kaldırma ekipmanı sayılmaz. Kaldırma talebi varsa bağlantılar, yük ve uygunluk ayrıca değerlendirilir.",
+  "source": "https://emapro-metal.com/products",
+  "status": "active"
+}
 ];

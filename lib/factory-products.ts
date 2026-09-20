@@ -58,7 +58,8 @@ export const factoryProducts:InquiryProduct[] = [
       }
     ],
     "note": "Görseller örnek ürün düzenlerini gösterir. Ölçü, malzeme, yük kapasitesi ve kullanım uygunluğu talebinize göre netleştirilir.",
-    "source": "https://jp.misumi-ec.com/vona2/detail/223006605127/"
+    "source": "https://jp.misumi-ec.com/vona2/detail/223006605127/",
+    "status": "inactive"
   },
   {
     "id": "konteyner-tasima-arabasi",
@@ -118,7 +119,8 @@ export const factoryProducts:InquiryProduct[] = [
       }
     ],
     "note": "Görseller örnek ürün düzenlerini gösterir. Ölçü, malzeme, yük kapasitesi ve kullanım uygunluğu talebinize göre netleştirilir.",
-    "source": "https://jp.misumi-ec.com/vona2/fs_logistics/T2046000000/T2046010000/T2046010300/?Page=1"
+    "source": "https://jp.misumi-ec.com/vona2/fs_logistics/T2046000000/T2046010000/T2046010300/?Page=1",
+    "status": "inactive"
   },
   {
     "id": "fileli-palet-kasasi",
@@ -178,6 +180,7 @@ export const factoryProducts:InquiryProduct[] = [
       }
     ],
     "note": "Görseller örnek ürün düzenlerini gösterir. Ölçü, malzeme, yük kapasitesi ve kullanım uygunluğu talebinize göre netleştirilir.",
-    "source": "https://jp.misumi-ec.com/vona2/fs_logistics/T2215000000/T2215170000/?CategorySpec=SP100147743%3A%3Ab"
+    "source": "https://jp.misumi-ec.com/vona2/fs_logistics/T2215000000/T2215170000/?CategorySpec=SP100147743%3A%3Ab",
+    "status": "inactive"
   }
 ];

@@ -1,17 +1,24 @@
 import { ArrowUpRight, PackageCheck } from 'lucide-react';
+import { factoryOptionImages } from '@/lib/factory-option-images';
 
 const options = [
-  ['Modüler ve bölmeli şase','PROFİLLERİ AYRI TUTUN','1','Farklı profil ve kesitleri ayrı gözlerde düzenlemek için. Bölme aralıkları ve destek yüksekliği malzemenizin boyuna göre değerlendirilir.','Bölme düzeni · Bağlantılı şase · Destek aralığı'],
-  ['Açık platform','SERBEST YÜKLEME ALANI','2','Uzun paketleri geniş bir taban üzerinde taşımak için. Çıkarılabilir dikme veya bölme ihtiyacı varsa yükleme biçimine göre birlikte planlanır.','Platform ölçüsü · Çıkarılabilir dikme talebi'],
-  ['İki yandan tutamaklı','UZUN MALZEME AKTARIMI','3','İki yanda tutamak bulunan açık uçlu düzen. Malzemenin çıkıntısı, koridordaki dönüş alanı ve tutamak yüksekliği birlikte ele alınır.','Yan tutamaklar · Açık uçlar · Manevra alanı'],
-  ['Boru ve uzun malzeme arabası','BORU, ÇITA VE PAKETLER','4','Yan destekli platform üzerinde boru, çıta ve uzun paket taşıma ihtiyacı için. Yuvarlak malzemenin yuvarlanmasını önleyecek destek ve sabitleme düzeni ayrıca belirlenir.','Yan destekler · Sabitleme · Tekerlek yerleşimi'],
-  ['Çelik platformlu araba','ATÖLYE İÇİ TAŞIMA','5','Profil paketleri ve uzun malzemelerin istasyonlar arasında taşınması için. Şase, platform ve tekerlekler toplam yük ve zemin koşullarına göre değerlendirilir.','Çelik gövde · Platform · Yüke uygun tekerlek'],
+  ['Modüler ve bölmeli şase','PROFİLLERİ AYRI TUTUN','Farklı profil ve kesitleri ayrı gözlerde düzenlemek için. Bölme aralıkları ve destek yüksekliği malzemenizin boyuna göre değerlendirilir.','Bölme düzeni · Bağlantılı şase · Destek aralığı'],
+  ['Açık platform','SERBEST YÜKLEME ALANI','Uzun paketleri geniş bir taban üzerinde taşımak için. Çıkarılabilir dikme veya bölme ihtiyacı varsa yükleme biçimine göre birlikte planlanır.','Platform ölçüsü · Çıkarılabilir dikme talebi'],
+  ['İki yandan tutamaklı','UZUN MALZEME AKTARIMI','İki yanda tutamak bulunan açık uçlu düzen. Malzemenin çıkıntısı, koridordaki dönüş alanı ve tutamak yüksekliği birlikte ele alınır.','Yan tutamaklar · Açık uçlar · Manevra alanı'],
+  ['Boru ve uzun malzeme arabası','BORU, ÇITA VE PAKETLER','Yan destekli platform üzerinde boru, çıta ve uzun paket taşıma ihtiyacı için. Yuvarlak malzemenin yuvarlanmasını önleyecek destek ve sabitleme düzeni ayrıca belirlenir.','Yan destekler · Sabitleme · Tekerlek yerleşimi'],
+  ['Çelik platformlu araba','ATÖLYE İÇİ TAŞIMA','Profil paketleri ve uzun malzemelerin istasyonlar arasında taşınması için. Şase, platform ve tekerlekler toplam yük ve zemin koşullarına göre değerlendirilir.','Çelik gövde · Platform · Yüke uygun tekerlek'],
 ];
 
 export default function ProfileCartOptions(){return <>
   <section className="section wrap profile-cart-options" id="modeller"><div className="section-head"><p className="overline">TAŞIMA DÜZENLERİ</p><h2>Profilinize ve atölyenize<br/>uygun taşıma düzeni.</h2><p>Malzeme boyu kadar yükleme şekli ve geçiş alanı da önemlidir. İhtiyacınıza yakın yapıyı seçin; ayrıntıları birlikte belirleyelim.</p></div>
-    <div className="profile-cart-grid">{options.map(([title,tag,image,description,details])=><article className="profile-cart-card" key={title}><div className="profile-cart-image"><img src={'/images/profile-carts/cart-'+image+'.png'} width={1000} height={1000} alt={title+' — temsili taşıma düzeni'} loading="lazy"/></div><div className="profile-cart-copy"><p className="overline">{tag}</p><h3>{title}</h3><p>{description}</p><p className="profile-cart-detail">{details}</p><a className="text-link" href="#teklif">Bu düzen için teklif iste <ArrowUpRight size={17}/></a></div></article>)}</div>
-    <p className="small-note">Görseller taşıma düzenlerini anlatır. Nihai ölçü, malzeme, bölme ve taşıma kapasitesi talebinize göre netleştirilir.</p>
+    <div className="profile-cart-grid">{options.map(([title,tag,description,details])=>{
+      const image = factoryOptionImages[title];
+      return <article className="profile-cart-card" key={title}>
+        {image && <figure className="profile-cart-image factory-option-photo"><img src={image.src} alt={image.alt} width={600} height={450} loading="lazy"/><figcaption>MISUMI kataloğundan örnek ürün düzeni</figcaption></figure>}
+        <div className="profile-cart-copy"><p className="overline">{tag}</p><h3>{title}</h3><p>{description}</p><p className="profile-cart-detail">{details}</p><a className="text-link" href="#teklif">Bu düzen için teklif iste <ArrowUpRight size={17}/></a></div>
+      </article>;
+    })}</div>
+    <p className="small-note">Bu düzenler özel üretim talebinizi tarif etmenize yardımcı olur. Birlikte uygulanabilecek seçenekler, kapasite ve üretim uygunluğu teknik değerlendirmeyle netleşir.</p>
   </section>
   <section className="wrap profile-cart-guide" id="secim"><div className="section-head"><p className="overline">ÖLÇÜ VE SEÇİM REHBERİ</p><h2>Malzemenin boyundan,<br/>atölyedeki dönüşe kadar.</h2><p>Hepsini ölçmeniz gerekmez. Malzemenin ve kullanılacak alanın fotoğraflarıyla başlayabiliriz.</p></div><div className="profile-cart-factors">{[
     ['01','Malzeme ve destek','En uzun parçanın boyu, kesiti ve paketin genişliği destek noktalarını belirler. Uzun malzemenin şase dışına taşan kısmı da değerlendirilir.'],

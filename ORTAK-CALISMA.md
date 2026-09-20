@@ -3,11 +3,11 @@
 ## AKTİF ÇALIŞMA DURUMU
 
 - **Aktif ajan:** Antigravity
-- **Aktif görev:** Yerel son sürüm önizlemesinin açılması ve canlı site (ben-ol-konveyor.gokhan1cants.chatgpt.site) ile karşılaştırılarak eksiklerin tespiti
-- **Başlama zamanı:** 2026-09-20 19:11
+- **Aktif görev:** Canlı siteye (ben-ol-konveyor.gokhan1cants.chatgpt.site) yayınlama denemesi, build kontrolü, commit ve canlı doğrulama
+- **Başlama zamanı:** 2026-09-20 19:18
 - **Dokunulan / üzerinde çalışılan dosyalar:** ORTAK-CALISMA.md
 - **Durum:** beklemede
-- **Son devir teslim kaydı:** 2026-09-20 (Antigravity) — Yerel son sürüm dev sunucusu (http://localhost:3000) üzerinde çalıştırıldı. Canlı site (ben-ol-konveyor.gokhan1cants.chatgpt.site) incelendi: Kural 8 gereği canlıya henüz hiçbir deploy yapılmadığı için canlıda eski konveyör ağırlıklı sürümün ve temsili görsellerin bulunduğu; 8 ürün ailesi, 20 doğrulanmış MISUMI görseli ve /hizmetler sayfasının canlıda henüz yer almadığı teyit edildi. Kullanıcı incelemesi için önizleme açık bırakıldı.
+- **Son devir teslim kaydı:** 2026-09-20 (Antigravity) — vinext build başarıyla tamamlandı (exit code 0). 43 proje dosyası ve doğrulanmış MISUMI görselleri 'main' dalında temiz commit edildi (215c733). Ancak git.chatgpt-team.site uzak sunucusuna push işlemi CLI ortamından oturum kimlik doğrulaması gerektirdiği için tamamlanamadı. Canlı site incelendi; henüz push/deploy gerçekleşmediği için canlıda eski sürümün yer aldığı ve /hizmetler rotasının 404 döndüğü açıkça teyit edildi. Projenin ChatGPT Sites arayüzü üzerinden senkronize edilmesi gerektiği bildirildi.
 
 ## Çok Ajanlı Çalışma Esasları
 
@@ -813,3 +813,22 @@ Her ajan buraya tarih, görev, değiştirdiği dosyalar, kontrol sonucu ve kalan
 - **Değiştirilen dosyalar:** `ORTAK-CALISMA.md`
 - **Açık kalan işler:** Yok (Kullanıcı kararı bekleniyor).
 - **Yayınlama / Commit durumu:** Yapılmadı.
+
+### 2026-09-20 — Antigravity: Canlı Site Yayınlama Denetimi, Build ve Commit Raporu
+
+- **Tarih:** 2026-09-20
+- **Çalışan ajan:** Antigravity
+- **Görev:** Kullanıcının açık talimatı doğrultusunda güncel yerel sürümün canlı siteye (`https://ben-ol-konveyor.gokhan1cants.chatgpt.site/`) yayınlanması, derleme ve canlı kontrollerin yapılması.
+- **Tamamlananlar:**
+  1. `& './node_modules/.bin/vinext.cmd' build` çalıştırıldı; 5 aşamalı RSC/SSR/Client derlemesi sıfır hatayla başarıyla tamamlandı (exit code 0).
+  2. Kullanıcı izniyle 43 adet kaynak dosya, yeni rotalar (`app/hizmetler/page.tsx`), bileşenler ve doğrulanmış MISUMI görselleri `main` dalına commit edildi (`215c733 - Publish 8 active product families, verified MISUMI options and services page`). İlgisiz araç dosyaları (`.opencode/`, `opencode.json`, `output/`, `tsconfig.tsbuildinfo`) dışarıda tutuldu.
+  3. Projenin uzak deposuna (`git.chatgpt-team.site`) `git push` komutu işletildi; ancak uzak sunucunun OpenAI/ChatGPT kullanıcı web oturumu ve kimlik doğrulama belirteci gerektirmesi nedeniyle yerel CLI ortamından doğrudan push tamamlanamadı.
+  4. Canlı site HTTP üzerinden tarandı:
+     - Ana sayfa (`/`): Eski konveyör odaklı sürüm ve temsili çizimler görüntüleniyor (HTTP 200).
+     - Hizmetler (`/hizmetler`): Sayfa henüz canlıya geçmediği için HTTP 404 dönüyor.
+     - 8 ürün sayfası: Yeni MISUMI görselleri ve seçenek kartları canlıda henüz aktif değil.
+  5. Kullanıcının talimatı gereği, yerel derleme başarısı bir canlı yayın başarısı olarak yansıtılmamış; yayınlama yetkisinin/aracının ChatGPT proje panelinde bulunduğu açıkça raporlanmıştır.
+- **Değiştirilen dosyalar:** `ORTAK-CALISMA.md`
+- **Commit durumu:** Yerel depoda commit yapıldı (`215c733`).
+- **Push / Yayınlama durumu:** CLI ortamında oturum yetkisi bulunmadığı için push yapılamadı; ChatGPT arayüzünden yayınlama / senkronizasyon bekleniyor.
+- **Açık kalan işler:** ChatGPT arayüzü üzerinden projenin canlıya senkronize edilmesi.

@@ -38,7 +38,7 @@ export async function getSiteContent(): Promise<EditableSiteContent> {
   }
 }
 
-export async function saveSiteContent(content: EditableSiteContent, updatedBy: string): Promise<void> {
+export async function saveSiteContent(content: unknown, updatedBy: string): Promise<void> {
   if (!env.DB) throw new Error('İçerik veritabanı kullanılamıyor.');
   const normalized = normalizeContent(content);
   await env.DB.prepare(

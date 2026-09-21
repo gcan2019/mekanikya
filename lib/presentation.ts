@@ -1,5 +1,5 @@
 import { products } from './catalog';
-import { additionalProducts } from './additional-products';
+import { additionalProducts, type InquiryProduct } from './additional-products';
 
 export const categories = [
   {
@@ -52,7 +52,7 @@ export const priorityOrder = [
 const allItems = [...products, ...additionalProducts];
 
 export const catalogItems = allItems
-  .filter((product) => product.status !== 'inactive' && priorityOrder.includes(product.id))
+  .filter((product): product is InquiryProduct => 'uses' in product && product.status !== 'inactive' && priorityOrder.includes(product.id))
   .map((product) => ({
     ...product,
     group: groups[product.id] || 'fabrika-tasima',

@@ -6,7 +6,7 @@
 - **Aktif görev:** Şifreli çevrim içi yönetim paneli, kalıcı içerik kaydı ve güvenli yönetici yetkilendirmesi
 - **Başlama zamanı:** 2026-09-21
 - **Dokunulan / üzerinde çalışılan dosyalar:** Yeni yönetim/auth/veri dosyaları; mevcut app/page.tsx, app/hizmetler/page.tsx ve app/kurumsal/page.tsx değişikliklerine dokunulmayacak
-- **Durum:** çalışıyor
+- **Durum:** beklemede
 - **Son devir teslim kaydı:** 2026-09-21 (Antigravity) — Adres ve bölgesel ifadeler 100. Yıl Sanayi Sitesi (fiziksel atölye) ve Merzifon OSB (hizmet alanı) olarak netleştirildi. /kurumsal sayfasındaki eski konveyör odaklı şirket tanımı; özel üretim fabrika taşıma ekipmanları, makine revizyonu/restorasyonu, numuneden parça imalatı ve tersine mühendislik olarak güncellendi. vinext build hatasız tamamlandı (exit code 0), ilgili sayfalar HTTP 200 ile doğrulandı. Port 3000 kapatıldı.
 
 ## Çok Ajanlı Çalışma Esasları
@@ -72,6 +72,20 @@ Son çalışma sırasında derleme başarılı ve metal kasa sayfası HTTP 200 d
 ## Görev teslim kaydı
 
 Her ajan buraya tarih, görev, değiştirdiği dosyalar, kontrol sonucu ve kalan eksikleri eklemeli. İş bitince aktif geliştirici alanını boşaltmalı.
+
+### 2026-09-21 — ChatGPT: Şifreli Çevrim İçi Yönetim Paneli
+
+- **Tarih:** 2026-09-21
+- **Çalışan ajan:** ChatGPT
+- **Görev:** Site sahibinin ürünleri ve temel firma bilgilerini çevrim içi bir arayüzden yönetebilmesi
+- **Tamamlananlar:** `/yonetim` adresinde ChatGPT hesabıyla giriş yapılan, yalnızca `gokhan1cants@gmail.com` sahibine yazma yetkisi veren yönetim paneli eklendi. Ürün ekleme, kaldırma, yayında/gizli durumu, başlık, kategori, açıklama, özellikler, kullanım alanları ve teknik not düzenleme ile firma adı, telefon, WhatsApp ve adres düzenleme alanları hazırlandı. Değişiklikler D1 veritabanında kalıcı saklanıyor ve ana sayfa, ürün listesi, ürün detayları, iletişim alanları, üst menü ve alt menüde kullanılıyor.
+- **Değiştirilen dosyalar:** Site yerleşimi, ürün/liste/iletişim sayfaları, üst ve alt menü, ürün kartları, paket dosyaları, `.openai/hosting.json`, `ORTAK-CALISMA.md`
+- **Oluşturulan yeni dosyalar:** `app/yonetim/*`, `app/api/yonetim/content/route.ts`, `app/chatgpt-auth.ts`, `lib/site-content.ts`, `db/schema.ts`, `drizzle/*`, `drizzle.config.ts`, `cloudflare-env.d.ts`
+- **Doğrulama / build sonucu:** Vinext build hatasız tamamlandı. Yerel yönetim sayfası ve kayıt API'si HTTP 200, yetkisiz API isteği HTTP 401 ile doğrulandı. Değişmeden kaydetme testi D1 üzerinde başarıyla tamamlandı. Canlı `/yonetim` rotasının OpenAI giriş sayfasına yönlendirdiği doğrulandı.
+- **Açık kalan işler:** Yönetim panelinde doğrudan görsel yükleme henüz yok; ürün fotoğrafları mevcut doğrulanmış katalog eşlemelerinden geliyor.
+- **Yayınlama durumu:** Yayınlandı — sürüm 19, `https://ben-ol-konveyor.gokhan1cants.chatgpt.site`
+- **Commit / push durumu:** Uygulama commit edildi ve Sites kaynak deposuna push yapıldı.
+- **Diğer ajana notlar:** Yönetim verileri D1 kaynağından okunur; `site_content` şeması ve ilk migration geri alınmamalı veya uygulanmış migration değiştirilmemelidir. Yönetici e-posta ayarı Sites ortam değişkenlerinde tutulur.
 
 ### 2026-09-19 — İlk Antigravity destekli görev
 

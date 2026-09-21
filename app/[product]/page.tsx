@@ -66,8 +66,8 @@ export default async function ProductPage({ params }: Props) {
         <span>{product.title}</span>
       </div>
 
-      <section className={'wrap manufacturer-product' + (hasVerifiedProductImage(product.id) ? '' : ' manufacturer-product-no-image')}>
-        <ProductImage id={product.id} title={product.title} priority />
+      <section className={'wrap manufacturer-product' + ((!product.imageHidden && Boolean(product.image || hasVerifiedProductImage(product.id))) ? '' : ' manufacturer-product-no-image')}>
+        <ProductImage id={product.id} title={product.title} image={product.image} imageHidden={product.imageHidden} priority />
         <div className="manufacturer-product-copy">
           <p className="overline">{product.category.toLocaleUpperCase('tr-TR')}</p>
           <h1>{product.title}</h1>

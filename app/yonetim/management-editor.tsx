@@ -1,12 +1,16 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Check, Eye, LogOut, PackagePlus, Save, Search, Settings, Trash2 } from 'lucide-react';
 import type { EditableProduct, EditableSiteContent } from '@/lib/site-content';
+
+import ProductImage from '@/components/product-image';
 
 type Props = { initialContent: EditableSiteContent; userName: string };
 
 export default function ManagementEditor({ initialContent, userName }: Props) {
+  const [dirty, setDirty] = useState(false);
+  useEffect(() => { const guard = (event: BeforeUnloadEvent) => { if(dirty){event.preventDefault();event.returnValue='';} }; window.addEventListener('beforeunload',guard);return () => window.removeEventListener('beforeunload',guard); },[dirty]);
   const [content, setContent] = useState(initialContent);
   const [section, setSection] = useState<'products' | 'business'>('products');
   const [selectedId, setSelectedId] = useState(initialContent.products[0]?.id ?? '');
@@ -25,7 +29,7 @@ export default function ManagementEditor({ initialContent, userName }: Props) {
       ...current,
       products: current.products.map((product) => product.id === selectedId ? { ...product, ...patch } : product),
     }));
-    setSaveState('idle');
+    setSaveState('idle'); setDirty(true);
   }
 
   function addProduct() {
@@ -49,7 +53,7 @@ export default function ManagementEditor({ initialContent, userName }: Props) {
     setContent((current) => ({ ...current, products: [...current.products, next] }));
     setSelectedId(id);
     setSection('products');
-    setSaveState('idle');
+    setSaveState('idle'); setDirty(true);
   }
 
   function removeSelected() {
@@ -57,7 +61,7 @@ export default function ManagementEditor({ initialContent, userName }: Props) {
     const remaining = content.products.filter((product) => product.id !== selected.id);
     setContent((current) => ({ ...current, products: remaining }));
     setSelectedId(remaining[0]?.id ?? '');
-    setSaveState('idle');
+    setSaveState('idle'); setDirty(true);
   }
 
   async function save() {
@@ -69,7 +73,7 @@ export default function ManagementEditor({ initialContent, userName }: Props) {
         body: JSON.stringify(content),
       });
       if (!response.ok) throw new Error('save_failed');
-      setSaveState('saved');
+      setSaveState('saved'); setDirty(false);
     } catch {
       setSaveState('error');
     }
@@ -115,9 +119,9 @@ export default function ManagementEditor({ initialContent, userName }: Props) {
 
         <section className="management-editor">
           {section === 'business' ? (
-            <BusinessForm content={content} onChange={(business) => { setContent((current) => ({ ...current, business })); setSaveState('idle'); }} />
+            <BusinessForm content={content} onChange={(business) => { setContent((current) => ({ ...current, business })); setSaveState('idle'); setDirty(true); }} />
           ) : selected ? (
-            <ProductForm product={selected} onChange={updateProduct} onDelete={removeSelected} />
+            <ProductForm key={selected.id} product={selected} onChange={updateProduct} onDelete={removeSelected} />
           ) : (
             <div className="management-empty"><PackagePlus size={30} /><h1>Henüz ürün yok</h1><button onClick={addProduct}>İlk ürünü ekle</button></div>
           )}
@@ -134,9 +138,20 @@ function BusinessForm({ content, onChange }: { content: EditableSiteContent; onC
 }
 
 function ProductForm({ product, onChange, onDelete }: { product: EditableProduct; onChange: (patch: Partial<EditableProduct>) => void; onDelete: () => void }) {
-  return <div className="management-form"><div className="management-form-head"><div><p className="overline">ÜRÜN DÜZENLE</p><h1>{product.title}</h1><p>Başlık, açıklama ve görünürlüğü değiştirebilirsiniz.</p></div><label className="management-visibility"><input type="checkbox" checked={product.status !== 'inactive'} onChange={(e) => onChange({ status: e.target.checked ? 'active' : 'inactive' })} /><span>{product.status === 'inactive' ? 'Sitede gizli' : 'Sitede yayında'}</span></label></div><div className="management-fields"><Field label="Ürün başlığı" wide><input value={product.title} onChange={(e) => onChange({ title: e.target.value })} /></Field><Field label="Kategori"><input value={product.category} onChange={(e) => onChange({ category: e.target.value })} /></Field><Field label="Sayfa adresi" hint="Yeni ürün eklenirken otomatik oluşturulur"><input value={product.id} readOnly /></Field><Field label="Kısa açıklama" wide><textarea rows={5} value={product.description} onChange={(e) => onChange({ description: e.target.value })} /></Field><Field label="Öne çıkan özellikler" wide hint="Her satıra bir özellik yazın"><textarea rows={5} value={product.details.join('\n')} onChange={(e) => onChange({ details: e.target.value.split('\n') })} /></Field><Field label="Kullanım alanları" wide hint="Her satıra bir kullanım alanı yazın"><textarea rows={5} value={product.uses.join('\n')} onChange={(e) => onChange({ uses: e.target.value.split('\n') })} /></Field><Field label="Teknik not" wide><textarea rows={4} value={product.note} onChange={(e) => onChange({ note: e.target.value })} /></Field></div><div className="management-danger"><button onClick={onDelete}><Trash2 size={17} /> Bu ürünü kaldır</button></div></div>;
+  return <div className="management-form"><div className="management-form-head"><div><p className="overline">ÜRÜN DÜZENLE</p><h1>{product.title}</h1><p>Başlık, açıklama ve görünürlüğü değiştirebilirsiniz.</p></div><label className="management-visibility"><input type="checkbox" checked={product.status !== 'inactive'} onChange={(e) => onChange({ status: e.target.checked ? 'active' : 'inactive' })} /><span>{product.status === 'inactive' ? 'Sitede gizli' : 'Sitede yayında'}</span></label></div><ImageEditor product={product} onChange={onChange}/><div className="management-fields"><Field label="Ürün başlığı" wide><input value={product.title} onChange={(e) => onChange({ title: e.target.value })} /></Field><Field label="Kategori"><input value={product.category} onChange={(e) => onChange({ category: e.target.value })} /></Field><Field label="Sayfa adresi" hint="Yeni ürün eklenirken otomatik oluşturulur"><input value={product.id} readOnly /></Field><Field label="Kısa açıklama" wide><textarea rows={5} value={product.description} onChange={(e) => onChange({ description: e.target.value })} /></Field><Field label="Öne çıkan özellikler" wide hint="Her satıra bir özellik yazın"><textarea rows={5} value={product.details.join('\n')} onChange={(e) => onChange({ details: e.target.value.split('\n') })} /></Field><Field label="Kullanım alanları" wide hint="Her satıra bir kullanım alanı yazın"><textarea rows={5} value={product.uses.join('\n')} onChange={(e) => onChange({ uses: e.target.value.split('\n') })} /></Field><Field label="Teknik not" wide><textarea rows={4} value={product.note} onChange={(e) => onChange({ note: e.target.value })} /></Field></div><div className="management-danger"><button onClick={onDelete}><Trash2 size={17} /> Bu ürünü kaldır</button></div></div>;
 }
 
 function Field({ label, hint, wide, children }: { label: string; hint?: string; wide?: boolean; children: React.ReactNode }) {
   return <label className={wide ? 'management-field wide' : 'management-field'}><span>{label}</span>{children}{hint && <small>{hint}</small>}</label>;
+}
+
+function ImageEditor({product,onChange}:{product:EditableProduct;onChange:(patch:Partial<EditableProduct>)=>void}){
+ const [busy,setBusy]=useState(false);const [error,setError]=useState('');
+ async function upload(file:File){
+  if(file.size>5*1024*1024){setError('En fazla 5 MB büyüklüğünde bir görsel seçin.');return;}
+  setBusy(true);setError('');
+  try{const form=new FormData();form.append('file',file);const response=await fetch('/api/yonetim/upload',{method:'POST',body:form});const data=await response.json();if(!response.ok)throw new Error(data.error);onChange({image:{src:data.src,alt:product.title},imageHidden:false});}
+  catch(e){setError(e instanceof Error?e.message:'Yükleme başarısız.');}finally{setBusy(false);}
+ }
+ return <section className="management-image"><div><h2>Ürün görseli</h2><p>JPG, PNG veya WebP · En fazla 5 MB</p><label className="management-upload">{busy?'Yükleniyor…':'Bilgisayardan görsel seç'}<input type="file" accept="image/jpeg,image/png,image/webp" disabled={busy} onChange={e=>{const file=e.target.files?.[0];if(file)void upload(file);e.target.value='';}}/></label><button type="button" disabled={busy} onClick={()=>onChange({image:undefined,imageHidden:true})}>Görseli kaldır</button>{(product.image || product.imageHidden)&&<button type="button" disabled={busy} onClick={()=>onChange({image:undefined,imageHidden:false})}>Başlangıç görseline dön</button>}<p>Değişikliği siteye uygulamak için kaydedin.</p>{error&&<p role="alert" className="management-error">{error}</p>}</div><div className="management-image-preview">{product.imageHidden?<p>Görsel gösterilmeyecek</p>:<ProductImage id={product.id} title={product.title} image={product.image}/>}</div></section>;
 }

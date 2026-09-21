@@ -5,7 +5,7 @@ import type { InquiryProduct } from './additional-products';
 import type { ChatGPTUser } from '@/app/chatgpt-auth';
 
 export type EditableBusiness = typeof defaultBusiness;
-export type EditableProduct = InquiryProduct & { group: string };
+export type EditableProduct = InquiryProduct & { group: string; image?: { src: string; alt: string }; imageHidden?: boolean };
 export type EditableSiteContent = {
   business: EditableBusiness;
   products: EditableProduct[];
@@ -91,7 +91,7 @@ function normalizeContent(value: unknown): EditableSiteContent {
     ? candidate.products.slice(0, 60).map((product, index) => normalizeProduct(product, index)).filter(Boolean) as EditableProduct[]
     : fallback.products;
 
-  return { business, products: products.length ? products : fallback.products };
+  return { business, products };
 }
 
 function normalizeProduct(value: unknown, index: number): EditableProduct | null {
@@ -117,6 +117,8 @@ function normalizeProduct(value: unknown, index: number): EditableProduct | null
   };
   return {
     ...base,
+    image: input.image && /^\/api\/media\/[a-f0-9-]+\.(jpg|png|webp)$/.test(input.image.src) ? { src: input.image.src, alt: cleanText(input.image.alt, input.title || base.title, 200) } : undefined,
+    imageHidden: input.imageHidden === true,
     id,
     href: `/${id}`,
     title: cleanText(input.title, base.title, 140),

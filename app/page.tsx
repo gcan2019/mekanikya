@@ -105,7 +105,7 @@ export default async function Home() {
             </div>
           </div>
           <div className="company-hero-product">
-            <ProductImage id="metal-tasima-kasasi" title="Metal taşıma, istif kasaları ve malzeme sepetleri" priority />
+            <ProductImage image={catalogItems.find(p => p.id === "metal-tasima-kasasi")?.image} imageHidden={catalogItems.find(p => p.id === "metal-tasima-kasasi")?.imageHidden} id="metal-tasima-kasasi" title="Metal taşıma, istif kasaları ve malzeme sepetleri" priority />
             <a href="/metal-tasima-kasasi">
               <span>
                 <small>ÖZEL ÖLÇÜ FABRİKA İÇİ TAŞIMA</small>Metal taşıma ve istif kasaları

@@ -875,3 +875,10 @@ Her ajan buraya tarih, görev, değiştirdiği dosyalar, kontrol sonucu ve kalan
 - **Diğer ajana notlar:**
   - Adres ve faaliyet alanı tutarlılığı tam olarak sağlanmıştır.
   - Windows ortamında `node` PATH'de bulunmadığından derleme sırasında runtime yolu (`C:\Users\DELL\AppData\Local\OpenAI\Codex\runtimes\cua_node\df473e5367fa2b42\bin`) kullanılmalıdır.
+
+
+### 2026-09-21 — ChatGPT: Yönetim paneli ürün görseli yükleme
+- Tamamlananlar: Yetkili yönetici için JPG/PNG/WebP yükleme (5 MB), R2 kalıcı saklama, ürün ana görselini değiştirme/kaldırma/başlangıca döndürme, kaydedilmemiş değişiklik uyarısı. Katalog, ürün sayfası ve ana sayfa görsel bağlantısı güncellendi.
+- Değiştirilen dosyalar: hosting manifesti, Cloudflare türleri, lib/site-content.ts, components/product-image.tsx, components/product-cards.tsx, app/[product]/page.tsx, app/page.tsx, yönetim editörü, globals.css. Yeni: api/yonetim/upload ve api/media/[key].
+- Doğrulama: build başarılı; yerel upload 200, medya 200 ve image/jpeg, içerik kaydı 200, ürün sayfasında yüklenen görsel doğrulandı; geçersiz dosya 400, yetkisiz istek 401. Test ürün değişikliği geri alındı. Tarayıcıda panel ve görsel alanı doğrulandı.
+- Yayınlama: Kullanıcı talimatıyla yayın süreci başlatılıyor.

@@ -2,12 +2,12 @@
 
 ## AKTİF ÇALIŞMA DURUMU
 
-- **Aktif ajan:** Antigravity
-- **Aktif görev:** Canlı siteye (ben-ol-konveyor.gokhan1cants.chatgpt.site) yayınlama denemesi, build kontrolü, commit ve canlı doğrulama
-- **Başlama zamanı:** 2026-09-20 19:18
-- **Dokunulan / üzerinde çalışılan dosyalar:** ORTAK-CALISMA.md
-- **Durum:** beklemede
-- **Son devir teslim kaydı:** 2026-09-20 (Antigravity) — vinext build başarıyla tamamlandı (exit code 0). 43 proje dosyası ve doğrulanmış MISUMI görselleri 'main' dalında temiz commit edildi (215c733). Ancak git.chatgpt-team.site uzak sunucusuna push işlemi CLI ortamından oturum kimlik doğrulaması gerektirdiği için tamamlanamadı. Canlı site incelendi; henüz push/deploy gerçekleşmediği için canlıda eski sürümün yer aldığı ve /hizmetler rotasının 404 döndüğü açıkça teyit edildi. Projenin ChatGPT Sites arayüzü üzerinden senkronize edilmesi gerektiği bildirildi.
+- **Aktif ajan:** ChatGPT
+- **Aktif görev:** Şifreli çevrim içi yönetim paneli, kalıcı içerik kaydı ve güvenli yönetici yetkilendirmesi
+- **Başlama zamanı:** 2026-09-21
+- **Dokunulan / üzerinde çalışılan dosyalar:** Yeni yönetim/auth/veri dosyaları; mevcut app/page.tsx, app/hizmetler/page.tsx ve app/kurumsal/page.tsx değişikliklerine dokunulmayacak
+- **Durum:** çalışıyor
+- **Son devir teslim kaydı:** 2026-09-21 (Antigravity) — Adres ve bölgesel ifadeler 100. Yıl Sanayi Sitesi (fiziksel atölye) ve Merzifon OSB (hizmet alanı) olarak netleştirildi. /kurumsal sayfasındaki eski konveyör odaklı şirket tanımı; özel üretim fabrika taşıma ekipmanları, makine revizyonu/restorasyonu, numuneden parça imalatı ve tersine mühendislik olarak güncellendi. vinext build hatasız tamamlandı (exit code 0), ilgili sayfalar HTTP 200 ile doğrulandı. Port 3000 kapatıldı.
 
 ## Çok Ajanlı Çalışma Esasları
 
@@ -832,3 +832,32 @@ Her ajan buraya tarih, görev, değiştirdiği dosyalar, kontrol sonucu ve kalan
 - **Commit durumu:** Yerel depoda commit yapıldı (`215c733`).
 - **Push / Yayınlama durumu:** CLI ortamında oturum yetkisi bulunmadığı için push yapılamadı; ChatGPT arayüzünden yayınlama / senkronizasyon bekleniyor.
 - **Açık kalan işler:** ChatGPT arayüzü üzerinden projenin canlıya senkronize edilmesi.
+
+### 2026-09-21 — Antigravity: 100. Yıl Sanayi Sitesi / Merzifon OSB Adres Tutarlılığı ve /kurumsal Sayfası Faaliyet Tanımı Güncellemesi
+
+- **Tarih:** 2026-09-21
+- **Çalışan ajan:** Antigravity
+- **Görev:** Kullanıcı talimatı doğrultusunda denetim raporundaki iki kritik içerik tutarsızlığının düzeltilmesi:
+  1. Site genelindeki "Merzifon OSB merkezli atölye" ifadelerinin fiziksel adres olan "100. Yıl Sanayi Sitesi" ile çelişmeyecek şekilde düzeltilmesi (Atölyemiz 100. Yıl Sanayi Sitesi'ndedir; Merzifon OSB ve çevre sanayi havzalarına hizmet vermektedir).
+  2. `/kurumsal` sayfasındaki eski konveyör bileşenleri odaklı şirket tanımının güncellenmesi; ana faaliyetlerin özel üretim fabrika/atölye taşıma ekipmanları, makine revizyonu/restorasyonu, numuneden parça imalatı, tersine mühendislik ve teknik çizim olarak konumlandırılması.
+- **Tamamlananlar:**
+  1. `app/page.tsx` içinde `regions` dizisindeki "Merzifon & OSB" kartı "Merzifon & Merzifon OSB" olarak güncellendi ve açıklama metni "100. Yıl Sanayi Sitesi atölyemizden OSB ve çevre sanayiye doğrudan teslimat" yapıldı. Bölgesel hizmet ağı paragrafı "Merzifon 100. Yıl Sanayi Sitesi'ndeki atölyemiz sayesinde Merzifon OSB başta olmak üzere..." şeklinde düzeltildi.
+  2. `app/hizmetler/page.tsx` içinde bölgesel hizmet avantajı kutusu "Merzifon 100. Yıl Sanayi Sitesi'ndeki atölyemiz sayesinde Merzifon OSB başta olmak üzere Amasya, Suluova, Havza, Çorum, Samsun ve Tokat bölgesindeki imalatçılara..." olarak düzeltildi.
+  3. `app/kurumsal/page.tsx` baştan sona güncellendi: Eski "konveyör bileşenleri" ağırlıklı tanım kaldırılarak yerine özel üretim fabrika taşıma sistemleri, makine restorasyonu, numuneden parça imalatı ve tersine mühendislik omurgası işlendi. 100. Yıl Sanayi Sitesi atölye konumu ve Merzifon OSB / bölge hizmet kapsamı netleştirildi.
+  4. MISUMI görsellerine dokunulmadı; canonical, sitemap ve sistem ayarları değiştirilmedi; commit, push veya deploy yapılmadı.
+- **Değiştirilen dosyalar:**
+  - `app/page.tsx`
+  - `app/hizmetler/page.tsx`
+  - `app/kurumsal/page.tsx`
+  - `ORTAK-CALISMA.md`
+- **Doğrulama / build sonucu:**
+  - `vinext build` çalıştırıldı ve sıfır hatayla başarıyla tamamlandı (exit code 0).
+  - Yerel dev sunucusu üzerinde `/`, `/hizmetler` ve `/kurumsal` sayfaları test edildi; tümü `HTTP 200` döndü.
+  - Sayfa içeriklerinde "100. Yıl Sanayi Sitesi" atölye adresi ve "Merzifon OSB" hizmet alanı ayrımının doğru render edildiği teyit edildi.
+  - Port 3000 kapatıldı.
+- **Açık kalan işler:** Kullanıcının sonraki talimatı bekleniyor (Yayına hazırlık aşaması).
+- **Yayınlama durumu:** Yayınlanmadı.
+- **Commit / push durumu:** Yapılmadı.
+- **Diğer ajana notlar:**
+  - Adres ve faaliyet alanı tutarlılığı tam olarak sağlanmıştır.
+  - Windows ortamında `node` PATH'de bulunmadığından derleme sırasında runtime yolu (`C:\Users\DELL\AppData\Local\OpenAI\Codex\runtimes\cua_node\df473e5367fa2b42\bin`) kullanılmalıdır.

@@ -148,7 +148,7 @@ export default function ServicesPage() {
         <div style={{ background: '#edf2f6', borderLeft: '4px solid var(--primary)', padding: '24px 28px' }}>
           <h3 style={{ fontSize: '17px', margin: '0 0 8px', color: '#122d40' }}>Merzifon ve Bölgesel Hizmet Avantajı</h3>
           <p style={{ margin: 0, fontSize: '14px', lineHeight: 1.7, color: '#4a6170' }}>
-            Merzifon ve Merzifon OSB merkezli atölyemiz sayesinde Amasya, Suluova, Havza, Çorum, Samsun ve Tokat
+            Merzifon 100. Yıl Sanayi Sitesi&apos;ndeki atölyemiz sayesinde Merzifon OSB başta olmak üzere Amasya, Suluova, Havza, Çorum, Samsun ve Tokat
             bölgesindeki imalatçılara yakın mesafede parça teslimi, numune inceleme, ölçü alma ve teknik destek
             kolaylığı sağlıyoruz.
           </p>

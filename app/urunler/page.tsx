@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { ArrowUpRight } from 'lucide-react';
-import { categories, catalogItems } from '@/lib/presentation';
+import { categories } from '@/lib/presentation';
 import { business } from '@/lib/catalog';
+import { getCatalogItems } from '@/lib/site-content';
 import ProductCards from '@/components/product-cards';
 
 export const metadata: Metadata = {
@@ -11,7 +12,9 @@ export const metadata: Metadata = {
   alternates: { canonical: business.siteUrl + '/urunler' },
 };
 
-export default function Products() {
+export const dynamic = 'force-dynamic';
+export default async function Products() {
+  const catalogItems = await getCatalogItems();
   return (
     <main id="main">
       <section className="page-banner">

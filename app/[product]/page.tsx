@@ -8,6 +8,7 @@ import ProductImage from '@/components/product-image';
 import ProfileCartOptions from '@/components/profile-cart-options';
 import FactoryProductOptions, { hasFactoryGuide } from '@/components/factory-product-options';
 import { hasVerifiedProductImage } from '@/lib/verified-product-images';
+import { getBusinessContent, getProductContent } from '@/lib/site-content';
 
 type Props = { params: Promise<{ product: string }> };
 
@@ -19,7 +20,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { product: id } = await params;
-  const product = additionalProducts.find((item) => item.id === id);
+  const product = await getProductContent(id);
   if (!product) return { title: 'Ürün bulunamadı | ofirma' };
   if (product.status === 'inactive') {
     return {
@@ -36,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ProductPage({ params }: Props) {
   const { product: id } = await params;
-  const originalProduct = additionalProducts.find((item) => item.id === id);
+  const [originalProduct, business] = await Promise.all([getProductContent(id), getBusinessContent()]);
   if (!originalProduct) notFound();
   if (originalProduct.status === 'inactive') notFound();
 

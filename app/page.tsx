@@ -13,7 +13,7 @@ import {
   CheckCircle2,
 } from 'lucide-react';
 import { business } from '@/lib/catalog';
-import { catalogItems } from '@/lib/presentation';
+import { getCatalogItems } from '@/lib/site-content';
 import ProductCards from '@/components/product-cards';
 import ProductImage from '@/components/product-image';
 
@@ -71,14 +71,15 @@ const workflowSteps = [
 ];
 
 const regions = [
-  { name: 'Merzifon & OSB', note: 'Üretim ve atölye merkezimiz; hızlı keşif ve teslimat' },
+  { name: 'Merzifon & Merzifon OSB', note: '100. Yıl Sanayi Sitesi atölyemizden OSB ve çevre sanayiye doğrudan teslimat' },
   { name: 'Amasya & Suluova', note: 'Gıda, tarım makineleri ve hafif sanayi desteği' },
   { name: 'Havza & Samsun', note: 'Otomotiv yan sanayi, döküm ve talaşlı imalat odaklı' },
   { name: 'Çorum & Sanayi', note: 'Makine imalatçıları ve döküm tesisleri için taşıma çözümleri' },
   { name: 'Tokat & İlçeleri', note: 'Tekstil, tarım makineleri ve imalat atölyeleri desteği' },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const catalogItems = await getCatalogItems();
   return (
     <main id="main">
       {/* 1. HERO SECTION: What ofirma does, small workshop identity, Merzifon regional focus */}
@@ -229,8 +230,8 @@ export default function Home() {
               Merzifon merkezli üretim ve yakın mesafe avantajı.
             </h2>
             <p style={{ color: '#4a6170', lineHeight: 1.7, fontSize: '15px', margin: 0 }}>
-              Merzifon ve Merzifon OSB merkezli atölyemiz sayesinde Amasya, Suluova, Havza, Çorum, Samsun ve Tokat
-              sanayi havzalarındaki imalatçılara yakın mesafede bulunuyoruz.
+              Merzifon 100. Yıl Sanayi Sitesi&apos;ndeki atölyemiz sayesinde Merzifon OSB başta olmak üzere Amasya, Suluova, Havza, Çorum, Samsun ve Tokat
+              sanayi havzalarındaki imalatçılara yakın mesafede hizmet veriyoruz.
             </p>
           </div>
 

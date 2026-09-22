@@ -36,3 +36,10 @@ next-env.d.ts
 /.wrangler/
 /outputs/
 /work/
+
+# Local agent tools and verification output
+/.opencode/
+/opencode.json
+/output/
+/site-deploy.tar.gz
+/tsconfig.tsbuildinfo

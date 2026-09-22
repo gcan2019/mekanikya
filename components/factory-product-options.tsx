@@ -120,23 +120,89 @@ const guides: Record<string, {intro:string; models:[string,string,string][]; cri
   },
 };
 
-export function hasFactoryGuide(id:string){return Boolean(guides[id]);}
+import type { ProductOptionItem } from '@/lib/site-content';
 
-export default function FactoryProductOptions({id}:{id:string}){
-  const guide=guides[id];
-  if(!guide) return null;
-  return <>
-    <section className="section wrap profile-cart-options" id="modeller">
-      <div className="section-head"><p className="overline">DÜZEN SEÇENEKLERİ</p><h2>Kullanımınıza uygun yapıyı seçelim.</h2><p>{guide.intro}</p></div>
-      <div className="profile-cart-grid">{guide.models.map(([title,tag,text])=>{
-        const image=factoryOptionImages[title];
-        return <article className="profile-cart-card" key={title}>
-          {image && <figure className="profile-cart-image factory-option-photo"><img src={image.src} alt={image.alt} width={600} height={450} loading="lazy"/><figcaption>MISUMI kataloğundan örnek ürün düzeni</figcaption></figure>}
-          <div className="profile-cart-copy"><p className="overline">{tag}</p><h3>{title}</h3><p>{text}</p><a className="text-link" href="#teklif">Teklif talebine geç <ArrowUpRight size={17}/></a></div>
-        </article>;
-      })}</div>
-      <p className="small-note">Bu düzenler özel üretim talebinizi tarif etmenize yardımcı olur. Birlikte uygulanabilecek seçenekler, kapasite ve üretim uygunluğu teknik değerlendirmeyle netleşir.</p>
-    </section>
-    <section className="wrap profile-cart-guide" id="secim"><div className="section-head"><p className="overline">SEÇİM REHBERİ</p><h2>Fotoğraf veya numuneyle başlayabiliriz.</h2><p>Teknik çizim zorunlu değildir. Bildiğiniz bilgileri paylaşın; eksik ayrıntıları birlikte belirleyelim.</p></div><div className="profile-cart-factors">{guide.criteria.map(([title,text],index)=><article key={title}><span>0{index+1}</span><h3>{title}</h3><p>{text}</p></article>)}</div><a className="text-link" href="/fabrika-ici-tasima">Fabrika içi taşıma ürünlerini incele <ArrowUpRight size={18}/></a></section>
-  </>;
+export function hasFactoryGuide(id: string, customOptions?: ProductOptionItem[]) {
+  return Boolean(guides[id] || (customOptions && customOptions.length > 0));
 }
+
+export default function FactoryProductOptions({ id, customOptions }: { id: string; customOptions?: ProductOptionItem[] }) {
+  const guide = guides[id];
+  const hasCustom = Boolean(customOptions && customOptions.length > 0);
+  if (!guide && !hasCustom) return null;
+
+  const models: readonly [string, string, string, string?, string?][] = hasCustom && customOptions
+    ? customOptions.map((opt) => [
+        opt.title,
+        opt.isCustomRequest ? 'ÖZEL ÜRETİM TALEBİ' : (opt.subtitle || 'DÜZEN SEÇENEĞİ'),
+        opt.desc,
+        opt.image?.src,
+        opt.image?.alt,
+      ] as const)
+    : (guide?.models.map(([title, tag, text]) => {
+        const image = factoryOptionImages[title];
+        return [title, tag, text, image?.src, image?.alt] as const;
+      }) ?? []);
+
+  const intro = guide?.intro || 'Kullanım amacınıza ve atölye koşullarınıza en uygun düzeni birlikte belirleyelim.';
+  const criteria = guide?.criteria || [
+    ['İhtiyaç ve ölçüler', 'Parçanın ebatlarını, taşınacak yükü ve kullanım koşullarını paylaşın.'],
+    ['Taşıma ve kullanım', 'Manuel çekme, forklift, transpalet veya hat besleme ihtiyacınızı belirtin.'],
+    ['Zemin ve geçişler', 'Geçiş genişliği ve zemin durumuna göre tekerlek ve şase tasarımı belirlenir.'],
+  ];
+
+  return (
+    <>
+      <section className="section wrap profile-cart-options" id="modeller">
+        <div className="section-head">
+          <p className="overline">DÜZEN SEÇENEKLERİ</p>
+          <h2>Kullanımınıza uygun yapıyı seçelim.</h2>
+          <p>{intro}</p>
+        </div>
+        <div className="profile-cart-grid">
+          {models.map(([title, tag, text, imgSrc, imgAlt]) => (
+            <article className="profile-cart-card" key={title}>
+              {imgSrc && (
+                <figure className="profile-cart-image factory-option-photo">
+                  <img src={imgSrc} alt={imgAlt || title} width={600} height={450} loading="lazy" />
+                  <figcaption>{imgAlt || 'Örnek ürün düzeni'}</figcaption>
+                </figure>
+              )}
+              <div className="profile-cart-copy">
+                <p className="overline">{tag}</p>
+                <h3>{title}</h3>
+                <p>{text}</p>
+                <a className="text-link" href="#teklif">
+                  Teklif talebine geç <ArrowUpRight size={17} />
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+        <p className="small-note">
+          Bu düzenler özel üretim talebinizi tarif etmenize yardımcı olur. Birlikte uygulanabilecek seçenekler, kapasite ve üretim uygunluğu teknik değerlendirmeyle netleşir.
+        </p>
+      </section>
+      <section className="wrap profile-cart-guide" id="secim">
+        <div className="section-head">
+          <p className="overline">SEÇİM REHBERİ</p>
+          <h2>Fotoğraf veya numuneyle başlayabiliriz.</h2>
+          <p>Teknik çizim zorunlu değildir. Bildiğiniz bilgileri paylaşın; eksik ayrıntıları birlikte belirleyelim.</p>
+        </div>
+        <div className="profile-cart-factors">
+          {criteria.map(([title, text], index) => (
+            <article key={title}>
+              <span>0{index + 1}</span>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </article>
+          ))}
+        </div>
+        <a className="text-link" href="/fabrika-ici-tasima">
+          Fabrika içi taşıma ürünlerini incele <ArrowUpRight size={18} />
+        </a>
+      </section>
+    </>
+  );
+}
+

@@ -2,12 +2,15 @@
 
 ## AKTİF ÇALIŞMA DURUMU
 
-- **Aktif ajan:** ChatGPT
-- **Aktif görev:** Şifreli çevrim içi yönetim paneli, kalıcı içerik kaydı ve güvenli yönetici yetkilendirmesi
-- **Başlama zamanı:** 2026-09-21
-- **Dokunulan / üzerinde çalışılan dosyalar:** Yeni yönetim/auth/veri dosyaları; mevcut app/page.tsx, app/hizmetler/page.tsx ve app/kurumsal/page.tsx değişikliklerine dokunulmayacak
+- **Aktif ajan:** Yok (Boşta / Yayına Hazır)
+- **Aktif görev:** Gelişmiş yönetim panelinin son hâlinin yayına hazırlanması, güvenlik sertleştirmesinin tamamlanması, temiz commit oluşturulması
+- **Başlama zamanı:** 2026-09-22
+- **Dokunulan / üzerinde çalışılan dosyalar:** `app/yonetim/management-editor.tsx`, `lib/site-content.ts`, `lib/default-product-options.ts`, `components/factory-product-options.tsx`, `components/product-image.tsx`, `app/[product]/page.tsx`, `app/ornek-calismalar/page.tsx`, `app/api/yonetim/content/route.ts`, `app/api/yonetim/upload/route.ts`, `ORTAK-CALISMA.md`
 - **Durum:** beklemede
-- **Son devir teslim kaydı:** 2026-09-21 (Antigravity) — Adres ve bölgesel ifadeler 100. Yıl Sanayi Sitesi (fiziksel atölye) ve Merzifon OSB (hizmet alanı) olarak netleştirildi. /kurumsal sayfasındaki eski konveyör odaklı şirket tanımı; özel üretim fabrika taşıma ekipmanları, makine revizyonu/restorasyonu, numuneden parça imalatı ve tersine mühendislik olarak güncellendi. vinext build hatasız tamamlandı (exit code 0), ilgili sayfalar HTTP 200 ile doğrulandı. Port 3000 kapatıldı.
+- **Son devir teslim kaydı:** 2026-09-22 (Antigravity) — Gelişmiş yönetim paneli, çoklu görsel, alt model varyasyonları, teklif/WhatsApp şablonları ve ADMIN_EMAIL güvenlik sertleştirmesi tamamlandı. Testler 13/13 başarıyla geçti, temiz site commit'i hazırlandı; Codex üzerinden yayınlama bekleniyor.
+
+
+
 
 ## Çok Ajanlı Çalışma Esasları
 
@@ -72,6 +75,181 @@ Son çalışma sırasında derleme başarılı ve metal kasa sayfası HTTP 200 d
 ## Görev teslim kaydı
 
 Her ajan buraya tarih, görev, değiştirdiği dosyalar, kontrol sonucu ve kalan eksikleri eklemeli. İş bitince aktif geliştirici alanını boşaltmalı.
+
+### 2026-09-22 — Antigravity: Gelişmiş Yönetim Panelinin Yayına Hazırlanması, Güvenlik Sertleştirmesi ve Doğrulama Tamamlanması
+
+- **Tarih:** 2026-09-22
+- **Çalışan ajan:** Antigravity
+- **Görev:** Gelişmiş yönetim panelinin tamamlanan özelliklerinin, ADMIN_EMAIL tabanlı güvenlik sertleştirmesinin ve CDP test sonuçlarının teslimi; sitenin yayına hazır son hâlinin temiz commit ile hazırlanması.
+- **Tamamlanan Özellikler:**
+  1. **Gelişmiş Yönetim Paneli (`app/yonetim/management-editor.tsx`):**
+     - 8 aktif fabrika ürün ailesinin listelenmesi, anlık aranması/filtrelenmesi, yukarı/aşağı sıralanması.
+     - Ürün yayında / gizli (aktif / pasif) durum yönetimi, yeni ürün ailesi ekleme ve silme.
+     - Sayfa yenilendiğinde (F5) ve kaydetme işlemlerinde tam veri kalıcılığı.
+  2. **Çoklu Görsel Galerisi ve Medya Yönetimi:**
+     - Bilgisayardan gerçek dosya (JPG, PNG, WebP) yükleme (`/api/yonetim/upload`) ve doğrudan URL ile görsel ekleme.
+     - Ana ürün görseli seçimi ("★ Ana Görsel"), kart/detay rolleri, "✓ Doğrulanmış Atölye Fotoğrafı" veya teknik çizim rozet ataması.
+     - Görselleri yukarı/aşağı sıralama, silme ve tek tıkla orijinal MISUMI / katalog görseline geri dönebilme güvencesi.
+  3. **Alt Modeller ve Düzen Seçenekleri Yönetimi (`lib/default-product-options.ts`, `components/factory-product-options.tsx`):**
+     - Sitedeki 8 ürün ailesinin teknik düzen seçenekleri merkezi olarak tanımlandı ve panele dinamik olarak bağlandı.
+     - Model kartlarında bilgisayardan görsel yükleme, başlık, teknik açıklama ve "ÖZEL ÜRETİM TALEBİ" rozeti yönetimi.
+     - Kullanıcının modelleri silmesi veya değiştirmesi durumunda tek tıkla varsayılan modellere dönebilme seçeneği.
+     - Ziyaretçi ürün sayfalarında (`/:product`) modellerin dinamik olarak render edilmesi.
+  4. **Teknik Özellikler, Dinamik Teklif Formu ve Canlı WhatsApp Mesaj Şablonu:**
+     - Ürüne özel dinamik form alanları (en, boy, yükseklik, taşıma kapasitesi vb.), soru tipleri ve ölçü birimleri (mm, kg, adet vb.) tanımlama/düzenleme.
+     - Müşterinin formu doldurduğunda işletmeye ileteceği WhatsApp mesaj taslağının panelde canlı önizlenmesi.
+     - 01, 02, 03 seçim rehberi kriterlerinin düzenlenmesi.
+  5. **Örnek Çalışmalar (Portfolyo) Yönetimi (`app/ornek-calismalar/page.tsx`):**
+     - Örnek çalışma ekleme, başlık, kategori, özet, problem, çözüm, sonuç ve görsel galerisi düzenleme.
+  6. **Gizlenen Ürün Davranışı ve SEO Koruması:**
+     - Panelden gizlenen ürünlerin doğrudan URL'sinde Next.js özel 404 sayfası ("Bu sayfa burada görünmüyor") ve `robots: noindex, nofollow` üretilmesi; `/urunler` kataloğundan anında kaldırılması. Yeniden aktif edildiğinde 200 OK ile sorunsuz yayına dönmesi.
+- **Güvenlik Sertleştirmesi:**
+  1. `app/chatgpt-auth.ts`: Geliştirme ortamında eklenen tüm test mock'ları, geçici kullanıcılar, varsayılan admin bypass'ları ve test başlıkları (`x-test-anonymous`, `x-test-non-admin`, `local_seedy`, `admin@ofirma.com`) üretim kodundan tamamen temizlendi. Dosya orijinal ChatGPT OAuth başlık doğrulamasına (`oai-authenticated-user-id`, `oai-authenticated-user-email`) döndürüldü.
+  2. `lib/site-content.ts` (`isSiteAdmin`): `local_seedy` geliştirici bypass'ı kaldırıldı. Yönetici yetkilendirmesi doğrudan sunucu ortamındaki `ADMIN_EMAIL` (`gokhan1cants@gmail.com`) değişkenine bağlandı. `ADMIN_EMAIL` tanımlı değilse erişim tüm kullanıcılara kesin olarak reddedilir (`return false`).
+  3. Yetki Kademesi: Oturum açmamış istekler `401 Unauthorized`, giriş yapmış yetkisiz kullanıcılar `403 Forbidden`, yalnızca sunucudaki `ADMIN_EMAIL` ile eşleşen kullanıcı tam yönetici yetkisine sahiptir.
+- **Doğrulama ve Test Sonuçları:**
+  1. **Chrome CDP Test Paketi:** 5 özel doğrulama maddesi ve 13/13 alt test gerçek Chrome tarayıcısında uçtan uca %100 başarıyla tamamlandı (gerçek dosya yükleme ve ziyaretçi sayfasında render, ürün gizleme/404/katalogdan kalkma, yetkisiz 403 kontrolü, test verisi temizliği).
+  2. **Veri Bütünlüğü:** Tüm geçici test ürünleri ve modelleri temizlendi; veritabanında tam 8 orijinal ürün ailesi ve 1 orijinal örnek çalışma (`sebze-dograma-bicaklari`) bırakıldı.
+  3. **Tip Kontrolü (`tsc --noEmit`):** 0 hata ile başarıyla tamamlandı.
+  4. **Üretim Derlemesi (`vinext build`):** 15 rotanın tamamı hatasız derlendi (exit code 0).
+- **Değiştirilen / Eklenen Dosyalar:**
+  - `app/yonetim/management-editor.tsx` (gelişmiş panel editörü)
+  - `lib/site-content.ts` (şemalar, normalizasyon ve ADMIN_EMAIL auth)
+  - `lib/default-product-options.ts` (8 ürün ailesi teknik modelleri)
+  - `components/factory-product-options.tsx` (dinamik model render)
+  - `components/product-image.tsx` (dinamik galeri/atölye görseli render)
+  - `app/[product]/page.tsx` (ürün sayfası galeri ve model entegrasyonu)
+  - `app/ornek-calismalar/page.tsx` (örnek çalışmalar sayfası)
+  - `app/api/yonetim/content/route.ts` (içerik API rotası)
+  - `app/api/yonetim/upload/route.ts` (görsel yükleme rotası)
+  - `app/chatgpt-auth.ts` (orijinal temiz OAuth akışı)
+  - `ORTAK-CALISMA.md` (ortak çalışma ve devir teslim kaydı)
+- **Yayınlama Durumu ve Notu:**
+  - Yerel Antigravity ortamında ChatGPT Sites deployment API aracı bulunmamaktadır.
+  - Sitenin yayınlanması bu commit üzerinden **Codex üzerinden yayınlama** yoluyla gerçekleştirilmelidir.
+
+### 2026-09-21 — Antigravity: Gelişmiş Yönetim Panelinin Gerçek Tarayıcıda Doğrulanması, Tip Düzeltmesi ve Güvenlik Raporu
+
+- **Tarih:** 2026-09-21
+- **Çalışan ajan:** Antigravity
+- **Görev:** Yerel gelişmiş yönetim panelinin gerçek Chrome tarayıcısında uçtan uca test edilmesi, tip denetiminin (`tsc --noEmit`) tamamlanması, canlı 403 ve gizli ürün davranışlarının kanıtlarıyla raporlanması.
+- **Tamamlananlar:**
+  1. Tip kontrolü: `lib/site-content.ts` içindeki `normalizeFields` (`InquiryField` kind typing) ve `normalizeCaseStudy` (gallery type predicate) tip uyuşmazlıkları giderildi. `tsc --noEmit` sıfır hatayla geçti.
+  2. Build: `vinext build` çalıştırıldı ve 15 rota hatasız derlendi (exit code 0).
+  3. Gerçek Chrome tarayıcısı (CDP) uçtan uca 28 adımlı test paketi:
+     - Ürün ekleme, başlık/kategori düzenleme, yayında/gizli durumu değiştirme ve aşağı/yukarı sıralama: Doğrulandı.
+     - Çoklu görsel galerisi, manuel URL ve alt metin ekleme, ana görsel atama ("★ Ana Görsel"): Doğrulandı.
+     - Alt modeller / varyasyonlar sekmesinde yeni model ekleme, başlık/açıklama düzenleme, "ÖZEL ÜRETİM TALEBİ" rozeti seçimi ve sıralama: Doğrulandı.
+     - Teklif formu soruları ekleme/düzenleme ve teknik kriterler (01, 02...) ekleme: Doğrulandı.
+     - WhatsApp teklif mesajının dinamik form soruları ve birimleriyle doğru formatta üretilmesi: Doğrulandı.
+     - Örnek çalışmalar (portfolyo) sekmesinde yeni çalışma ekleme ve düzenleme: Doğrulandı.
+     - Değişiklikleri kaydetme ("Kaydedildi!" bildirimi), sayfa F5 ile yenilendikten sonra verilerin korunması ve ziyaretçi sayfalarında (`/`, `/metal-tasima-kasasi`, `/ornek-calismalar`) görüntülenmesi: Doğrulandı.
+     - Güvenlik: Yetkisiz `PUT /api/yonetim/content` (HTTP 401), yetkisiz upload (HTTP 401) ve sahte Origin CSRF isteği (HTTP 403) başarıyla engellendi.
+     - Gizlenen ürünün doğrudan bağlantı davranışı: Ziyaretçiye HTTP 404 ("Bu sayfa burada görünmüyor") ve `robots: { index: false, follow: false }` döndüğü gerçek tarayıcıda doğrulandı.
+     - Toplam 28 testin 28'i de gerçek tarayıcıda sıfır hatayla geçti.
+  4. Canlı 403 analizi: `GET /yonetim` isteği `HTTP 307 Temporary Redirect` ile `/signin-with-chatgpt?return_to=%2Fyonetim` rotasına, oradan da `https://auth.openai.com/oauth/authorize...` adresine yönlenmektedir. Tarayıcı dışı istemciler ve botlar `auth.openai.com` üzerinde Cloudflare bot koruması (CF-RAY, WAF challenge) nedeniyle 403 almaktadır.
+  5. Süreç ve port temizliği: Test dev sunucusu ve Chrome süreçleri kapatıldı, port 3005 ve port 9222'nin kapalı olduğu doğrulandı.
+- **Değiştirilen dosyalar:** `lib/site-content.ts`, `ORTAK-CALISMA.md`
+- **Doğrulama / test sonucu:** `tsc --noEmit` hatasız (0), `vinext build` hatasız (0), gerçek Chrome tarayıcısı testi 28/28 başarılı (0 hata).
+- **Açık kalan işler:** Yok.
+- **Yayınlama durumu:** Yayınlanmadı (talimat gereği).
+- **Commit / push durumu:** Yapılmadı (talimat gereği).
+- **Diğer ajana notlar:** Yerel panelin tüm gelişmiş bileşenleri doğrulanmış ve çalışır durumdadır.
+
+### 2026-09-21 — Antigravity: Mevcut Ürün Düzen Varyasyonları ve Modellerinin Yönetim Panelinde Görünür ve Düzenlenebilir Hale Getirilmesi
+
+- **Tarih:** 2026-09-21
+- **Çalışan ajan:** Antigravity
+- **Görev:** Sitedeki 8 aktif ürün ailesine ait mevcut varyasyonların (modeller, düzen seçenekleri, rozetler, açıklamalar ve MISUMI görselleri) yönetim panelinde (/yonetim) önceden doldurulmuş, görünür ve tam düzenlenebilir hale getirilmesi.
+- **Tamamlananlar:**
+  1. `lib/default-product-options.ts`: 8 ürün ailesinin (`metal-tasima-kasasi` [9 model], `talas-hurda-arabasi` [5 model], `sac-levha-tasima-arabasi` [5 model], `abkant-kalip-arabasi` [5 model], `tekstil-tasima-arabasi` [5 model], `rulolu-destek-sehpasi` [5 model], `tup-tasima-kafesi` [5 model], `profil-tasima-arabasi` [5 model]) tüm gerçek teknik modelleri, başlıkları, rozetleri, açıklamaları ve `lib/factory-option-images.ts` ile eşleşen MISUMI referans görselleri merkezi olarak yapılandırıldı.
+  2. `lib/site-content.ts`: `defaultContent.products` başlangıç nesnelerine `options: getDefaultProductOptions(product.id)` bağlandı. `normalizeProduct` fonksiyonunda eksik veya undefined gelen options alanlarının güvenli şekilde varsayılan teknik modellerle doldurulması ve kullanıcının girdiği modellerin normalizasyonu sağlandı.
+  3. `app/yonetim/management-editor.tsx`:
+     - Sekme başlığı: `Modeller & Varyasyonlar (X)` sayacı dinamik ve gerçek model sayısını (örn. metal kasada 9, diğerlerinde 5) gösterecek şekilde güncellendi.
+     - `ProductOptionsTab`: Baştan sona geliştirildi:
+       * Her model kartında görsel küçük resmi (thumbnail) önizlemesi.
+       * Bilgisayardan tek tıkla doğrudan model görseli yükleme (JPG, PNG, WebP) ve yükleme durumu/hata bildirimleri.
+       * Doğrudan görsel URL'si (`src`) ve erişilebilirlik alt metni (`alt`) düzenleme alanları.
+       * Model başlığı ve rozet/vurgu metni düzenleme.
+       * Model teknik açıklaması düzenleme.
+       * "ÖZEL ÜRETİM TALEBİ" rozet seçimi kutusu (checkbox).
+       * Modelleri yukarı/aşağı taşıma (sıralama) ve silme.
+       * Sıfırdan yeni model/seçenek ekleme.
+       * "Varsayılan Modelleri Geri Yükle" butonu: Kullanıcı modelleri değiştirdiğinde veya sildiğinde tek tıkla orijinal MISUMI/katalog ayarlarına dönebilme güvencesi.
+- **Değiştirilen / oluşturulan dosyalar:** `lib/default-product-options.ts` (yeni), `lib/site-content.ts`, `app/yonetim/management-editor.tsx`, `ORTAK-CALISMA.md`
+- **Doğrulama / test sonucu:**
+  - `vinext build`: Sıfır hata ile tamamlandı (exit code 0).
+  - Yerel dev sunucusu başlatıldı (`Local: http://localhost:3006/`).
+  - `GET /`: HTTP 200 (Başarılı).
+  - `GET /metal-tasima-kasasi`: HTTP 200 (Başarılı).
+  - `GET /yonetim`: HTTP 200 (Başarılı).
+  - Yerel test sunucusu ve port kapatıldı (açık port bırakılmadı).
+- **Yayınlama durumu:** Deploy/publish yapılmadı (talimat gereği).
+- **Commit / push durumu:** Commit/push yapılmadı (talimat gereği).
+- **Kalan açık iş:** Yok.
+
+### 2026-09-21 — Antigravity: Yönetim Paneli Güvenlik, Veri Bütünlüğü ve Upload Denetimi
+
+- **Tarih:** 2026-09-21
+- **Çalışan ajan:** Antigravity
+- **Görev:** /yonetim panelinin güvenlik, yetkilendirme, upload güvenliği, görsel kalıcılığı ve veri bütünlüğü denetimi.
+- **Tamamlananlar:**
+  1. Test verisi denetimi: Kod tabanında ve fallback verilerde "Test teknik dipnot güncellendi." veya benzeri geçici test verisi kalıntısı olmadığı doğrulandı.
+  2. Auth sertleştirmesi: `isSiteAdmin` fonksiyonunun `local_seedy` kontrolü yalnızca `process.env.NODE_ENV === 'development'` koşuluna bağlandı. Canlı üretim ortamında sahte header ile admin bypass yapılabilmesi engellendi. `app/chatgpt-auth.ts` önce gerçek auth header'larını kontrol edecek şekilde düzenlendi.
+  3. Upload güvenliği: Dosya uzantısı/MIME değil, ikili bayt başlığı (magic bytes) ile PNG, JPG ve WebP doğrulandığı, SVG ve çalıştırılabilir kodların reddedildiği doğrulandı. Rastgele UUID v4 ile path traversal ve dosya üzerine yazma riskleri sıfırlandı.
+  4. Kalıcılık mimarisi analizi: Cloudflare Workers serverless mimarisinde yerel filesystem olmadığı, kalıcı görseller için `env.MEDIA` (R2) binding'inin tasarlandığı; development ortamında ise veri URI'si ile anlık test sağlandığı raporlandı.
+  5. İçerik API bütünlüğü: `PUT /api/yonetim/content` rotasına CSRF Origin doğrulaması ve 2 MB Content-Length limiti eklendi. `normalizeContent` içerisine boş ürün listesiyle kataloğun silinmesini engelleyen ve 8 temel fabrika ürününü zorunlu koruyan (eksik olanı inactive olarak saklayan) koruma eklendi.
+  6. Kamuya açık sayfalar ve WhatsApp form kontrolü: 6 public rota ve WhatsApp teklif taslağı üreticisi HTTP testleriyle doğrulandı.
+- **Değiştirilen dosyalar:** `lib/site-content.ts`, `app/chatgpt-auth.ts`, `app/api/yonetim/content/route.ts`, `ORTAK-CALISMA.md`
+- **Doğrulama / test sonucu:**
+  - `vinext build`: Sıfır hata (exit code 0).
+  - Yetkisiz API istekleri: HTTP 401 döndü (Başarılı).
+  - Farklı Origin CSRF istekleri: HTTP 403 döndü (Başarılı).
+  - Sahte/SVG dosya yükleme: HTTP 400 ile reddedildi (Başarılı).
+  - Gerçek PNG/JPG yükleme: HTTP 200 (Başarılı).
+  - Boş liste silinme denemesi: 8 ürün korundu (Başarılı).
+  - Kamuya açık sayfalar (`/`, `/urunler`, `/metal-tasima-kasasi`, `/talas-hurda-arabasi`, `/ornek-calismalar`, `/yonetim`): HTTP 200 (Başarılı).
+  - WhatsApp mesaj şablonu: Eksiksiz ölçü ve notlarla üretildi (Başarılı).
+  - Test dev sunucusu kapatıldı, açık port bırakılmadı.
+- **Yayınlama durumu:** Deploy/publish yapılmadı (talimat gereği).
+- **Commit / push durumu:** Commit/push yapılmadı (talimat gereği).
+- **Kalan açık iş:** Yok.
+
+### 2026-09-21 — Antigravity: Yönetim Panelinin Kapsamlı Geliştirilmesi (Görseller, Varyasyonlar, Teklif Formu, Örnek Çalışmalar)
+
+- **Tarih:** 2026-09-21
+- **Çalışan ajan:** Antigravity
+- **Görev:** WordPress'e taşınmaya gerek kalmadan ürün aileleri, ürün görselleri, varyasyonlar/modeller, teklif formu alanları, örnek çalışmalar ve firma ayarlarının kodsuz yönetilmesi.
+- **Tamamlananlar:**
+  1. `lib/site-content.ts`: `ProductImageItem`, `ProductOptionItem`, `EditableCaseStudy`, `EditableBusiness` ve `EditableProduct` genişletildi. Normalizasyon fonksiyonundaki `checks` ve `fields` üzerine yazma hatası düzeltildi (kullanıcının girdiği alanlar ve teknik kontrol maddeleri korunur hale getirildi). Local dev için Cloudflare D1/R2 bellek içi yedekleme mekanizması eklendi.
+  2. `app/chatgpt-auth.ts`: Geliştirme ortamında (`NODE_ENV === 'development'`) yerel yönetici erişimi bypass'ı tanımlandı; üretim ortamı ChatGPT authentication mekanizması aynen korundu.
+  3. `app/api/yonetim/upload/route.ts`: Görsel yükleme rotasına dev ortamında R2 bucket olmadığında data URI üreten güvenli fallback eklendi; prod ortamı R2 bucket davranışı aynen korundu.
+  4. `app/yonetim/management-editor.tsx`: Baştan sona yeniden tasarlandı:
+     - Ürün Aileleri: 8 aktif ürün ailesi listeleme, filtreleme/arama, yukarı/aşağı sıralama, aktif/pasif (gizli/yayında) seçimi, yeni ürün ekleme ve silme.
+     - Ürün Görselleri: Çoklu görsel yükleme ve URL ile ekleme, ana görsel seçimi, kart/detay rolleri, "✓ Atölye Üretim Fotoğrafı" ve "Teknik Referans/Çizim" doğrulama rozeti seçimi, sıralama, alt text yönetimi, orijinal varsayılan/MISUMI görseline geri dönme.
+     - Teklif Formu Alanları & WhatsApp Entegrasyonu: Ürüne özel dinamik form soruları ekleme/düzenleme/sıralama, ölçü birimi (mm, kg, adet) belirleme, canlı WhatsApp mesaj taslağı önizlemesi (müşteri formu doldurduğunda WhatsApp mesajına otomatik eklenir).
+     - Modeller & Düzen Seçenekleri: Ürüne bağlı model kartları (başlık, özel üretim rozeti, açıklama, model görseli) ekleme, düzenleme, sıralama ve silme.
+     - Teknik Kontroller: 01, 02, 03 kontrol maddeleri başlık ve açıklamalarını düzenleme, ekleme ve sıralama.
+     - Örnek Çalışmalar (Case Studies): Yeni çalışma ekleme, başlık, kategori, özet, problem/çözüm/sonuç alanları, kapak görseli yükleme, aktif/pasif durumu.
+     - Site ve İletişim Ayarları: Firma adı, telefonda görünen numara, telefon bağlantısı, WhatsApp numarası, e-posta, çalışma saatleri, üst menü buton metni ve atölye adresi düzenleme.
+     - Kullanıcı Deneyimi: Kod/JSON terimi içermeyen temiz Türkçe arayüz, sekmeli düzen, kaydedilmemiş değişiklik uyarısı, silme işlemleri için onay diyaloğu.
+  5. `components/product-image.tsx` & `app/[product]/page.tsx`: Doğrulanmış atölye fotoğrafları için rozet ve çoklu görsel galeri önizlemesi bağlandı. Orijinal MISUMI yapısı ve genel site tasarımı bozulmadan korundu.
+  6. `components/factory-product-options.tsx`: Dinamik seçenekleri render edecek şekilde güncellendi; seçenek girilmediğinde varsayılan modeller aynen çalışıyor.
+  7. `app/ornek-calismalar/page.tsx`: `getCaseStudies()` dinamik veri kaynağına bağlandı.
+- **Değiştirilen dosyalar:** `lib/site-content.ts`, `app/chatgpt-auth.ts`, `app/api/yonetim/upload/route.ts`, `app/yonetim/management-editor.tsx`, `components/product-image.tsx`, `components/factory-product-options.tsx`, `app/[product]/page.tsx`, `app/ornek-calismalar/page.tsx`, `ORTAK-CALISMA.md`
+- **Doğrulama / build sonucu:**
+  - `vinext build` başarıyla tamamlandı (exit code 0, 15 rota hatasız derlendi).
+  - Port 3001 üzerinde yerel sunucu testi gerçekleştirildi:
+    - `/yonetim`: HTTP 200 (Yönetim paneli yüklendi)
+    - `GET /api/yonetim/content`: HTTP 200 (8 ürün, 1 örnek çalışma, 5 teklif alanı)
+    - `PUT /api/yonetim/content`: HTTP 200 (kaydetme testi başarılı)
+    - `/ornek-calismalar`: HTTP 200 (Sebze doğrama çalışması yüklendi)
+    - `/[product]` (`/metal-tasima-kasasi`): HTTP 200
+    - `/urunler`: HTTP 200
+  - Dev test sunucusu ve portlar kapatıldı (açık port bırakılmadı).
+- **Yayınlama durumu:** Deploy/publish yapılmadı (talimat gereği).
+- **Commit / push durumu:** Commit/push yapılmadı (talimat gereği).
+- **Kalan açık iş:** Yok.
 
 ### 2026-09-21 — ChatGPT: Şifreli Çevrim İçi Yönetim Paneli
 

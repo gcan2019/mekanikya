@@ -41,7 +41,8 @@ export default async function ProductPage({ params }: Props) {
   if (!originalProduct) notFound();
   if (originalProduct.status === 'inactive') notFound();
 
-  const product = hasFactoryGuide(id)
+  const hasGuide = hasFactoryGuide(id, originalProduct.options);
+  const product = hasGuide
     ? {
         ...originalProduct,
         fields: [
@@ -67,7 +68,18 @@ export default async function ProductPage({ params }: Props) {
       </div>
 
       <section className={'wrap manufacturer-product' + ((!product.imageHidden && Boolean(product.image || hasVerifiedProductImage(product.id))) ? '' : ' manufacturer-product-no-image')}>
-        <ProductImage id={product.id} title={product.title} image={product.image} imageHidden={product.imageHidden} priority />
+        <div>
+          <ProductImage id={product.id} title={product.title} image={product.image} imageHidden={product.imageHidden} priority />
+          {product.gallery && product.gallery.length > 1 && (
+            <div className="product-gallery-thumbnails" style={{ display: 'flex', gap: '8px', marginTop: '12px', flexWrap: 'wrap' }}>
+              {product.gallery.map((img, idx) => (
+                <div key={idx} style={{ border: '1px solid #d8e1e7', background: '#fff', borderRadius: '4px', padding: '3px', width: '70px', height: '55px', overflow: 'hidden' }} title={img.alt || product.title}>
+                  <img src={img.src} alt={img.alt || product.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
         <div className="manufacturer-product-copy">
           <p className="overline">{product.category.toLocaleUpperCase('tr-TR')}</p>
           <h1>{product.title}</h1>
@@ -87,7 +99,7 @@ export default async function ProductPage({ params }: Props) {
       </section>
 
       <nav className="product-section-nav wrap" aria-label="Ürün bölümleri">
-        {(id === 'profil-tasima-arabasi' || hasFactoryGuide(id)) && (
+        {(id === 'profil-tasima-arabasi' || hasGuide) && (
           <>
             <a href="#modeller">Düzen seçenekleri</a>
             <a href="#secim">Seçim rehberi</a>
@@ -98,8 +110,8 @@ export default async function ProductPage({ params }: Props) {
         <a href="#teklif">Teklif talebi</a>
       </nav>
 
-      {id === 'profil-tasima-arabasi' && <ProfileCartOptions />}
-      <FactoryProductOptions id={id} />
+      {id === 'profil-tasima-arabasi' && (!originalProduct.options || originalProduct.options.length === 0) && <ProfileCartOptions />}
+      <FactoryProductOptions id={id} customOptions={originalProduct.options} />
 
       <section className="equipment-info wrap" id="bilgiler">
         <div className="section-head">

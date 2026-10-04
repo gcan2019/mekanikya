@@ -2,12 +2,13 @@
 
 ## AKTİF ÇALIŞMA DURUMU
 
-- **Aktif ajan:** Yok (Boşta / Cloudflare Workers Üzerinde Canlıda)
-- **Aktif görev:** Tasarım sistemi geliştirme: 2021 modern fontlar (Plus Jakarta Sans & Space Mono), İsviçre/Bauhaus endüstriyel stili, 60-30-10 renk dengesi, mikro etkileşimler ve Canva Pro kurumsal afiş oluşturuldu; Cloudflare Workers üzerine başarıyla canlıya alındı.
-- **Başlama zamanı:** 2026-10-01 11:30
-- **Dokunulan / üzerinde çalışılan dosyalar:** `app/layout.tsx`, `app/globals.css`, `ORTAK-CALISMA.md`
-- **Durum:** Tamamlandı (canlıda aktif, Versiyon ID: d87ae506-0bd6-4100-8461-7d8a06543d39)
-- **Son devir teslim kaydı:** 2026-10-01 (Antigravity) — Tasarım sistemi, tipografi, renk teorisi, Canva Pro entegrasyonu ve canlı dağıtım.
+- **Aktif ajan:** Yok (Beklemede / Vercel & GitHub Entegrasyonu Tamamlandı)
+- **Aktif görev:** Mekanikya projesinin GitHub (`gcan2019/mekanikya`) ve Vercel (`mekanikya.vercel.app`) canlı altyapısına bağlanması.
+- **Başlama zamanı:** 2026-10-04 10:13
+- **Bitiş zamanı:** 2026-10-04 11:03
+- **Dokunulan / üzerinde çalışılan dosyalar:** `api/index.js`, `lib/cf-env.ts`, `vercel.json`, `next.config.ts`, `vite.config.ts`, `ORTAK-CALISMA.md`
+- **Durum:** Tamamlandı (Vercel Production Canlıda: https://mekanikya.vercel.app — HTTP 200 OK)
+- **Son devir teslim kaydı:** 2026-10-04 (Antigravity) — GitHub ve Vercel entegrasyonu, Serverless köprüsü, evrensel ortam uyumluluğu ve canlı doğrulama.
 
 
 
@@ -1196,4 +1197,25 @@ Her ajan buraya tarih, görev, değiştirdiği dosyalar, kontrol sonucu ve kalan
   3. Canlı site `https://mekanikya.com.tr` HTTP 200 ile kesintisiz ve sorunsuz çalışmaya devam etmektedir.
 - **Değiştirilen dosyalar:** `README.md`, `ORTAK-CALISMA.md`.
 - **ChatGPT Ajanına Not:** Kullanıcı ChatGPT Sites yayınının iptal edilmesini talep etmiştir. Proje artık bağımsız Cloudflare Workers ve resmi `mekanikya.com.tr` alan adı üzerinden yayınlandığı için OpenAI Sites üzerine yeni sürüm yayınlamayınız; gerekirse Codex arayüzünden unpublish işlemini onaylayınız.
+
+### 2026-10-04 — Antigravity: GitHub & Vercel Canlı Altyapı Entegrasyonu
+- **Tarih:** 2026-10-04
+- **Çalışan ajan:** Antigravity. Durum: beklemede.
+- **Görev:** Mekanikya projesinin GitHub (`gcan2019/mekanikya`) ve Vercel (`mekanikya.vercel.app`) bulut altyapısına bağlanarak tek tıkla otomatik CI/CD ve küresel CDN ortamına kavuşturulması.
+- **Tamamlananlar:**
+  1. Mekanikya projesinin tam kod tabanı doğrulandı ve `vinext build` ile yerel derleme testi başarıyla geçti.
+  2. GitHub üzerinde `gcan2019/mekanikya` deposu bağlandı; `main` dalına tüm commit geçmişiyle birlikte push yapıldı.
+  3. Antigravity IDE yerel çalışma alanı (`c:\Users\DELL\Documents\antigravity\ben ol`) GitHub deposuyla tam senkronize edildi.
+  4. Vercel Serverless Function entegrasyonu kuruldu (`api/index.js`).
+  5. Cloudflare ortam değişkenlerine bağımlılık soyutlanarak Node.js, Vercel ve Edge ortamlarında çalışabilen evrensel `lib/cf-env.ts` geliştirildi.
+  6. `vercel.json` oluşturuldu; statik varlıkların (görseller, fontlar, CSS) doğrudan küresel CDN'den sunulması, dinamik sayfaların ve API rotalarının ise sunucusuz motordan sunulması sağlandı.
+  7. Vercel üzerinde `mekanikya` projesi başarıyla derlendi ve canlıya alındı (Status: Ready / Production).
+  8. Canlı ortam test edildi: `/`, `/urunler`, `/hizmetler`, `/kurumsal`, `/iletisim` ve `/images/metal-tasima-kasasi.png` rotaları `HTTP 200 OK` ile doğrulandı.
+- **Değiştirilen dosyalar:** `next.config.ts`, `vite.config.ts`, `ORTAK-CALISMA.md`
+- **Oluşturulan yeni dosyalar:** `api/index.js`, `lib/cf-env.ts`, `vercel.json`
+- **Doğrulama / build sonucu:** Yerel derleme başarılı (exit code 0); Vercel derlemesi başarılı (28s, HTTP 200 OK).
+- **Açık kalan işler:** Yok.
+- **Yayınlama durumu:** Canlı yayında (`https://mekanikya.vercel.app`).
+- **Commit / push durumu:** GitHub `origin/main` dalına commit ve push edildi (`be5bd1a`).
+- **Diğer ajana notlar:** Proje artık hem Cloudflare Workers hem de Vercel üzerinde kesintisiz çalışabilecek evrensel mimariye sahiptir. Kod güncellemeleri doğrudan GitHub'a push edildiğinde Vercel otomatik olarak yeni sürümü canlıya almaktadır.
 

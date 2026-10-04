@@ -227,6 +227,29 @@ const defaultOptionsByProduct: Record<string, RawModel[]> = {
     },
   ],
 
+  'motorlu-boru-dondurme-sehpasi': [
+    {
+      title: 'Ayak pedallı masaüstü boru çevirici',
+      subtitle: 'TIG / MIG dairesel kaynak',
+      desc: 'Operatörün iki elini serbest bırakarak kaynak torcunu sabit tutmasını sağlayan, ayak pedallı PWM hız ayarlı kompakt tahrik ünitesi.',
+    },
+    {
+      title: 'Avara destek sehpalı takım',
+      subtitle: 'Uzun boru ve silindirler',
+      desc: 'Uzun boruların sarkmadan ve eksen kaçıklığı yapmadan dönmesi için tahrikli ana ünitenin yanına eklenen serbest döner avara sehpa.',
+    },
+    {
+      title: 'Poliüretan kaplı çizilmez rulo',
+      subtitle: 'Paslanmaz ve alüminyum',
+      desc: 'Hassas yüzeyli, krom kaplı veya paslanmaz borularda çizilmeyi ve kaymayı önleyen yüksek tutuculu poliüretan rulo düzeni.',
+    },
+    {
+      title: 'Ağır sanayi tipi tank çevirici',
+      subtitle: 'Büyük çap ve yüksek tonaj',
+      desc: 'Kazan, basınçlı kap ve kalın etli boruların dairesel birleştirme kaynağı için çift tahrikli ve takviyeli çelik rulo şasesi.',
+    },
+  ],
+
   'tup-tasima-kafesi': [
     {
       title: 'Tekli ve çiftli tüp arabası',
@@ -252,6 +275,39 @@ const defaultOptionsByProduct: Record<string, RawModel[]> = {
       title: 'Kombine kaynak seti arabası',
       subtitle: 'Oksijen ve LPG ikili taşıma',
       desc: 'Görsel, oksijen ve gaz tüpünü birlikte taşımaya uygun çiftli şaseyi gösterir. Hortum askısı, manometre muhafazası veya nozul kutusu ihtiyaca göre özel üretim talebi olarak eklenir.',
+    },
+  ],
+  'microtrac-mini-bahce-traktoru': [
+    {
+      title: 'Anahtar teslim çalışır traktör',
+      subtitle: 'Standart yükleme kovası dahil',
+      desc: '16–18 HP motor, 22 GPM çift kademeli hidrolik pompa, paletli yürüyüş, joystick kumanda ve 450 kg kaldırma kapasiteli ön kova takılı, çalışmaya hazır teslimat.',
+    },
+    {
+      title: 'Kendin Kaynat (DIY) şasi ve lazer kesim kiti',
+      subtitle: 'ÖZEL İMALAT KİTİ',
+      desc: 'CNC fiber lazerle kesilmiş gövde sacları, bükülmüş ve delinmiş 100x100 kutu profil şasi parçaları, burçlar ve pimler. Kendi atölyesinde montaj yapmak isteyenler için.',
+      isCustomRequest: true,
+    },
+    {
+      title: 'Hidrolik fidan ve çit direği burgu ataşmanı',
+      subtitle: 'Hızlı ataşman değişimi',
+      desc: 'Bobcat mini standardında tak-çıkar ayna, yüksek torklu Danfoss hidrolik orbital motor ve Ø250 mm değiştirilebilir helezon vida burgu seti.',
+    },
+    {
+      title: 'Hidrolik toprak frezesi / çapalama ataşmanı',
+      subtitle: 'Sera ve bahçe toprak hazırlığı',
+      desc: '90–100 cm işleme genişliğinde, sertleştirilmiş C tipi bıçaklı, zincirsiz doğrudan hidrolik motor tahrikli toprak frezesi.',
+    },
+    {
+      title: 'Forklift / palet ve kasa taşıma çatalı',
+      subtitle: 'Hasat ve kasa istifleme',
+      desc: 'Meyve kasaları, fide viyolleri ve gübre torbalarını taşımak için genişliği ayarlanabilir kızaklı palet çatalı ataşmanı.',
+    },
+    {
+      title: 'Kauçuk pabuçlu palet veya 4x4 tekerlek kiti',
+      subtitle: 'Zemin koruma opsiyonu',
+      desc: 'Beton zeminler, seralar veya çim alanlar için çelik tırnak yerine zemini çizmeyen sertleştirilmiş kauçuk pabuç veya 4x4 hidrolik tekerlek dönüşüm kiti.',
     },
   ],
 };

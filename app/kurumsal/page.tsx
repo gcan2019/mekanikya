@@ -4,9 +4,9 @@ import { business } from '@/lib/catalog';
 import ProductImage from '@/components/product-image';
 import { hasVerifiedProductImage } from '@/lib/verified-product-images';
 export const metadata: Metadata = {
-  title: 'Kurumsal | ofirma',
+  title: 'Kurumsal | Mekanikya',
   description:
-    'ofirma kurumsal yaklaşımı: özel üretim fabrika taşıma ekipmanları, makine revizyonu ve restorasyonu, numuneden parça imalatı ve tersine mühendislik.',
+    'Mekanikya kurumsal yaklaşımı: özel üretim fabrika taşıma ekipmanları, makine revizyonu ve restorasyonu, numuneden parça imalatı ve tersine mühendislik.',
   alternates: { canonical: business.siteUrl + '/kurumsal' },
 };
 
@@ -23,7 +23,7 @@ export default function About() {
       <section className="page-banner">
         <div className="wrap">
           <p className="overline">ANA SAYFA / KURUMSAL</p>
-          <h1>ofirma hakkında</h1>
+          <h1>Mekanikya hakkında</h1>
           <p>Ölçüye, kullanım alanına ve gerçek ihtiyaca odaklanan mühendislik yaklaşımı.</p>
         </div>
       </section>
@@ -37,7 +37,7 @@ export default function About() {
             netleştirelim.
           </h2>
           <p>
-            ofirma, Merzifon 100. Yıl Sanayi Sitesi&apos;ndeki atölyesinde; özel üretim fabrika ve atölye içi taşıma ekipmanları,
+            Mekanikya, Merzifon 100. Yıl Sanayi Sitesi&apos;ndeki atölyesinde; özel üretim fabrika ve atölye içi taşıma ekipmanları,
             makine revizyonu ve restorasyonu, numuneden parça imalatı, tersine mühendislik ve teknik çizim hizmetleri sunar.
           </p>
           <p>

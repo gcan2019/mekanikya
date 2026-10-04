@@ -6,9 +6,9 @@ import { getCatalogItems } from '@/lib/site-content';
 import ProductCards from '@/components/product-cards';
 
 export const metadata: Metadata = {
-  title: 'Ürünlerimiz | ofirma',
+  title: 'Ürünlerimiz | Mekanikya',
   description:
-    'Fabrika içi taşıma, malzeme yönetimi, kalıp ve atölye yardımcı ekipmanları. Fotoğraf, numune veya ölçülerle ofirma’dan teklif alın.',
+    'Fabrika içi taşıma, malzeme yönetimi, kalıp ve atölye yardımcı ekipmanları. Fotoğraf, numune veya ölçülerle Mekanikya’dan teklif alın.',
   alternates: { canonical: business.siteUrl + '/urunler' },
 };
 
@@ -58,36 +58,60 @@ export default async function Products() {
         </div>
       </section>
 
-      <div className="wrap catalog-layout">
-        <aside className="catalog-sidebar">
-          <h2>Ürün grupları</h2>
-          <nav aria-label="Ürün kategorileri">
+      {catalogItems.length > 0 ? (
+        <div className="wrap catalog-layout">
+          <aside className="catalog-sidebar">
+            <h2>Ürün grupları</h2>
+            <nav aria-label="Ürün kategorileri">
+              {categories.map((category) => (
+                <a key={category.id} href={'#' + category.id}>
+                  {category.title}
+                  <span>{catalogItems.filter((p) => p.group === category.id).length}</span>
+                </a>
+              ))}
+            </nav>
+            <p>Özel ölçü talebiniz için ürün sayfasındaki teklif formunu kullanabilirsiniz.</p>
+          </aside>
+          <div>
             {categories.map((category) => (
-              <a key={category.id} href={'#' + category.id}>
-                {category.title}
-                <span>{catalogItems.filter((p) => p.group === category.id).length}</span>
-              </a>
+              <section className="catalog-group" id={category.id} key={category.id}>
+                <div className="catalog-group-title">
+                  <h2>{category.title}</h2>
+                  <p>{category.description}</p>
+                  {category.id === 'fabrika-tasima' && (
+                    <a className="text-link" href="/fabrika-ici-tasima">
+                      Taşıma düzenleri ve seçim rehberi →
+                    </a>
+                  )}
+                </div>
+                <ProductCards items={catalogItems.filter((p) => p.group === category.id)} />
+              </section>
             ))}
-          </nav>
-          <p>Özel ölçü talebiniz için ürün sayfasındaki teklif formunu kullanabilirsiniz.</p>
-        </aside>
-        <div>
-          {categories.map((category) => (
-            <section className="catalog-group" id={category.id} key={category.id}>
-              <div className="catalog-group-title">
-                <h2>{category.title}</h2>
-                <p>{category.description}</p>
-                {category.id === 'fabrika-tasima' && (
-                  <a className="text-link" href="/fabrika-ici-tasima">
-                    Taşıma düzenleri ve seçim rehberi →
-                  </a>
-                )}
-              </div>
-              <ProductCards items={catalogItems.filter((p) => p.group === category.id)} />
-            </section>
-          ))}
+          </div>
         </div>
-      </div>
+      ) : (
+        <section className="wrap" style={{ margin: '40px auto 60px' }}>
+          <div style={{ padding: '48px 28px', background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '12px', textAlign: 'center' }}>
+            <div style={{ display: 'inline-flex', padding: '6px 14px', background: '#e0f2fe', color: '#0369a1', borderRadius: '20px', fontSize: '12px', fontWeight: 600, marginBottom: '16px' }}>
+              ⚙️ MÜHENDİSLİK VE İMALAT DOĞRULAMA SÜRECİ
+            </div>
+            <h2 style={{ fontSize: '22px', color: '#0f2a4a', marginBottom: '12px', fontWeight: 700 }}>
+              Ürünlerimiz Teknik Çizim ve Satın Alma Parça Doğrulamasıyla Sırayla Yayına Alınmaktadır
+            </h2>
+            <p style={{ color: '#526977', fontSize: '15px', maxWidth: '700px', margin: '0 auto 24px', lineHeight: 1.6 }}>
+              Mekanikya mühendislik standartlarımız gereği; tüm teknik çizimleri, toleransları, malzeme listesi (BOM), cıvata ve motor kodları %100 netleşmeyen hiçbir ürünü sitemizde satışa açmıyoruz. En basitten başlayarak tüm imalat paketleri sırayla tamamlanıp yayına açılacaktır.
+            </p>
+            <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <a href="https://wa.me/905302068714" className="cta cta-primary" target="_blank" rel="noopener noreferrer">
+                Özel İmalat veya Çizim Talebi İçin WhatsApp: 0530 206 87 14
+              </a>
+              <a href="/hizmetler" className="cta cta-secondary">
+                Makine Restorasyonu ve Tersine Mühendislik
+              </a>
+            </div>
+          </div>
+        </section>
+      )}
     </main>
   );
 }

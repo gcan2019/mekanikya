@@ -16,7 +16,7 @@ export default async function ManagementPage() {
           <p className="overline">YÖNETİM PANELİ</p>
           <h1>Bu hesap için yönetim yetkisi yok.</h1>
           <p>{user.email} hesabıyla oturum açıldı. Site sahibi hesabıyla yeniden giriş yapın.</p>
-          <a className="cta" href="/signout-with-chatgpt?return_to=/yonetim" target="_top">
+          <a className="cta" href="/api/auth/logout?return_to=/yonetim" target="_top">
             Başka hesapla giriş yap <LogOut size={17} />
           </a>
         </section>

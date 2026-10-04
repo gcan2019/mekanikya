@@ -4,6 +4,73 @@ export type InquiryProduct = {id:string;href:string;title:string;category:string
 export const additionalProducts:InquiryProduct[] = [
 ...factoryProducts,
 {
+  "id": "motorlu-boru-dondurme-sehpasi",
+  "title": "Motorlu boru ve silindir döndürme sehpası (Kaynak çevirici)",
+  "category": "Mekanik hareket ve kaynak pozisyonerleri",
+  "description": "Boru, tank ve silindirik parçaları dairesel kaynak, kesim ve taşlama sırasında istenen devirde döndürmek için motorlu çevirici sehpa. Ayak pedallı hız ayarı, ayarlanabilir rulo eksen mesafesi ve parça tonajına göre teklif alın.",
+  "details": [
+    "Ayarlanabilir rulo aralığı (farklı boru çapları)",
+    "Ayak pedallı hız ayarı (eller serbest kaynak)",
+    "Poliüretan kaplı çizilmez veya çelik rulo seçeneği"
+  ],
+  "uses": [
+    "Boru alın kaynağı (TIG / MIG / Gazaltı)",
+    "Silindirik tank ve flanş kaynak işlemleri",
+    "Dairesel kesim, taşlama, markalama ve kaplama"
+  ],
+  "checks": [
+    {
+      "title": "Boru çapı ve boyu",
+      "text": "Döndürülecek boru veya tankın minimum/maksimum dış çapını ve boyunu belirtin. Rulo eksen aralığı ve şasi genişliği parçanın dengede kalması için buna göre ayarlanır."
+    },
+    {
+      "title": "Ağırlık ve motor torku",
+      "text": "İş parçasının toplam ağırlığını ve varsa flanş/dirsek gibi eksantrik (dengesiz) yük durumunu paylaşın. Redüktörlü motor gücü ve tork aktarımı buna göre hesaplanır."
+    },
+    {
+      "title": "Hız kontrolü ve kumanda",
+      "text": "Kaynağa uygun dönüş hızı aralığını ve ayak pedalı, ileri/geri yön şalteri ya da masaüstü potansiyometre kontrol ihtiyacınızı belirtin."
+    }
+  ],
+  "fields": [
+    {
+      "id": "pipeDiameter",
+      "label": "Boru / silindir dış çapı",
+      "kind": "text",
+      "hint": "Örn. Ø50 mm - Ø500 mm"
+    },
+    {
+      "id": "maxWeight",
+      "label": "Maksimum parça ağırlığı",
+      "kind": "number",
+      "unit": "kg",
+      "hint": "Döndürülecek iş parçasının ağırlığı"
+    },
+    {
+      "id": "pipeLength",
+      "label": "İş parçası boyu ve set düzeni",
+      "kind": "text",
+      "hint": "Tek tahrikli ünite mi, avara destek sehpalı takım mı?"
+    },
+    {
+      "id": "rollerType",
+      "label": "Rulo kaplama tercihi",
+      "kind": "text",
+      "hint": "Poliüretan kaplı (çizilmez/tutucu) veya tırtıllı çelik"
+    },
+    {
+      "id": "speedControl",
+      "label": "Hız ve kumanda ihtiyacı",
+      "kind": "text",
+      "hint": "Ayak pedallı hız ayarı, çift yön vb."
+    }
+  ],
+  "note": "Making Things Move tork ve sürtünme hesaplarıyla boyutlandırılır; tahrikli ana ünite tek başına veya avara (motorsuz) destek sehpasıyla eşleştirilebilir.",
+  "source": "https://kistler-machine.com/en/products/welding-turntables-rotators/",
+  "href": "/motorlu-boru-dondurme-sehpasi",
+  "status": "inactive"
+},
+{
   "id": "sac-levha-tasima-arabasi",
   "title": "Sac, levha, cam ve panel taşıma arabaları",
   "category": "Atölye taşıma ekipmanları",
@@ -643,7 +710,7 @@ export const additionalProducts:InquiryProduct[] = [
   ],
   "note": "Gövde, tekerlek ve temas yüzeyi kullanım koşullarına göre netleştirilir.",
   "source": "https://www.permak.com.tr/urunler/camasirhane-yardimci-ekipmanlari/permak-utp275-tekstil-tasima-arabasi",
-  "status": "active"
+  "status": "inactive"
 },
 {
   "id": "forklift-catal-uzatma",
@@ -795,6 +862,71 @@ export const additionalProducts:InquiryProduct[] = [
   ],
   "note": "Depolama kafesi otomatik olarak kaldırma ekipmanı sayılmaz. Kaldırma talebi varsa bağlantılar, yük ve uygunluk ayrıca değerlendirilir.",
   "source": "https://emapro-metal.com/products",
+  "status": "active"
+},
+{
+  "id": "microtrac-mini-bahce-traktoru",
+  "title": "MicroTrac Mini Bahçe, Sera ve Kompakt Tarım Traktörü",
+  "category": "Tarım, bahçe ve sera mekanizasyonu",
+  "description": "Dar sera sıraları, meyve bahçeleri ve fidanlıklar için 105 cm genişliğinde açık kaynaklı kompakt tarım traktörü. Modüler 16-24 HP hidrolik güç ünitesi (Power Cube), 450 kg ön yükleyici bom, Bobcat tipi hızlı ataşman sistemi ve paletli yürüyüş. Anahtar teslim veya kaynak kiti (DIY) seçenekleriyle teklif alın.",
+  "details": [
+    "105 cm kompakt genişlik (Dar sera kapıları ve bağ/meyve aralarına tam uyum)",
+    "Bağımsız sol/sağ hidrolik kumanda (Sıfır yarıçapla kendi etrafında 360° dönüş)",
+    "Düşük zemin basıncı (Paletli yürüyüş ile toprağı sıkıştırmaz, batmaz)",
+    "Bobcat mini hızlı ataşman standardı (Kova, fidan burgusu, toprak frezesi 60 sn'de değişim)",
+    "16–24 HP modüler Power Cube hidrolik güç paketi (Tak-çıkar motor)",
+    "Anahtar teslim veya atölye kaynak kiti (DIY) teslim seçeneği"
+  ],
+  "uses": [
+    "Örtü altı seracılık ve fide/sebze üretim alanları",
+    "Meyve bahçeleri (Ceviz, zeytin, fındık, bağ vb.) sıra arası bakım",
+    "Fidan dikimi, tel çit ve bağ direği çukuru açma (Hidrolik burgu ile)",
+    "Toprak işleme, çapalama ve kompost/gübre taşıma-yükleme",
+    "Çiftlik içi malzeme, balya ve meyve kasası taşıma (Palet çatalı ile)"
+  ],
+  "checks": [
+    {
+      "title": "Kullanım alanı ve geçiş genişliği",
+      "text": "Traktörün çalışacağı seranın kapı genişliğini, ağaç sıra arasını veya arazinin eğim ve zemin yapısını (balçık, taşlık, engebeli vb.) belirtin."
+    },
+    {
+      "title": "İhtiyaç duyulan ataşmanlar",
+      "text": "Standart ön yükleme kovası haricinde hidrolik fidan burgusu, toprak frezesi (çapa), palet çatalı veya budama makası ihtiyacınızı bildirin."
+    },
+    {
+      "title": "Güç ve teslimat formatı",
+      "text": "16-18 HP benzinli veya dizel motor tercihinizi ve komple çalışır anahtar teslim mi yoksa kendi atölyenizde toplayabileceğiniz lazer kesim kaynak kiti mi istediğinizi seçin."
+    }
+  ],
+  "fields": [
+    {
+      "id": "deliveryType",
+      "label": "Teslimat şekli tercihi",
+      "kind": "text",
+      "hint": "Anahtar teslim (çalışır halde) veya Kendin Kaynat şasi kiti"
+    },
+    {
+      "id": "powerOption",
+      "label": "Motor / Güç tercihi",
+      "kind": "text",
+      "hint": "16-18 HP Benzinli / 22 HP Kohler / Dizel / Motorsuz şasi"
+    },
+    {
+      "id": "requiredAttachments",
+      "label": "Talep edilen ataşmanlar",
+      "kind": "text",
+      "hint": "Ön kova, hidrolik fidan burgusu, çapa, forklift çatalı vb."
+    },
+    {
+      "id": "terrainDetails",
+      "label": "Arazi ve sera özellikleri",
+      "kind": "text",
+      "hint": "Örn: 20 dönüm ceviz bahçesi, 3 metre sıra arası, eğimli"
+    }
+  ],
+  "note": "Open Source Ecology (OSE) lisanslı açık kaynak donanım tasarımıdır. Tüm rulman, hidrolik ve mekanik aksamları Türkiye sanayisinde standart raf ürünü olarak temin edilebilir yedek parça garantilidir.",
+  "source": "https://wiki.opensourceecology.org/wiki/MicroTrac_v17.10",
+  "href": "/microtrac-mini-bahce-traktoru",
   "status": "active"
 }
 ];

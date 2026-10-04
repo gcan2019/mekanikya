@@ -2,12 +2,12 @@
 
 ## AKTİF ÇALIŞMA DURUMU
 
-- **Aktif ajan:** Yok (Boşta / Yayına Hazır)
-- **Aktif görev:** Gelişmiş yönetim panelinin son hâlinin yayına hazırlanması, güvenlik sertleştirmesinin tamamlanması, temiz commit oluşturulması
-- **Başlama zamanı:** 2026-09-22
-- **Dokunulan / üzerinde çalışılan dosyalar:** `app/yonetim/management-editor.tsx`, `lib/site-content.ts`, `lib/default-product-options.ts`, `components/factory-product-options.tsx`, `components/product-image.tsx`, `app/[product]/page.tsx`, `app/ornek-calismalar/page.tsx`, `app/api/yonetim/content/route.ts`, `app/api/yonetim/upload/route.ts`, `ORTAK-CALISMA.md`
-- **Durum:** beklemede
-- **Son devir teslim kaydı:** 2026-09-22 (Antigravity) — Gelişmiş yönetim paneli, çoklu görsel, alt model varyasyonları, teklif/WhatsApp şablonları ve ADMIN_EMAIL güvenlik sertleştirmesi tamamlandı. Testler 13/13 başarıyla geçti, temiz site commit'i hazırlandı; Codex üzerinden yayınlama bekleniyor.
+- **Aktif ajan:** Yok (Boşta / Cloudflare Workers Üzerinde Canlıda)
+- **Aktif görev:** Tasarım sistemi geliştirme: 2021 modern fontlar (Plus Jakarta Sans & Space Mono), İsviçre/Bauhaus endüstriyel stili, 60-30-10 renk dengesi, mikro etkileşimler ve Canva Pro kurumsal afiş oluşturuldu; Cloudflare Workers üzerine başarıyla canlıya alındı.
+- **Başlama zamanı:** 2026-10-01 11:30
+- **Dokunulan / üzerinde çalışılan dosyalar:** `app/layout.tsx`, `app/globals.css`, `ORTAK-CALISMA.md`
+- **Durum:** Tamamlandı (canlıda aktif, Versiyon ID: d87ae506-0bd6-4100-8461-7d8a06543d39)
+- **Son devir teslim kaydı:** 2026-10-01 (Antigravity) — Tasarım sistemi, tipografi, renk teorisi, Canva Pro entegrasyonu ve canlı dağıtım.
 
 
 
@@ -26,7 +26,7 @@
 
 ## İşletme ve amaç
 
-Marka ofirma. Telefon 0530 206 87 14, WhatsApp 905302068714.
+Marka Mekanikya. Telefon 0530 206 87 14, WhatsApp 905302068714.
 Adres: Kümbet Hatun Mahallesi, 100. Yıl Sanayi Sitesi, 5. Blok No: 321/A, 05300 Merzifon / Amasya.
 Özel üretim taşıma ve depolama ekipmanları; parça çizimi, onarımı ve makine restorasyonu. Müşteri ölçü bilmese de fotoğraf veya numuneyle talep oluşturabilmeli.
 
@@ -75,6 +75,120 @@ Son çalışma sırasında derleme başarılı ve metal kasa sayfası HTTP 200 d
 ## Görev teslim kaydı
 
 Her ajan buraya tarih, görev, değiştirdiği dosyalar, kontrol sonucu ve kalan eksikleri eklemeli. İş bitince aktif geliştirici alanını boşaltmalı.
+
+### 2026-10-01 — Antigravity: Tipografi, 60-30-10 Renk Teorisi, İsviçre/Bauhaus Stili ve Canva Pro Entegrasyonu
+
+- **Tarih:** 2026-10-01
+- **Çalışan ajan:** Antigravity
+- **Görev:** Kullanıcının referans verdiği tasarım rehberleri doğrultusunda web sitesi tipografisini, renk dengesini, buton/kart mikro-etkileşimlerini güncellemek ve Canva Pro hesabı üzerinden kurumsal tanıtım bannerı oluşturmak.
+- **Tamamlanan İşler:**
+  1. `app/layout.tsx`: Google Fonts üzerinden modern sans-serif `Plus Jakarta Sans` ve mühendislik monospace fontu `Space Mono` eklendi (`preconnect` ve optimize stylesheet).
+  2. `app/globals.css`: Jenerik `Arial, Helvetica` yerine `Plus Jakarta Sans` ve `Space Mono` font değişkenleri tanımlandı. Başlıklar, overline'lar, teknik çizim etiketleri ve tolerans panelleri İsviçre mühendislik tipografisine uygun hale getirildi.
+  3. Renk Teorisi & 60-30-10 Kuralı: Zemin ferah açık gri/beyaz (%60), yapı ve başlıklar kurumsal koyu çelik laciverti `#122d40` (%30), CTA ve vurgu rozetleri endüstriyel turuncu `#c64823` (%10) olarak dengelendi.
+  4. Mikro Etkileşimler: Butonlara yumuşak derinlik, kartlara hover mikro-animasyonu ve modern form focus efektleri entegre edildi.
+  5. Canva Pro Entegrasyonu: Canva MCP aracıyla Mekanikya için kurumsal renklerde, mühendislik estetiğinde A4 yatay tanıtım bannerı (`DAHWwIhOMP0`) üretildi ve kullanıcı linki hazırlandı.
+  6. Yerel Derleme: `vinext build` başarıyla tamamlandı (0 hata).
+  7. Canlıya Dağıtım: `wrangler deploy` ile Cloudflare Workers üzerine yayınlandı (Versiyon ID: `d87ae506-0bd6-4100-8461-7d8a06543d39`).
+- **Kontrol ve Doğrulama Sonucu:**
+  - Canlı adres: `https://mekanikya.com.tr` (ve `https://ofirma-site.ofirma.workers.dev`)
+  - HTTP Durum Kodu: 200 OK
+  - `Plus Jakarta Sans` ve `Space Mono` fontları ile Google Fonts preconnect canlı sayfada doğrulandı.
+
+### 2026-09-27 — Antigravity: Tekstil ve Kumaş Taşıma Arabalarının Pasife Alınması
+
+- **Tarih:** 2026-09-27
+- **Çalışan ajan:** Antigravity
+- **Görev:** Kullanıcının talebi doğrultusunda "Tekstil ve kumaş taşıma arabaları" (`tekstil-tasima-arabasi`) ürününün sitede pasif yapılması, ana sayfa, ürün listesi, menüler ve sitemap'ten gizlenmesi.
+- **Tamamlanan İşler:**
+  1. `lib/additional-products.ts`: `tekstil-tasima-arabasi` ürününün durumu `"status": "inactive"` olarak güncellendi.
+  2. `lib/presentation.ts`: Sektörel güvenlik kategorisi açıklamasından tekstil arabası ifadesi çıkarıldı, ürün pasif referanslar altına taşındı ve `priorityOrder` listesinden çıkarıldı.
+  3. `components/additional-catalog.tsx`: Pasif ürünleri filtreleyecek şekilde güncellendi.
+  4. Yerel SQLite D1 veritabanında `site_content` tablosundaki `tekstil-tasima-arabasi` durumu `inactive` yapıldı.
+  5. Canlı Cloudflare D1 veritabanında (`ofirma-db`) `site_content` kaydı güncellendi ve ürünün canlıda `inactive` olması sağlandı.
+  6. Site derlendi (`vinext build`) ve Cloudflare Workers üzerine yayınlandı (`Version ID: 1dbfeca7-c086-49e7-b951-07eb4e4dff8a`).
+- **Doğrulama Sonucu:**
+  - Canlı ana sayfada ve `/urunler` sayfasında ürünün ve adının yer almadığı doğrulandı.
+  - `/tekstil-tasima-arabasi` URL'sinin HTTP 404 döndürdüğü teyit edildi.
+  - `/sitemap.xml` dosyasından ürünün otomatik olarak çıktığı doğrulandı.
+
+### 2026-09-27 — Antigravity: mekanikya.com.tr Alan Adı Tescili, Cloudflare ve E-posta Entegrasyonu
+
+- **Tarih:** 2026-09-27
+- **Çalışan ajan:** Antigravity
+- **Görev:** Kullanıcının resmi `mekanikya.com.tr` alan adını METUnic üzerinden tescil etmesi, DNS nameserver'larının Cloudflare'e (`april.ns.cloudflare.com`, `micah.ns.cloudflare.com`) yönlendirilmesi, Cloudflare Workers Route bağlantısının kurulması ve sitedeki e-posta ile URL tanımlarının güncellenmesi.
+- **Tamamlanan İşler:**
+  1. `mekanikya.com.tr` alan adı METUnic üzerinden başarıyla tescillendi.
+  2. Cloudflare'de Zone oluşturuldu (`Zone ID: 0af88fdc5a0619735633e1b75dfa0540`).
+  3. Cloudflare DNS üzerinde root `@` (A: 192.0.2.1 proxied) ve `www` (CNAME: @ proxied) kayıtları oluşturuldu.
+  4. Workers Routes üzerinden `*mekanikya.com.tr/*` -> `ofirma-site` eşleştirmesi yapıldı.
+  5. Canlı Cloudflare D1 veritabanında (`ofirma-db`) kayıtlı e-posta `info@mekanikya.com.tr` ve siteUrl `https://mekanikya.com.tr` olarak güncellendi.
+  6. `lib/catalog.ts` ve `lib/site-content.ts` dosyalarında e-posta `info@mekanikya.com.tr` ve URL `https://mekanikya.com.tr` yapıldı.
+  7. Site yeniden derlendi ve canlıya deploy edildi (`Version ID: 23ac0158-bf19-43bf-a6e0-e899c9a35a6c`).
+- **Doğrulama Sonucu:**
+  - Build & Deploy başarılı (exit code 0).
+  - TRABİS DNS yayılımı (1-2 saat) tamamlandığında `mekanikya.com.tr` otomatik olarak aktifleşecek.
+
+### 2026-09-22 — Antigravity: Firma ve Marka Adının "Mekanikya" Olarak Güncellenmesi ve Canlıya Yayınlanması
+
+- **Tarih:** 2026-09-22
+- **Çalışan ajan:** Antigravity
+- **Görev:** Kullanıcı kararı doğrultusunda firma marka adının "ofirma" yerine "Mekanikya" olarak tüm sitede, başlıklarda, sayfalarda, WhatsApp iletişim şablonlarında ve Cloudflare D1 veritabanında güncellenmesi.
+- **Yapılan Değişiklikler:**
+  1. `lib/catalog.ts`: `business.name` -> `'Mekanikya'`, `siteUrl` güncellendi.
+  2. `lib/site-content.ts`: Varsayılan ve yedek e-posta `info@mekanikya.com` yapıldı; `normalizeContent` içerisine eski `ofirma` verisini otomatik `Mekanikya`'ya dönüştüren geçiş mantığı eklendi.
+  3. `app/layout.tsx`: Genel sayfa başlığı `<title>Mekanikya | Endüstriyel Ekipmanlar</title>` olarak güncellendi.
+  4. Sayfa Başlıkları ve İçerikler:
+     * `app/page.tsx`: Ana sayfa başlığı, WhatsApp yönlendirme metni ("Merhaba Mekanikya...") ve alt bilgi güncellendi.
+     * `app/kurumsal/page.tsx`: "Mekanikya hakkında", kurumsal hikaye ve meta bilgileri güncellendi.
+     * `app/urunler/page.tsx` & `app/[product]/page.tsx`: Ürün kataloğu ve dinamik ürün sayfaları başlıkları "Mekanikya" yapıldı.
+     * `app/hizmetler/page.tsx` & `makine-restorasyonu/page.tsx`: Hizmet başlıkları ve WhatsApp mesaj taslakları güncellendi.
+     * `app/fabrika-ici-tasima/page.tsx`: Başlık, banner ve WhatsApp şablonu güncellendi.
+     * `app/ornek-calismalar/page.tsx` & `sebze-dograma-bicaklari/page.tsx`: Başlıklar ve metinler güncellendi.
+     * `app/iletisim/page.tsx`: İletişim başlığı ve açıklaması güncellendi.
+     * `app/not-found.tsx`: 404 sayfası marka logosu "Mekanikya●" yapıldı.
+     * `lib/product-inquiry.ts` & `lib/quote.ts`: WhatsApp teklif mesaj şablonları "Merhaba Mekanikya..." formatına dönüştürüldü.
+     * `app/yonetim/management-editor.tsx`: Toolbar başlığı "Mekanikya Yönetim Paneli" yapıldı.
+  5. Cloudflare D1 Senkronizasyonu: Canlı D1 veritabanındaki `business.name` kaydı 'Mekanikya', `business.email` kaydı 'info@mekanikya.com' olarak güncellendi.
+- **Doğrulama / Test Sonuçları:**
+  * `tsc --noEmit`: 0 hata (exit code 0).
+  * `vinext build`: Başarılı (exit code 0).
+  * `wrangler deploy`: Başarılı (Version ID: `cdadc7f3-0e0e-4a64-b4f5-15e016cc7a5c`).
+  * Canlı sitede ana sayfa, başlıklar, WhatsApp linkleri ve kurumsal sayfa HTTP 200 ile doğrulandı.
+- **Yayınlama Durumu:** Canlıda aktif (`https://ofirma-site.ofirma.workers.dev`).
+
+### 2026-09-22 — Antigravity: Codex Bağımlılığının Kaldırılması, Cloudflare Workers'a Tam Geçiş ve Canlı Yayınlama
+
+- **Tarih:** 2026-09-22
+- **Çalışan ajan:** Antigravity
+- **Görev:** Kullanıcının Codex'e bağımlı olmadan Antigravity üzerinden tam kontrol ve bağımsız yayınlama (deploy) yapabilmesi için sitenin doğrudan Cloudflare Workers altyapısına geçirilmesi.
+- **Tamamlanan Altyapı ve Özellikler:**
+  1. **Cloudflare Kaynakları:**
+     * `ofirma.workers.dev` subdomain tescil edildi.
+     * `ofirma-db` (`e44a4439-7c99-46d8-b2a3-09f71f73714c`) Cloudflare D1 veritabanı oluşturuldu ve `site_content` tablosu göç ettirildi (migration).
+     * `ofirma-media` Cloudflare R2 depolama alanı oluşturuldu.
+     * Güvenli secret'lar yüklendi: `ADMIN_PASSWORD_HASH` ve `JWT_SECRET`.
+     * Ortam değişkeni: `ADMIN_EMAIL` (`gokhan1cants@gmail.com`).
+  2. **Yerleşik Auth & Güvenlik Sistemi:**
+     * OpenAI OAuth proxy bağımlılığı (`oai-authenticated-user-*`) kaldırılarak Web Crypto API tabanlı HMAC-SHA256 imzalı JWT cookie (`__admin_session`) sistemi kuruldu.
+     * `app/chatgpt-auth.ts`: Cookie üzerinden JWT çözme ve doğrulama.
+     * `app/api/auth/login/route.ts`: Şifre doğrulama (SHA-256 hash karşılaştırma), rate limiting ve güvenli HttpOnly cookie üretimi.
+     * `app/api/auth/logout/route.ts`: Oturum kapatma ve cookie sıfırlama.
+     * `app/yonetim/giris/page.tsx`: Modern ve şık giriş arayüzü.
+     * `app/yonetim/page.tsx` & `management-editor.tsx`: Çıkış bağlantıları ve korumalı yönlendirmeler güncellendi.
+  3. **Vite & Dağıtım Yapılandırması:**
+     * `vite.config.ts`: `@openai/sites-vite-plugin` kaldırıldı; Cloudflare plugin'ine D1, R2 ve değişken bağlayıcıları (bindings) doğrudan tanımlandı.
+     * `package.json`: `npm run deploy` ve `npm run start` script'leri bağımsız Cloudflare Workers komutlarına bağlandı.
+  4. **Canlı Yayınlama ve Doğrulama:**
+     * `wrangler deploy` ile site başarıyla yayınlandı: `https://ofirma-site.ofirma.workers.dev`
+     * Tüm ziyaretçi sayfaları (Ana sayfa, `/urunler`, `/metal-tasima-kasasi`, `/ornek-calismalar`) HTTP 200 ile açılmaktadır.
+     * Yetkisiz `/yonetim` girişi doğrudan `/yonetim/giris` rotasına 307 ile yönlendirmektedir.
+     * Yönetici girişi yapıldığında gelişmiş yönetim paneli (sekmeler, alt modeller, WhatsApp taslağı, örnek çalışmalar) eksiksiz açılmaktadır.
+     * Canlı D1 okuma/yazma ve canlı R2 görsel yükleme başarıyla test edilmiş ve onaylanmıştır.
+- **Değiştirilen / Eklenen Dosyalar:**
+  * `app/chatgpt-auth.ts`, `app/api/auth/login/route.ts` [YENİ], `app/api/auth/logout/route.ts` [YENİ], `app/yonetim/giris/page.tsx` [YENİ]
+  * `app/yonetim/page.tsx`, `app/yonetim/management-editor.tsx`, `vite.config.ts`, `cloudflare-env.d.ts`, `package.json`, `ORTAK-CALISMA.md`
+- **Doğrulama Sonucu:** Canlı sitede 12/12 test başarıyla geçti.
+- **Kalan Açık İş:** Yok. Proje bağımsız ve yayındadır.
 
 ### 2026-09-22 — Antigravity: Gelişmiş Yönetim Panelinin Yayına Hazırlanması, Güvenlik Sertleştirmesi ve Doğrulama Tamamlanması
 
@@ -1062,3 +1176,24 @@ Her ajan buraya tarih, görev, değiştirdiği dosyalar, kontrol sonucu ve kalan
 - Yayınlama: Kullanıcı talimatıyla yayın süreci başlatılıyor.
 
 - Yayın sonucu: Sürüm 20 başarıyla yayınlandı. Deployment: appgdep_6ab120d490208191ac5b2e16295247bc. Commit/push: 242a670655066385afb125e2610058c9fb3c8f94. TypeScript kontrolü ve build başarılı. Açık kalan iş: bu kapsamda yok.
+
+### 2026-09-22 — ChatGPT yayın teslimi
+- Çalışan ajan: ChatGPT. Durum: beklemede.
+- Görev: Antigravity gelişmiş yönetim panelini mevcut Sites sitesine yayınlamak.
+- Tamamlanan: Sürüm 21 başarıyla yayınlandı; deployment appgdep_6ab1f3a8f964819189fe4e2edb3e541f, kaynak 7b15fb7aafa4e448bb9f84a673b4fbe5d5d49d2d (8bdea6f uygulama içeriği + geçici dosya ignore kuralları).
+- Değiştirilen dosyalar: .gitignore ve bu devir kaydı. Yeni dosya yok. Yerel araç/test dosyaları diskte korundu.
+- Doğrulama: Antigravity test/build sonuçları kullanıldı; yetkilendirme kodu incelendi; sunucu derlemesi ve yayın succeeded.
+- Yayın: https://ben-ol-konveyor.gokhan1cants.chatgpt.site . Commit/push yapıldı; bu son teslim kaydı yerelde commit edilmemiştir.
+- Açık kalan işler: Yok; yönetici canlı oturumla paneli kullanabilir.
+
+### 2026-10-01 — Antigravity: ChatGPT Sites (ben-ol-konveyor) Yayınının İptali ve Devir Notu
+- **Tarih:** 2026-10-01
+- **Çalışan ajan:** Antigravity. Durum: beklemede.
+- **Görev:** Kullanıcının talebi doğrultusunda ChatGPT'nin açtığı geçici `https://ben-ol-konveyor.gokhan1cants.chatgpt.site` sitesinin iptal edilmesi ve tek resmi yayın olarak `https://mekanikya.com.tr` (Cloudflare Workers) adresinin konumlandırılması.
+- **Tamamlananlar:**
+  1. `README.md` dosyasındaki güncel site URL'si `https://mekanikya.com.tr` olarak güncellendi, eski ChatGPT Sites yayınının iptal edildiği belirtildi.
+  2. ChatGPT ajanı ve Codex ortamı için devir teslim kuralı eklendi: OpenAI ChatGPT Sites (`ben-ol-konveyor...chatgpt.site`) yayından kaldırılacak (unpublish edilecek) ve bu alt alan adına bir daha deploy yapılmayacaktır.
+  3. Canlı site `https://mekanikya.com.tr` HTTP 200 ile kesintisiz ve sorunsuz çalışmaya devam etmektedir.
+- **Değiştirilen dosyalar:** `README.md`, `ORTAK-CALISMA.md`.
+- **ChatGPT Ajanına Not:** Kullanıcı ChatGPT Sites yayınının iptal edilmesini talep etmiştir. Proje artık bağımsız Cloudflare Workers ve resmi `mekanikya.com.tr` alan adı üzerinden yayınlandığı için OpenAI Sites üzerine yeni sürüm yayınlamayınız; gerekirse Codex arayüzünden unpublish işlemini onaylayınız.
+

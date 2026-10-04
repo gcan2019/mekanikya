@@ -18,7 +18,7 @@ export function quoteMessage(data: FormData, material: string): string {
   for (const key of ['application','reference']) if (value(key).length > 200) throw new Error('Ürün ve referans bilgileri en fazla 200 karakter olabilir.');
   for (const key of ['pitch','speed']) if (value(key) && (!Number.isFinite(Number(value(key))) || Number(value(key)) < 0.01 || Number(value(key)) > 100000)) throw new Error('Rulo aralığı ve hat hızı pozitif ve geçerli sayılar olmalıdır.');
   if (value('notes').length > 1500) throw new Error('Notlar en fazla 1500 karakter olabilir.');
-  return ['Merhaba ofirma, konveyör rulosu için teklif almak istiyorum.', 'Ad / Firma: '+value('name'), 'Adet: '+quantity,
+  return ['Merhaba Mekanikya, konveyör rulosu için teklif almak istiyorum.', 'Ad / Firma: '+value('name'), 'Adet: '+quantity,
     ...dimensions.filter(([key])=>value(key)).map(([key,label])=>label+': '+value(key)+' mm'), 'Malzeme tercihi: '+material,
     ...(value('rollerType')?['Mevcut rulo tipi: '+value('rollerType')]:[]),
     ...(value('shaftEnd')?['Mevcut mil ucu: '+value('shaftEnd')]:[]),

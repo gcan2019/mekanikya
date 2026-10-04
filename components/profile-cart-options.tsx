@@ -14,7 +14,7 @@ export default function ProfileCartOptions(){return <>
     <div className="profile-cart-grid">{options.map(([title,tag,description,details])=>{
       const image = factoryOptionImages[title];
       return <article className="profile-cart-card" key={title}>
-        {image && <figure className="profile-cart-image factory-option-photo"><img src={image.src} alt={image.alt} width={600} height={450} loading="lazy"/><figcaption>MISUMI kataloğundan örnek ürün düzeni</figcaption></figure>}
+        {image && <figure className="profile-cart-image factory-option-photo"><img src={image.src} alt={image.alt} width={600} height={450} loading="lazy"/><figcaption>Mekanikya örnek ürün düzeni</figcaption></figure>}
         <div className="profile-cart-copy"><p className="overline">{tag}</p><h3>{title}</h3><p>{description}</p><p className="profile-cart-detail">{details}</p><a className="text-link" href="#teklif">Bu düzen için teklif iste <ArrowUpRight size={17}/></a></div>
       </article>;
     })}</div>

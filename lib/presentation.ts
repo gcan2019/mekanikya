@@ -15,7 +15,12 @@ export const categories = [
   {
     id: 'sektorel-guvenlik',
     title: 'Sektörel ve iş güvenliği taşıma çözümleri',
-    description: 'Tekstil ve kumaş taşıma arabaları, tüp taşıma arabaları ve sabit depolama kafesleri.',
+    description: 'Tüp taşıma arabaları ve sabit depolama kafesleri.',
+  },
+  {
+    id: 'tarim-makineleri',
+    title: 'Tarım, sera ve açık kaynak bahçe mekanizasyonu',
+    description: 'MicroTrac mini bahçe traktörleri, hidrolik fidan burguları ve toprak işleme ataşmanları.',
   },
 ];
 
@@ -26,9 +31,11 @@ const groups: Record<string, string> = {
   'sac-levha-tasima-arabasi': 'fabrika-tasima',
   'abkant-kalip-arabasi': 'kalip-atolye',
   'rulolu-destek-sehpasi': 'kalip-atolye',
-  'tekstil-tasima-arabasi': 'sektorel-guvenlik',
+  'motorlu-boru-dondurme-sehpasi': 'kalip-atolye',
   'tup-tasima-kafesi': 'sektorel-guvenlik',
+  'microtrac-mini-bahce-traktoru': 'tarim-makineleri',
   // İkincil / pasif ürünlerin grup referansları
+  'tekstil-tasima-arabasi': 'sektorel-guvenlik',
   'konveyor-rulosu': 'kalip-atolye',
   'parca-yikama-sepeti': 'kalip-atolye',
   'sac-stoklama-rafi': 'kalip-atolye',
@@ -38,16 +45,7 @@ const groups: Record<string, string> = {
   'fileli-palet-kasasi': 'fabrika-tasima',
 };
 
-export const priorityOrder = [
-  'talas-hurda-arabasi',
-  'metal-tasima-kasasi',
-  'profil-tasima-arabasi',
-  'sac-levha-tasima-arabasi',
-  'abkant-kalip-arabasi',
-  'tekstil-tasima-arabasi',
-  'rulolu-destek-sehpasi',
-  'tup-tasima-kafesi',
-];
+export const priorityOrder: string[] = [];
 
 const allItems = [...products, ...additionalProducts];
 

@@ -5,8 +5,8 @@ import { getCaseStudies } from '@/lib/site-content';
 
 export const metadata: Metadata = {
   alternates: { canonical: business.siteUrl + '/ornek-calismalar' },
-  title: 'Örnek Çalışmalar | ofirma',
-  description: 'ofirma makine restorasyonu, özel parça yenileme ve mühendislik uygulamalarından gerçek örnekler.',
+  title: 'Örnek Çalışmalar | Mekanikya',
+  description: 'Mekanikya makine restorasyonu, özel parça yenileme ve mühendislik uygulamalarından gerçek örnekler.',
 };
 
 export default async function CaseStudies() {
@@ -15,7 +15,7 @@ export default async function CaseStudies() {
     <main id="main">
       <section className="page-banner">
         <div className="wrap">
-          <p className="overline">OFİRMA / ÖRNEK ÇALIŞMALAR</p>
+          <p className="overline">MEKANİKYA / ÖRNEK ÇALIŞMALAR</p>
           <h1>Gerçek makineler, gerçek çözümler.</h1>
           <p>Numune, arıza veya yenileme ihtiyacından başlayıp uygulamaya dönüşen çalışmalarımız.</p>
         </div>

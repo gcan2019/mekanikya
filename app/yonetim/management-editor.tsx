@@ -206,7 +206,7 @@ export default function ManagementEditor({ initialContent, userName }: Props) {
         <div>
           <span className="management-mark">M</span>
           <div>
-            <strong>Mekanikya / ofirma Yönetim Paneli</strong>
+            <strong>Mekanikya Yönetim Paneli</strong>
             <small>Giriş Yapan: {userName} {dirty && <span style={{ color: '#ffb396', fontWeight: 700 }}>• Kaydedilmemiş Değişiklikler Var</span>}</small>
           </div>
         </div>
@@ -214,7 +214,7 @@ export default function ManagementEditor({ initialContent, userName }: Props) {
           <a href="/" target="_blank" rel="noreferrer">
             <Eye size={17} /> Siteyi Gör
           </a>
-          <a href="/signout-with-chatgpt?return_to=/" target="_top">
+          <a href="/api/auth/logout" target="_top">
             <LogOut size={17} /> Çıkış
           </a>
           <button type="button" onClick={save} disabled={saveState === 'saving'}>
@@ -1074,7 +1074,7 @@ function ProductFieldsTab({ product, onChange }: { product: EditableProduct; onC
           📱 WhatsApp Mesaj Taslağı Canlı Önizlemesi
         </h4>
         <pre style={{ margin: 0, padding: '12px', background: '#1e293b', color: '#e2e8f0', borderRadius: '4px', fontSize: '12px', whiteSpace: 'pre-wrap', lineHeight: 1.6, fontFamily: 'monospace' }}>
-{`Merhaba ofirma, ${product.title.toLocaleLowerCase('tr-TR')} için teklif almak istiyorum.
+{`Merhaba Mekanikya, ${product.title.toLocaleLowerCase('tr-TR')} için teklif almak istiyorum.
 Ad / Firma: Örnek Sanayi Ltd.
 Talep edilen ürün adedi: 5
 ${fields.map((f) => `${f.label}: [Müşterinin Girdiği Değer]${f.unit ? ' ' + f.unit : ''}`).join('\n')}
@@ -1755,7 +1755,7 @@ function BusinessSettingsForm({
         </Field>
 
         <Field label="İletişim E-Posta Adresi">
-          <input value={business.email ?? 'info@ofirma.com'} onChange={(e) => set('email', e.target.value)} />
+          <input value={business.email ?? 'info@mekanikya.com'} onChange={(e) => set('email', e.target.value)} />
         </Field>
 
         <Field label="Telefonda Görünen Numara" hint="Ziyaretçinin sitede okuyacağı format">

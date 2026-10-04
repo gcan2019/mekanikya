@@ -5,7 +5,7 @@ export function productInquiryMessage(product:InquiryProduct, data:FormData):str
   if(!value('customer') || value('customer').length>120) throw new Error('Ad veya firma adınızı girin.');
   const quantity=Number(value('quantity'));
   if(!Number.isInteger(quantity) || quantity<1 || quantity>1000000) throw new Error('Ürün adedini pozitif bir tam sayı olarak girin.');
-  const lines=['Merhaba ofirma, '+product.title.toLocaleLowerCase('tr-TR')+' için teklif almak istiyorum.','Ad / Firma: '+value('customer'),'Talep edilen ürün adedi: '+quantity];
+  const lines=['Merhaba Mekanikya, '+product.title.toLocaleLowerCase('tr-TR')+' için teklif almak istiyorum.','Ad / Firma: '+value('customer'),'Talep edilen ürün adedi: '+quantity];
   for(const field of product.fields){
     const input=value(field.id);
     if(!input) continue;

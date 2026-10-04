@@ -18,7 +18,7 @@ import ProductCards from '@/components/product-cards';
 import ProductImage from '@/components/product-image';
 
 export const metadata: Metadata = {
-  title: 'ofirma | Fabrika İçi Taşıma Ekipmanları ve Makine Restorasyonu (Merzifon)',
+  title: 'Mekanikya | Fabrika İçi Taşıma Ekipmanları ve Makine Restorasyonu (Merzifon)',
   description:
     'Merzifon merkezli imalat atölyemizde; talaş ve hurda arabaları, metal istif kasaları, profil/sac arabaları ve numuneden makine parçası üretimi yapıyoruz. Fotoğraf veya numuneyle teklif alın.',
   alternates: { canonical: business.siteUrl },
@@ -83,10 +83,16 @@ export default async function Home() {
   return (
     <main id="main">
       {/* 1. HERO SECTION: What ofirma does, small workshop identity, Merzifon regional focus */}
-      <section className="company-hero">
+      {/* 1. HERO SECTION: Mekanikya identity, CAD blueprint background, Merzifon regional focus */}
+      <section className="company-hero cad-grid">
         <div className="wrap company-hero-grid">
           <div className="company-hero-copy">
-            <p className="overline">OFİRMA ENDÜSTRİYEL EKİPMANLAR | MERZİFON</p>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px', flexWrap: 'wrap' }}>
+              <span className="tech-badge tech-badge-dark">MEKANİKYA MÜHENDİSLİK</span>
+              <span style={{ fontFamily: 'monospace', fontSize: '11px', color: '#a0b3c2', letterSpacing: '1px' }}>
+                MERZİFON 100. YIL SANAYİ | OSB
+              </span>
+            </div>
             <h1>
               Fabrika içi taşıma ekipmanları ve <em>özel makine revizyonu.</em>
             </h1>
@@ -96,19 +102,33 @@ export default async function Home() {
               fotoğraf, numune veya temel ölçülerle başlayabiliriz.
             </p>
             <div className="company-hero-actions">
-              <a className="cta" href="#urunler">
-                Hedef ürün ailelerini inceleyin <ArrowRight size={20} />
+              <a className="cta cta-primary" href="#urunler">
+                Hedef ürün ailelerini inceleyin <ArrowRight size={18} />
               </a>
-              <a href="/hizmetler" style={{ color: '#d9e4eb', fontWeight: 600 }}>
-                Özel mühendislik ve revizyon <ArrowUpRight size={18} />
+              <a
+                href={
+                  'https://wa.me/' +
+                  business.whatsapp +
+                  '?text=' +
+                  encodeURIComponent('Merhaba Mekanikya, fotoğraf paylaşarak teknik değerlendirme ve teklif almak istiyorum.')
+                }
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cta-whatsapp whatsapp-pulse"
+              >
+                <MessageCircle size={18} />
+                Fotoğrafla Teklif Alın <ArrowUpRight size={16} />
+              </a>
+              <a href="/hizmetler" className="cta-secondary-dark">
+                Özel Mühendislik & Revizyon <ArrowUpRight size={16} />
               </a>
             </div>
           </div>
-          <div className="company-hero-product">
-            <ProductImage image={catalogItems.find(p => p.id === "metal-tasima-kasasi")?.image} imageHidden={catalogItems.find(p => p.id === "metal-tasima-kasasi")?.imageHidden} id="metal-tasima-kasasi" title="Metal taşıma, istif kasaları ve malzeme sepetleri" priority />
-            <a href="/metal-tasima-kasasi">
+          <div className="company-hero-product tech-corner-frame">
+            <img src="/images/calisma-sebze-dograma/bicak-seti.jpg" alt="Mekanikya Özel İmalat ve Mühendislik" width={1200} height={900} />
+            <a href="/hizmetler">
               <span>
-                <small>ÖZEL ÖLÇÜ FABRİKA İÇİ TAŞIMA</small>Metal taşıma ve istif kasaları
+                <small>ÖZEL MÜHENDİSLİK & İMALAT</small>Numuneden Parça ve Makine Revizyonu
               </span>
               <ArrowUpRight size={28} />
             </a>
@@ -116,22 +136,41 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* 2. CORE 8 PRODUCT FAMILIES: Active catalog showcase */}
+      {/* 2. CORE PRODUCT CATALOG OR ENGINEERING NOTICE */}
       <section className="company-products wrap" id="urunler">
         <div className="company-section-heading">
           <div>
-            <p className="overline">HEDEF ÜRÜN AİLELERİMİZ</p>
-            <h2>Fabrika ve atölye içi akışa özel 8 ürün ailesi.</h2>
+            <p className="overline">İMALAT VE MÜHENDİSLİK KATALOĞU</p>
+            <h2>Mühendislik Standartlarımıza Göre Hazırlanan Ürünler</h2>
           </div>
-          <a href="/urunler">
-            Tüm ürünleri ve detayları incele <ArrowUpRight size={20} />
-          </a>
         </div>
         <div id="diger-urunler">
-          <ProductCards items={catalogItems} />
+          {catalogItems.length > 0 ? (
+            <ProductCards items={catalogItems} />
+          ) : (
+            <div style={{ padding: '40px 24px', background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '12px', textAlign: 'center' }}>
+              <div style={{ display: 'inline-flex', padding: '6px 14px', background: '#e0f2fe', color: '#0369a1', borderRadius: '20px', fontSize: '12px', fontWeight: 600, marginBottom: '14px' }}>
+                ⚙️ MÜHENDİSLİK VE İMALAT DOĞRULAMA SÜRECİ
+              </div>
+              <h3 style={{ fontSize: '20px', color: '#0f2a4a', marginBottom: '10px', fontWeight: 700 }}>
+                Ürünlerimiz Teknik Çizim ve İmalat Standartlarına Göre Sırayla Hazırlanmaktadır
+              </h3>
+              <p style={{ color: '#526977', fontSize: '15px', maxWidth: '680px', margin: '0 auto 20px', lineHeight: 1.6 }}>
+                Mekanikya olarak prensibimiz gereği; teknik resimleri, toleransları, malzeme listesi (BOM) ve satın alma parçaları %100 kesinleşmeyen hiçbir ürünü satışa açmıyoruz. En basitten en karmaşığa doğru tüm ürünlerimiz sırayla doğrulanıp yayına alınacaktır.
+              </p>
+              <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                <a href="https://wa.me/905302068714" className="cta cta-primary" target="_blank" rel="noopener noreferrer">
+                  Özel İmalat ve Çizim Talebi İçin WhatsApp: 0530 206 87 14
+                </a>
+                <a href="/hizmetler" className="cta cta-secondary">
+                  Özel Mühendislik Hizmetlerimiz
+                </a>
+              </div>
+            </div>
+          )}
         </div>
         <p style={{ marginTop: '24px', fontSize: '14px', color: '#526977', lineHeight: 1.7 }}>
-          * Standart seri üretim kalıpları yerine; tesisinizin parça ebadına, forklift/transpalet ölçülerine ve taşıma
+          * Standart seri üretim kalıpları yerine; tesisinizin parça ebadına, makine ölçülerine ve taşıma
           yüküne göre özel boyutlandırma ve proje değerlendirmesi yapıyoruz.
         </p>
       </section>
@@ -155,7 +194,7 @@ export default async function Home() {
               kırık bir numunesi ya da kullanım yerinin bilgisiyle ilk değerlendirmeyi başlatabiliyoruz.
             </p>
             <div style={{ marginTop: '28px' }}>
-              <a className="cta" href="/hizmetler">
+              <a className="cta cta-secondary" href="/hizmetler">
                 Hizmetlerimizi detaylı inceleyin <ArrowRight size={18} />
               </a>
             </div>
@@ -178,7 +217,7 @@ export default async function Home() {
       </section>
 
       {/* 4. REAL VEGETABLE CUTTER CASE STUDY: Concrete proof and photo gallery link */}
-      <section className="wrap case-index" style={{ padding: '60px 0' }}>
+      <section className="wrap case-index">
         <article>
           <img
             src="/images/calisma-sebze-dograma/bicak-seti.jpg"
@@ -188,7 +227,12 @@ export default async function Home() {
             alt="Sebze doğrama makinesi bıçak yenileme fotoğrafları"
           />
           <div>
-            <p className="overline">GERÇEK UYGULAMA ÖRNEĞİ</p>
+            <div style={{ marginBottom: '10px' }}>
+              <span className="tech-badge tech-badge-green">✓ ATÖLYEMİZDEN GERÇEK İMALAT</span>
+            </div>
+            <p className="overline" style={{ marginBottom: '8px' }}>
+              GERÇEK UYGULAMA ÖRNEĞİ
+            </p>
             <h2>Sebze doğrama makinesi bıçak yenileme</h2>
             <p>
               Yedek parçası piyasada bulunamayan sebze doğrama makinesinin kesim diskleri ve bıçakları atölyemizde
@@ -197,7 +241,7 @@ export default async function Home() {
             <p style={{ fontSize: '14px', color: '#526977', margin: '14px 0 24px' }}>
               Gerçek makine ve disk fotoğraflarını inceleyerek numuneden imalat sürecimizi yakından görebilirsiniz.
             </p>
-            <a className="cta" href="/ornek-calismalar/sebze-dograma-bicaklari">
+            <a className="cta cta-primary" href="/ornek-calismalar/sebze-dograma-bicaklari">
               Çalışma fotoğraflarını inceleyin <ArrowUpRight size={18} />
             </a>
           </div>
@@ -205,7 +249,7 @@ export default async function Home() {
       </section>
 
       {/* 5. WORKFLOW: Photo/sample -> Measurement -> Quote -> Manufacturing */}
-      <section className="wrap service-steps" style={{ borderTop: '1px solid #dce5ec', paddingTop: '50px' }}>
+      <section className="wrap service-steps" style={{ borderTop: '1px solid #dce5ec', padding: '55px 0' }}>
         <p className="overline">ÇALIŞMA YÖNTEMİMİZ</p>
         <h2>Fotoğraf ve numuneden teslimata 4 adım.</h2>
         <div style={{ marginTop: '28px' }}>
@@ -297,12 +341,18 @@ export default async function Home() {
       </section>
 
       {/* 7. WHATSAPP CTA: Easy photo sharing */}
-      <section className="company-contact-band" id="teklif">
+      {/* 7. WHATSAPP CTA: Easy photo sharing */}
+      <section className="company-contact-band cad-grid" id="teklif">
         <div className="wrap">
           <div>
-            <p className="overline" style={{ color: '#fed7aa' }}>
-              FOTOĞRAFLA KOLAY TEKLİF
-            </p>
+            <div style={{ marginBottom: '12px' }}>
+              <span
+                className="tech-badge"
+                style={{ background: 'rgba(255,255,255,0.15)', color: '#fff', border: '1px solid rgba(255,255,255,0.3)' }}
+              >
+                FOTOĞRAFLA HIZLI TEKLİF
+              </span>
+            </div>
             <h2>
               Fotoğrafınızı WhatsApp’tan gönderin,
               <br />
@@ -315,18 +365,18 @@ export default async function Home() {
           </div>
           <div>
             <a
-              className="light-cta"
+              className="light-cta whatsapp-pulse"
               href={
                 'https://wa.me/' +
                 business.whatsapp +
                 '?text=' +
-                encodeURIComponent('Merhaba ofirma, ürün ve imalat talebim için fotoğraf paylaşmak istiyorum.')
+                encodeURIComponent('Merhaba Mekanikya, ürün ve imalat talebim için fotoğraf paylaşmak istiyorum.')
               }
               target="_blank"
               rel="noopener noreferrer"
-              style={{ display: 'inline-flex', alignItems: 'center', gap: '10px' }}
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', padding: '16px 26px', fontSize: '16px' }}
             >
-              <MessageCircle size={20} />
+              <MessageCircle size={22} style={{ color: '#25D366' }} />
               WhatsApp ile Fotoğraf Gönderin <ArrowUpRight size={22} />
             </a>
           </div>
@@ -334,7 +384,7 @@ export default async function Home() {
       </section>
 
       {/* 8. COMPANY ADDRESS & CONTACT DETAILS */}
-      <section className="wrap" style={{ padding: '60px 0' }}>
+      <section className="wrap" style={{ padding: '89px 0' }}>
         <div
           style={{
             display: 'grid',
@@ -347,7 +397,7 @@ export default async function Home() {
         >
           <div>
             <p className="overline">İLETİŞİM BİLGİLERİ</p>
-            <h3 style={{ fontSize: '24px', margin: '0 0 16px', color: '#122d40' }}>ofirma</h3>
+            <h3 style={{ fontSize: '24px', margin: '0 0 16px', color: '#122d40' }}>{business.name}</h3>
             <p style={{ color: '#526977', fontSize: '14px', lineHeight: 1.7, margin: '0 0 20px' }}>
               Endüstriyel taşıma ekipmanları, metal kasalar ve özel makine parçası imalatı.
             </p>

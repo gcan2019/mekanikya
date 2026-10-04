@@ -7,8 +7,9 @@ import ProductInquiry from '@/components/product-inquiry';
 import ProductImage from '@/components/product-image';
 import ProfileCartOptions from '@/components/profile-cart-options';
 import FactoryProductOptions, { hasFactoryGuide } from '@/components/factory-product-options';
-import { hasVerifiedProductImage } from '@/lib/verified-product-images';
+import { hasVerifiedProductImage, verifiedProductImages } from '@/lib/verified-product-images';
 import { getBusinessContent, getProductContent } from '@/lib/site-content';
+import { getProductPriceInfo } from '@/lib/product-pricing';
 
 type Props = { params: Promise<{ product: string }> };
 
@@ -21,15 +22,15 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { product: id } = await params;
   const product = await getProductContent(id);
-  if (!product) return { title: 'Ürün bulunamadı | ofirma' };
+  if (!product) return { title: 'Ürün bulunamadı | Mekanikya' };
   if (product.status === 'inactive') {
     return {
-      title: 'Ürün bulunamadı | ofirma',
+      title: 'Ürün bulunamadı | Mekanikya',
       robots: { index: false, follow: false },
     };
   }
   return {
-    title: product.title + ' | ofirma',
+    title: product.title + ' | Mekanikya',
     description: product.description,
     alternates: { canonical: business.siteUrl + product.href },
   };
@@ -57,8 +58,47 @@ export default async function ProductPage({ params }: Props) {
       }
     : originalProduct;
 
+  const pricing = getProductPriceInfo(product);
+  const baseUrl = business.siteUrl || 'https://ofirma-site.ofirma.workers.dev';
+  const productImageUrl = product.image?.src
+    ? (product.image.src.startsWith('http') ? product.image.src : `${baseUrl}${product.image.src.startsWith('/') ? '' : '/'}${product.image.src}`)
+    : hasVerifiedProductImage(product.id)
+    ? `${baseUrl}${verifiedProductImages[product.id].src.startsWith('/') ? '' : '/'}${verifiedProductImages[product.id].src}`
+    : `${baseUrl}/images/${product.id}.png`;
+
+  const productSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: product.title,
+    description: product.description || product.title,
+    sku: pricing.sku,
+    mpn: pricing.sku,
+    brand: {
+      '@type': 'Brand',
+      name: business.name,
+    },
+    image: [productImageUrl],
+    offers: {
+      '@type': 'Offer',
+      url: `${baseUrl}/${product.id}`,
+      priceCurrency: pricing.currency,
+      price: pricing.price,
+      priceValidUntil: '2027-12-31',
+      itemCondition: 'https://schema.org/NewCondition',
+      availability: pricing.availabilitySchema,
+      seller: {
+        '@type': 'Organization',
+        name: business.name,
+      },
+    },
+  };
+
   return (
     <main id="main">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
       <div className="wrap product-breadcrumb">
         <a href="/">Ana Sayfa</a>
         <span>/</span>
@@ -89,6 +129,16 @@ export default async function ProductPage({ params }: Props) {
               <li key={detail}>{detail}</li>
             ))}
           </ul>
+          <div className="product-pricing-card" style={{ margin: '18px 0', padding: '14px 16px', background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '8px' }}>
+            <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px', flexWrap: 'wrap' }}>
+              <span style={{ fontSize: '1.35rem', fontWeight: 700, color: '#0f172a' }}>{pricing.displayPrice}</span>
+              <span style={{ fontSize: '0.85rem', color: '#64748b' }}>(KDV hariç / İhtiyaca göre netleşir)</span>
+            </div>
+            <div style={{ display: 'flex', gap: '14px', marginTop: '8px', fontSize: '0.85rem', color: '#166534', fontWeight: 500, flexWrap: 'wrap' }}>
+              <span>✓ {pricing.leadTime}</span>
+              <span>✓ Özel ölçü ve malzeme opsiyonu</span>
+            </div>
+          </div>
           <a className="cta" href="#teklif">
             Bu ürün için teklif isteyin <ArrowUpRight size={20} />
           </a>

@@ -86,7 +86,7 @@ const defaultContent: EditableSiteContent = {
     ...defaultBusiness,
     workingHours: 'Pazartesi – Cumartesi 08:30 – 18:30',
     headerCtaText: 'Teklif Talebi',
-    email: 'info@ofirma.com',
+    email: 'info@mekanikya.com.tr',
   },
   products: defaultCatalogItems.map((product, idx) => ({
     ...product,
@@ -106,12 +106,58 @@ function cloneDefaults(): EditableSiteContent {
   return JSON.parse(JSON.stringify(defaultContent)) as EditableSiteContent;
 }
 
+export function fixMojibake(text: string): string {
+  if (!text || typeof text !== 'string') return text;
+  return text
+    // CP437 / CP857 Windows console decoding of UTF-8 Turkish bytes
+    .replace(/┼ƒ/g, 'ş')
+    .replace(/┼₧/g, 'Ş')
+    .replace(/─▒/g, 'ı')
+    .replace(/─░/g, 'İ')
+    .replace(/─ƒ/g, 'ğ')
+    .replace(/─₧/g, 'Ğ')
+    .replace(/├º/g, 'ç')
+    .replace(/├ç/g, 'Ç')
+    .replace(/├╢/g, 'ö')
+    .replace(/├Â/g, 'ö')
+    .replace(/├û/g, 'Ö')
+    .replace(/├╝/g, 'ü')
+    .replace(/├£/g, 'Ü')
+    .replace(/├¼/g, 'ü')
+    .replace(/├–/g, 'Ö')
+    // CP437 punctuation / dashes
+    .replace(/ÔÇô/g, '–')
+    .replace(/ÔÇö/g, '—')
+    .replace(/ÔÇó/g, '•')
+    // Windows-1252 / ISO-8859-1 double UTF-8 decoding
+    .replace(/â€“/g, '–')
+    .replace(/â€”/g, '—')
+    .replace(/â€¢/g, '•')
+    .replace(/â€™/g, "'")
+    .replace(/â€˜/g, "'")
+    .replace(/â€œ/g, '"')
+    .replace(/â€/g, '"')
+    .replace(/Ã§/g, 'ç')
+    .replace(/Ã‡/g, 'Ç')
+    .replace(/Ã¶/g, 'ö')
+    .replace(/Ã–/g, 'Ö')
+    .replace(/Ã¼/g, 'ü')
+    .replace(/Ãœ/g, 'Ü')
+    .replace(/ÄŸ/g, 'ğ')
+    .replace(/Äž/g, 'Ğ')
+    .replace(/Ä±/g, 'ı')
+    .replace(/Ä°/g, 'İ')
+    .replace(/ÅŸ/g, 'ş')
+    .replace(/Åž/g, 'Ş');
+}
+
 export async function getSiteContent(): Promise<EditableSiteContent> {
   try {
     if (!env?.DB) return memoryDevContent ? JSON.parse(JSON.stringify(memoryDevContent)) : cloneDefaults();
     const row = await env.DB.prepare('SELECT content FROM site_content WHERE id = ?').bind(1).first<{ content: string }>();
     if (!row?.content) return cloneDefaults();
-    return normalizeContent(JSON.parse(row.content));
+    const cleanRaw = typeof row.content === 'string' ? fixMojibake(row.content) : row.content;
+    return normalizeContent(JSON.parse(cleanRaw));
   } catch (error) {
     console.error('site_content_read_failed', error);
     return memoryDevContent ? JSON.parse(JSON.stringify(memoryDevContent)) : cloneDefaults();
@@ -176,14 +222,14 @@ function normalizeContent(value: unknown): EditableSiteContent {
     ? {
         ...fallback.business,
         ...candidate.business,
-        name: cleanText(candidate.business.name, fallback.business.name, 80),
+        name: cleanText(candidate.business.name === 'ofirma' ? 'Mekanikya' : candidate.business.name, fallback.business.name, 80),
         phoneDisplay: cleanText(candidate.business.phoneDisplay, fallback.business.phoneDisplay, 40),
         phone: cleanText(candidate.business.phone, fallback.business.phone, 40),
         whatsapp: cleanText(candidate.business.whatsapp, fallback.business.whatsapp, 40),
         address: cleanText(candidate.business.address, fallback.business.address, 300),
         workingHours: cleanText(candidate.business.workingHours, fallback.business.workingHours ?? 'Pazartesi – Cumartesi 08:30 – 18:30', 100),
         headerCtaText: cleanText(candidate.business.headerCtaText, fallback.business.headerCtaText ?? 'Teklif Talebi', 40),
-        email: cleanText(candidate.business.email, fallback.business.email ?? 'info@ofirma.com', 100),
+        email: cleanText(candidate.business.email === 'info@ofirma.com' || candidate.business.email === 'info@mekanikya.com' ? 'info@mekanikya.com.tr' : candidate.business.email, fallback.business.email ?? 'info@mekanikya.com.tr', 100),
         siteUrl: fallback.business.siteUrl,
       }
     : fallback.business;
@@ -200,7 +246,7 @@ function normalizeContent(value: unknown): EditableSiteContent {
     const existingIds = new Set(products.map((p) => p.id));
     for (const core of fallback.products) {
       if (!existingIds.has(core.id)) {
-        products.push({ ...core, status: 'inactive' });
+        products.push({ ...core, status: core.status ?? 'active' });
       }
     }
   }
@@ -237,8 +283,8 @@ function normalizeFields(value: unknown, fallback: InquiryProduct['fields']): In
       const id = rawId || `alan_${idx + 1}`;
       const label = cleanText(item.label, `Alan ${idx + 1}`, 100);
       const kind: 'text' | 'number' = item.kind === 'number' ? 'number' : 'text';
-      const unit = typeof item.unit === 'string' && item.unit.trim() ? item.unit.trim().slice(0, 30) : undefined;
-      const hint = typeof item.hint === 'string' && item.hint.trim() ? item.hint.trim().slice(0, 200) : '';
+      const unit = typeof item.unit === 'string' && item.unit.trim() ? cleanText(item.unit, '', 30) : undefined;
+      const hint = typeof item.hint === 'string' && item.hint.trim() ? cleanText(item.hint, '', 200) : '';
       return { id, label, kind, ...(unit ? { unit } : {}), hint };
     });
   return cleaned.length ? cleaned : fallback;
@@ -271,7 +317,7 @@ function normalizeOptions(value: unknown): ProductOptionItem[] | undefined {
     .map((item) => {
       const title = cleanText(item.title, '', 140);
       if (!title) return null;
-      const subtitle = typeof item.subtitle === 'string' ? item.subtitle.trim().slice(0, 100) : undefined;
+      const subtitle = typeof item.subtitle === 'string' && item.subtitle.trim() ? cleanText(item.subtitle, '', 100) : undefined;
       const desc = cleanText(item.desc, '', 600);
       const isCustomRequest = item.isCustomRequest === true;
       let image: { src: string; alt: string } | undefined = undefined;
@@ -368,9 +414,9 @@ function normalizeCaseStudy(value: unknown, index: number): EditableCaseStudy | 
     title: cleanText(input.title, `Örnek Çalışma ${index + 1}`, 160),
     category: cleanText(input.category, 'Makine Restorasyonu', 100),
     summary: cleanText(input.summary, '', 800),
-    problem: typeof input.problem === 'string' ? input.problem.trim().slice(0, 1000) : undefined,
-    solution: typeof input.solution === 'string' ? input.solution.trim().slice(0, 1000) : undefined,
-    result: typeof input.result === 'string' ? input.result.trim().slice(0, 1000) : undefined,
+    problem: typeof input.problem === 'string' && input.problem.trim() ? cleanText(input.problem, '', 1000) : undefined,
+    solution: typeof input.solution === 'string' && input.solution.trim() ? cleanText(input.solution, '', 1000) : undefined,
+    result: typeof input.result === 'string' && input.result.trim() ? cleanText(input.result, '', 1000) : undefined,
     status: input.status === 'inactive' ? 'inactive' : 'active',
     coverImage: input.coverImage && typeof input.coverImage.src === 'string' && (input.coverImage.src.startsWith('/') || input.coverImage.src.startsWith('https://') || input.coverImage.src.startsWith('data:image/'))
       ? { src: input.coverImage.src.startsWith('data:image/') ? input.coverImage.src.slice(0, 3 * 1024 * 1024) : input.coverImage.src.slice(0, 500), alt: cleanText(input.coverImage.alt, input.title || '', 200) }
@@ -385,12 +431,17 @@ function normalizeCaseStudy(value: unknown, index: number): EditableCaseStudy | 
 }
 
 function cleanText(value: unknown, fallback: string, max: number): string {
-  return typeof value === 'string' && value.trim() ? value.trim().slice(0, max) : fallback;
+  if (typeof value !== 'string' || !value.trim()) return fallback;
+  return fixMojibake(value.trim()).slice(0, max);
 }
 
 function cleanList(value: unknown, fallback: string[], maxItems: number, maxLength: number): string[] {
   if (!Array.isArray(value)) return fallback;
-  const cleaned = value.filter((item): item is string => typeof item === 'string').map((item) => item.trim().slice(0, maxLength)).filter(Boolean).slice(0, maxItems);
+  const cleaned = value
+    .filter((item): item is string => typeof item === 'string')
+    .map((item) => fixMojibake(item.trim()).slice(0, maxLength))
+    .filter(Boolean)
+    .slice(0, maxItems);
   return cleaned.length ? cleaned : fallback;
 }
 

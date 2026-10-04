@@ -1,9 +1,14 @@
 import type { MetadataRoute } from 'next';
-import { catalogItems } from '@/lib/presentation';
+import { getCatalogItems, getBusinessContent } from '@/lib/site-content';
 
-const base = 'https://ben-ol-konveyor.gokhan1cants.chatgpt.site';
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const [business, catalog] = await Promise.all([
+    getBusinessContent(),
+    getCatalogItems(),
+  ]);
 
-export default function sitemap(): MetadataRoute.Sitemap {
+  const base = 'https://mekanikya.com.tr';
+
   const fixed = [
     '',
     '/fabrika-ici-tasima',
@@ -11,12 +16,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/urunler',
     '/hizmetler',
     '/hizmetler/makine-restorasyonu',
+    '/hizmetler/tersine-muhendislik-ve-teknik-cizim',
     '/ornek-calismalar',
     '/ornek-calismalar/sebze-dograma-bicaklari',
     '/iletisim',
+    '/iade-politikasi',
   ];
+
+  const now = new Date();
+
   return [
-    ...fixed.map((path) => ({ url: base + path, changeFrequency: 'weekly' as const })),
-    ...catalogItems.map((item) => ({ url: `${base}/${item.id}`, changeFrequency: 'monthly' as const })),
+    ...fixed.map((path) => ({
+      url: `${base}${path}`,
+      lastModified: now,
+      changeFrequency: 'weekly' as const,
+      priority: path === '' ? 1.0 : 0.8,
+    })),
+    ...catalog
+      .filter((item) => item.status !== 'inactive')
+      .map((item) => ({
+        url: `${base}/${item.id}`,
+        lastModified: now,
+        changeFrequency: 'weekly' as const,
+        priority: 0.9,
+      })),
   ];
 }

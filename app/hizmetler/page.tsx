@@ -4,7 +4,7 @@ import { business } from '@/lib/catalog';
 
 export const metadata: Metadata = {
   alternates: { canonical: business.siteUrl + '/hizmetler' },
-  title: 'Özel Makine Revizyonu, Tersine Mühendislik ve Parça İmalatı | ofirma',
+  title: 'Özel Makine Revizyonu, Tersine Mühendislik ve Parça İmalatı | Mekanikya',
   description: 'Numuneden parça imalatı, makine restorasyonu, tersine mühendislik, CAD çizimi ve aşınmış parça onarımı. Çiziminiz olmasa da fotoğraf veya numuneyle başlayın.',
 };
 
@@ -31,9 +31,9 @@ const serviceList = [
     num: '03',
     title: 'Tersine mühendislik ve teknik çizim (CAD / teknik resim)',
     desc: 'Elinizde teknik resim olmasa dahi kumpas, mikrometre ve hassas ölçüm yöntemleriyle parçanın geometrisini çıkarıyor; toleranslandırılmış 2D imalat teknik resimlerini ve 3D CAD katı modellerini hazırlıyoruz.',
-    link: 'https://wa.me/' + business.whatsapp,
-    linkText: 'Teknik çizim talebi',
-    external: true,
+    link: '/hizmetler/tersine-muhendislik-ve-teknik-cizim',
+    linkText: 'Çizim ve modelleme sürecini inceleyin',
+    external: false,
   },
   {
     icon: Wrench,
@@ -54,11 +54,56 @@ const steps = [
 ];
 
 export default function ServicesPage() {
+  const baseUrl = business.siteUrl || 'https://ofirma-site.ofirma.workers.dev';
+
+  const servicesSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'LocalBusiness',
+        '@id': `${baseUrl}/#organization`,
+        name: business.name,
+        telephone: business.phone,
+        url: baseUrl,
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: business.address,
+          addressLocality: 'Merzifon',
+          addressRegion: 'Amasya',
+          postalCode: '05300',
+          addressCountry: 'TR',
+        },
+        priceRange: '$$',
+        image: `${baseUrl}/images/profil-tasima-arabasi.png`,
+      },
+      ...serviceList.map((srv) => ({
+        '@type': 'Service',
+        name: srv.title,
+        serviceType: 'Endüstriyel İmalat ve Mühendislik Hizmeti',
+        description: srv.desc,
+        provider: {
+          '@id': `${baseUrl}/#organization`,
+        },
+        areaServed: [
+          { '@type': 'AdministrativeArea', name: 'Amasya' },
+          { '@type': 'AdministrativeArea', name: 'Çorum' },
+          { '@type': 'AdministrativeArea', name: 'Samsun' },
+          { '@type': 'Country', name: 'Türkiye' },
+        ],
+        url: srv.link.startsWith('http') ? srv.link : `${baseUrl}${srv.link}`,
+      })),
+    ],
+  };
+
   return (
     <main id="main">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }}
+      />
       <section className="page-banner">
         <div className="wrap">
-          <p className="overline">OFİRMA / HİZMETLERİMİZ</p>
+          <p className="overline">MEKANİKYA / HİZMETLERİMİZ</p>
           <h1>Mühendislik destekli makine revizyonu ve özel parça üretimi.</h1>
           <p>
             Teknik çiziminiz olmasa da sorun değil. Kırık, aşınmış veya artık tedarik edilemeyen parçaların
@@ -166,7 +211,7 @@ export default function ServicesPage() {
           <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginTop: '24px' }}>
             <a
               className="cta light"
-              href={'https://wa.me/' + business.whatsapp + '?text=' + encodeURIComponent('Merhaba ofirma, makine revizyonu ve özel parça imalatı hakkında bilgi almak istiyorum.')}
+              href={'https://wa.me/' + business.whatsapp + '?text=' + encodeURIComponent('Merhaba Mekanikya, makine revizyonu ve özel parça imalatı hakkında bilgi almak istiyorum.')}
               target="_blank"
               rel="noopener noreferrer"
               style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}

@@ -164,8 +164,8 @@ export default function FactoryProductOptions({ id, customOptions }: { id: strin
             <article className="profile-cart-card" key={title}>
               {imgSrc && (
                 <figure className="profile-cart-image factory-option-photo">
-                  <img src={imgSrc} alt={imgAlt || title} width={600} height={450} loading="lazy" />
-                  <figcaption>{imgAlt || 'Örnek ürün düzeni'}</figcaption>
+                  <img src={imgSrc} alt={`Mekanikya ${title}`} width={600} height={450} loading="lazy" />
+                  <figcaption>Mekanikya örnek ürün düzeni</figcaption>
                 </figure>
               )}
               <div className="profile-cart-copy">

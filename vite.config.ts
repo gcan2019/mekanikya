@@ -25,6 +25,12 @@ const workerConfig = {
   },
 };
 
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 export default defineConfig(async () => {
   // Keep Wrangler and Miniflare state project-local. These are non-secret tool
   // settings; application environment belongs in ignored `.env*` files.
@@ -36,6 +42,11 @@ export default defineConfig(async () => {
   const { cloudflare } = await import('@cloudflare/vite-plugin');
 
   return {
+    resolve: {
+      alias: {
+        'cloudflare:workers': path.resolve(__dirname, 'lib/cf-env.ts'),
+      },
+    },
     css: { postcss: { plugins: [tailwindcss()] } },
     plugins: [
       vinext(),

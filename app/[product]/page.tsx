@@ -59,7 +59,7 @@ export default async function ProductPage({ params }: Props) {
     : originalProduct;
 
   const pricing = getProductPriceInfo(product);
-  const baseUrl = business.siteUrl || 'https://ofirma-site.ofirma.workers.dev';
+  const baseUrl = business.siteUrl || 'https://mekanikya.com.tr';
   const productImageUrl = product.image?.src
     ? (product.image.src.startsWith('http') ? product.image.src : `${baseUrl}${product.image.src.startsWith('/') ? '' : '/'}${product.image.src}`)
     : hasVerifiedProductImage(product.id)
@@ -136,14 +136,38 @@ export default async function ProductPage({ params }: Props) {
             </div>
             <div style={{ display: 'flex', gap: '14px', marginTop: '8px', fontSize: '0.85rem', color: '#166534', fontWeight: 500, flexWrap: 'wrap' }}>
               <span>✓ {pricing.leadTime}</span>
-              <span>✓ Özel ölçü ve malzeme opsiyonu</span>
+              <span>✓ Anlaşmalı kargo ile adrese teslim</span>
             </div>
           </div>
-          <a className="cta" href="#teklif">
-            Bu ürün için teklif isteyin <ArrowUpRight size={20} />
-          </a>
-          <a className="product-phone" href={'tel:' + business.phone}>
-            Bilgi için: {business.phoneDisplay}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <a
+              href={`https://wa.me/${business.whatsapp}?text=${encodeURIComponent(`Merhaba Mekanikya, sitenizden "${product.title}" (${pricing.displayPrice}) hakkında doğrudan sipariş vermek / satın almak istiyorum.`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
+                background: '#16a34a',
+                color: '#ffffff',
+                fontWeight: 600,
+                fontSize: '1rem',
+                padding: '13px 20px',
+                borderRadius: '8px',
+                textDecoration: 'none',
+                boxShadow: '0 2px 4px rgba(22, 163, 74, 0.25)',
+                transition: 'background 0.2s',
+              }}
+            >
+              <MessageCircle size={20} /> WhatsApp ile Hemen Sipariş Ver
+            </a>
+            <a className="cta" href="#teklif" style={{ margin: 0, textAlign: 'center', justifyContent: 'center' }}>
+              Teknik Özelleştirme / Teklif Al <ArrowUpRight size={20} />
+            </a>
+          </div>
+          <a className="product-phone" href={'tel:' + business.phone} style={{ marginTop: '12px' }}>
+            Hızlı Bilgi Hattı: {business.phoneDisplay}
           </a>
         </div>
       </section>

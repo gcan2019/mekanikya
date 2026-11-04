@@ -54,7 +54,7 @@ const steps = [
 ];
 
 export default function ServicesPage() {
-  const baseUrl = business.siteUrl || 'https://ofirma-site.ofirma.workers.dev';
+  const baseUrl = business.siteUrl || 'https://mekanikya.com.tr';
 
   const servicesSchema = {
     '@context': 'https://schema.org',

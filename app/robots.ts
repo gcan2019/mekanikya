@@ -1,5 +1,4 @@
 import type { MetadataRoute } from 'next';
-import { business } from '@/lib/catalog';
 
 export default function robots(): MetadataRoute.Robots {
   const baseUrl = 'https://mekanikya.com.tr';

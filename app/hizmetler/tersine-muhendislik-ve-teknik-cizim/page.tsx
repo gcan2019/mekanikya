@@ -52,7 +52,7 @@ const steps = [
 ];
 
 export default function ReverseEngineeringPage() {
-  const baseUrl = business.siteUrl || 'https://ofirma-site.ofirma.workers.dev';
+  const baseUrl = business.siteUrl || 'https://mekanikya.com.tr';
 
   const reverseEngineeringSchema = {
     '@context': 'https://schema.org',

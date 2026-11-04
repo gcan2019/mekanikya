@@ -14,36 +14,35 @@ import {
 } from 'lucide-react';
 import { business } from '@/lib/catalog';
 import { getCatalogItems } from '@/lib/site-content';
-import ProductCards from '@/components/product-cards';
-import ProductImage from '@/components/product-image';
+import CategoryCards from '@/components/category-cards';
 
 export const metadata: Metadata = {
-  title: 'Mekanikya | Fabrika İçi Taşıma Ekipmanları ve Makine Restorasyonu (Merzifon)',
+  title: 'Mekanikya | Hassas Talaşlı İmalat, Tersine Mühendislik & Restorasyon (Merzifon)',
   description:
-    'Merzifon merkezli imalat atölyemizde; talaş ve hurda arabaları, metal istif kasaları, profil/sac arabaları ve numuneden makine parçası üretimi yapıyoruz. Fotoğraf veya numuneyle teklif alın.',
+    'Merzifon 100. Yıl Sanayi atölyemizde; CNC torna & freze parçaları, transmisyon milleri, burçlar, sanayi bıçakları, 3D CAD modelleme ve aşınmış parça restorasyonu yapıyoruz. Fotoğraf veya numuneyle teklif alın.',
   alternates: { canonical: business.siteUrl },
 };
 
 const serviceHighlights = [
   {
     icon: Cog,
-    title: 'Makine Restorasyonu ve Revizyonu',
-    desc: 'Komple makineyi yenilemek yerine aşınan ve arızalanan mekanik aksamları revize ederek ömrünü uzatıyoruz.',
-  },
-  {
-    icon: RotateCcw,
-    title: 'Numuneden Yeniden Parça Üretimi',
-    desc: 'İthal, eski veya üreticisi bulunmayan makinelerin parçalarını eldeki kırık/sağlam numuneden yeniden üretiyoruz.',
+    title: 'Talaşlı İmalat & Hassas Parçalar',
+    desc: 'Miller, şaftlar, bronz ve çelik burçlar, flanşlar ve pimler; CNC torna ve dik işlemede hassas toleranslarla üretilir.',
   },
   {
     icon: FileCode,
-    title: 'Tersine Mühendislik ve CAD Çizimi',
-    desc: 'Teknik resminiz olmasa da kumpas ve hassas ölçümle imalat çizimlerini ve 3D CAD modellerini hazırlıyoruz.',
+    title: 'Tersine Mühendislik & CAD Modelleme',
+    desc: 'Teknik resminiz olmasa da kırık veya aşınmış parçadan ölçü alarak 3D CAD katı modelleme ve 2D imalat resmi çıkarıyoruz.',
+  },
+  {
+    icon: RotateCcw,
+    title: 'Makine Restorasyonu & Parça Yenileme',
+    desc: 'Endüstriyel sebze, gıda ve kesim bıçakları başta olmak üzere bozulan ve aşınan sanayi parçalarını revize edip yenisini yapıyoruz.',
   },
   {
     icon: Wrench,
-    title: 'Aşınmış ve Kırılmış Parça Onarımı',
-    desc: 'Miller, rulman yuvaları, dişliler ve gövde bileşenlerindeki aşınmaları kaynak dolgu ve taşlama ile onarıyoruz.',
+    title: 'Atölye Tezgahları & İmalat Desteği',
+    desc: 'Hassas fikstür masaları, ağır hizmet kalıpçı tezgahları, talaş arabaları ve kaynak pozisyonerleri ile atölyenizi güçlendiriyoruz.',
   },
 ];
 
@@ -82,7 +81,6 @@ export default async function Home() {
   const catalogItems = await getCatalogItems();
   return (
     <main id="main">
-      {/* 1. HERO SECTION: What ofirma does, small workshop identity, Merzifon regional focus */}
       {/* 1. HERO SECTION: Mekanikya identity, CAD blueprint background, Merzifon regional focus */}
       <section className="company-hero cad-grid">
         <div className="wrap company-hero-grid">
@@ -94,16 +92,16 @@ export default async function Home() {
               </span>
             </div>
             <h1>
-              Fabrika içi taşıma ekipmanları ve <em>özel makine revizyonu.</em>
+              Hassas talaşlı imalat, tersine mühendislik ve <em>makine restorasyonu.</em>
             </h1>
             <p>
-              Merzifon merkezli atölyemizde; üretim alanınıza özel talaş arabaları, metal istif kasaları, profil/sac
-              taşıma sistemleri ve tedarik edilemeyen makine parçalarının imalatını yapıyoruz. Çiziminiz olmasa da
-              fotoğraf, numune veya temel ölçülerle başlayabiliriz.
+              Merzifon 100. Yıl Sanayi atölyemizde; CNC torna & freze ile özel miller, burçlar ve flanş imalatı,
+              kırık/aşınmış numuneden 3D CAD modelleme ve sanayi/gıda bıçakları restorasyonu yapıyoruz.
+              Teknik çiziminiz olmasa da numuneyle veya fotoğrafla başlayabiliriz.
             </p>
             <div className="company-hero-actions">
               <a className="cta cta-primary" href="#urunler">
-                Hedef ürün ailelerini inceleyin <ArrowRight size={18} />
+                İmalat ve Ürünlerimizi İnceleyin <ArrowRight size={18} />
               </a>
               <a
                 href={
@@ -120,7 +118,7 @@ export default async function Home() {
                 Fotoğrafla Teklif Alın <ArrowUpRight size={16} />
               </a>
               <a href="/hizmetler" className="cta-secondary-dark">
-                Özel Mühendislik & Revizyon <ArrowUpRight size={16} />
+                Özel Mühendislik & Restorasyon <ArrowUpRight size={16} />
               </a>
             </div>
           </div>
@@ -128,7 +126,7 @@ export default async function Home() {
             <img src="/images/calisma-sebze-dograma/bicak-seti.jpg" alt="Mekanikya Özel İmalat ve Mühendislik" width={1200} height={900} />
             <a href="/hizmetler">
               <span>
-                <small>ÖZEL MÜHENDİSLİK & İMALAT</small>Numuneden Parça ve Makine Revizyonu
+                <small>ÖZEL MÜHENDİSLİK & RESTORASYON</small>Numuneden Parça ve Bıçak Yenileme
               </span>
               <ArrowUpRight size={28} />
             </a>
@@ -141,12 +139,15 @@ export default async function Home() {
         <div className="company-section-heading">
           <div>
             <p className="overline">İMALAT VE MÜHENDİSLİK KATALOĞU</p>
-            <h2>Mühendislik Standartlarımıza Göre Hazırlanan Ürünler</h2>
+            <h2>Ana ürün gruplarımız</h2>
+            <p className="company-section-heading-note">
+              İhtiyacınıza uygun ana grubu seçin; o gruba ait alt ürünleri, teknik bilgileri ve teklif formlarını inceleyin.
+            </p>
           </div>
         </div>
         <div id="diger-urunler">
           {catalogItems.length > 0 ? (
-            <ProductCards items={catalogItems} />
+            <CategoryCards items={catalogItems} />
           ) : (
             <div style={{ padding: '40px 24px', background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '12px', textAlign: 'center' }}>
               <div style={{ display: 'inline-flex', padding: '6px 14px', background: '#e0f2fe', color: '#0369a1', borderRadius: '20px', fontSize: '12px', fontWeight: 600, marginBottom: '14px' }}>
@@ -282,7 +283,7 @@ export default async function Home() {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(220px, 100%), 1fr))',
               gap: '18px',
               marginBottom: '24px',
             }}
@@ -309,7 +310,7 @@ export default async function Home() {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(260px, 100%), 1fr))',
               gap: '16px',
               paddingTop: '20px',
               borderTop: '1px solid #d6e0e7',
@@ -388,7 +389,7 @@ export default async function Home() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))',
             gap: '30px',
             background: '#f8fafc',
             border: '1px solid #dce5ec',

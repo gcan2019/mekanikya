@@ -1,7 +1,7 @@
 import { env } from 'cloudflare:workers';
 import { business as defaultBusiness } from './catalog';
-import { catalogItems as defaultCatalogItems } from './presentation';
-import type { InquiryProduct } from './additional-products';
+import { catalogItems as defaultCatalogItems, priorityOrder } from './presentation';
+import { additionalProducts, type InquiryProduct } from './additional-products';
 import type { ChatGPTUser } from '@/app/chatgpt-auth';
 import { getDefaultProductOptions } from './default-product-options';
 
@@ -181,14 +181,38 @@ export async function saveSiteContent(content: unknown, updatedBy: string): Prom
 
 export async function getCatalogItems(): Promise<EditableProduct[]> {
   const content = await getSiteContent();
-  return content.products
-    .filter((product) => product.status !== 'inactive')
-    .sort((a, b) => (a.sortOrder ?? 0) - (b.sortOrder ?? 0));
+  const validProducts = content.products.filter(
+    (product) => product.status !== 'inactive' && priorityOrder.includes(product.id)
+  );
+
+  const existingIds = new Set(validProducts.map((p) => p.id));
+  for (const defaultProd of defaultContent.products) {
+    if (priorityOrder.includes(defaultProd.id) && !existingIds.has(defaultProd.id)) {
+      validProducts.push(defaultProd);
+    }
+  }
+
+  return validProducts.sort((a, b) => {
+    const orderA = priorityOrder.indexOf(a.id);
+    const orderB = priorityOrder.indexOf(b.id);
+    return (orderA !== -1 ? orderA : 999) - (orderB !== -1 ? orderB : 999);
+  });
 }
 
 export async function getProductContent(id: string): Promise<EditableProduct | undefined> {
   const content = await getSiteContent();
-  return content.products.find((product) => product.id === id && product.status !== 'inactive');
+  const found = content.products.find((product) => product.id === id && product.status !== 'inactive');
+  if (found) return found;
+
+  const defaultFound = defaultContent.products.find((p) => p.id === id && p.status !== 'inactive');
+  if (defaultFound) return defaultFound;
+
+  const rawAdditional = additionalProducts.find((p) => p.id === id && p.status !== 'inactive');
+  if (rawAdditional) {
+    return normalizeProduct(rawAdditional, 0) || undefined;
+  }
+
+  return undefined;
 }
 
 export async function getBusinessContent(): Promise<EditableBusiness> {

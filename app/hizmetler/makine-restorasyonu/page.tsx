@@ -12,7 +12,7 @@ const steps = [
 ];
 
 export default function Restoration() {
-  const baseUrl = business.siteUrl || 'https://ofirma-site.ofirma.workers.dev';
+  const baseUrl = business.siteUrl || 'https://mekanikya.com.tr';
 
   const restorationSchema = {
     '@context': 'https://schema.org',

@@ -17,7 +17,7 @@ export async function GET() {
     getBusinessContent(),
   ]);
 
-  const baseUrl = business.siteUrl || 'https://ofirma-site.ofirma.workers.dev';
+  const baseUrl = business.siteUrl || 'https://mekanikya.com.tr';
 
   const itemsXml = products
     .filter((product) => product.status !== 'inactive')

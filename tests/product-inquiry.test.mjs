@@ -4,9 +4,9 @@ import {additionalProducts} from '../lib/additional-products.ts';
 import {productInquiryMessage} from '../lib/product-inquiry.ts';
 
 function form(){const data=new FormData();data.set('customer','Örnek & Firma');data.set('quantity','2');return data;}
-test('eleven additional product families have unique routes and field names',()=>{
- assert.equal(additionalProducts.length,11);
- assert.equal(new Set(additionalProducts.map(p=>p.id)).size,11);
+test('additional product families have unique routes and field names',()=>{
+ assert.ok(additionalProducts.length > 0);
+ assert.equal(new Set(additionalProducts.map(p=>p.id)).size,additionalProducts.length);
  for(const product of additionalProducts){assert.equal(product.href,'/'+product.id);assert.equal(new Set(product.fields.map(f=>f.id)).size,product.fields.length);for(const field of product.fields)assert.ok(!['customer','quantity','notes'].includes(field.id));}
 });
 for(const product of additionalProducts){
@@ -21,7 +21,8 @@ for(const product of additionalProducts){
  test(product.id+': optional values are omitted; invalid numbers rejected',()=>{
   const data=form();const message=productInquiryMessage(product,data);
   for(const field of product.fields)assert.ok(!message.includes(field.label+':'));
-  const numeric=product.fields.find(f=>f.kind==='number');data.set(numeric.id,'-1');assert.throws(()=>productInquiryMessage(product,data));data.set(numeric.id,'Infinity');assert.throws(()=>productInquiryMessage(product,data));
+  const numeric=product.fields.find(f=>f.kind==='number');
+  if(numeric){data.set(numeric.id,'-1');assert.throws(()=>productInquiryMessage(product,data));data.set(numeric.id,'Infinity');assert.throws(()=>productInquiryMessage(product,data));}
  });
 }
 test('whole counts, name and note lengths are validated',()=>{

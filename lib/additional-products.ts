@@ -928,5 +928,1438 @@ export const additionalProducts:InquiryProduct[] = [
   "source": "https://wiki.opensourceecology.org/wiki/MicroTrac_v17.10",
   "href": "/microtrac-mini-bahce-traktoru",
   "status": "active"
+},
+{
+  "id": "kaynak-masasi",
+  "title": "Delikli 3D kaynak ve fikstür masaları (D28 / D16)",
+  "category": "Atölye Tezgahları ve Kaynak Masaları",
+  "description": "Kabin, şasi, korkuluk ve hassas metal konstrüksiyon imalatı için D28 ve D16 delik sistemli modüler 3D kaynak masası. Ağır hizmet frezelenmiş çelik tabla, lazer ızgara çizgileri ve mengene aparatlarıyla atölye ölçünüze özel teklif alın.",
+  "details": [
+    "D28 veya D16 lazer/CNC delik aralığı (50x50 veya 100x100 mm)",
+    "Hassas frezelenmiş düzlemsel yüzey ve yan yanaklar",
+    "Ağır hizmet rijit şasi ve yükseklik ayarlı ayaklar"
+  ],
+  "uses": [
+    "Çelik konstrüksiyon ve şasi kaynağı",
+    "Korkuluk, kapı ve ferforje imalatı",
+    "Seri üretim fikstürleme ve montaj"
+  ],
+  "checks": [
+    {
+      "title": "Masa ölçüsü ve kalınlık",
+      "text": "İstenen tabla ebadını (Örn: 1000x2000 mm, 1200x2400 mm vb.) ve tabla sac kalınlığını (12 mm, 15 mm, 20 mm) belirtin."
+    },
+    {
+      "title": "Delik sistemi (D28 / D16)",
+      "text": "Mevcut aparatlarınıza veya çalışma hassasiyetinize göre D28 (Ø28 mm ağır hizmet) veya D16 (Ø16 mm kompakt) delik çapı tercihini paylaşın."
+    },
+    {
+      "title": "Yan yanak ve ayak düzeni",
+      "text": "Masada 5 yüzeyli (yan yanaklı) çalışma alanı veya tekerlekli/sabit ayak tercihinizi belirtin."
+    }
+  ],
+  "fields": [
+    {
+      "id": "tableDimensions",
+      "label": "İstenen tabla ölçüsü",
+      "kind": "text",
+      "hint": "Örn: 1000 × 2000 mm veya 1200 × 2400 mm"
+    },
+    {
+      "id": "holeSystem",
+      "label": "Delik çapı ve aralığı",
+      "kind": "text",
+      "hint": "D28 (100x100 ızgara) veya D16 (50x50 ızgara)"
+    },
+    {
+      "id": "plateThickness",
+      "label": "Tabla sac kalınlığı",
+      "kind": "text",
+      "hint": "12 mm / 15 mm / 20 mm frezeli çelik"
+    },
+    {
+      "id": "sideFlanges",
+      "label": "Yan yanak (5 yüzey) ihtiyacı",
+      "kind": "text",
+      "hint": "Var / Yok veya sadece üst tabla"
+    }
+  ],
+  "note": "Tüm masalar gerilim giderme ve hassas CNC frezeleme işlemlerinden geçirilerek yüksek düzlemsellik garantisiyle üretilir.",
+  "source": "",
+  "href": "/kaynak-masasi",
+  "status": "active"
+},
+{
+  "id": "calisma-tezgahi",
+  "title": "Ağır hizmet takım ve çalışma tezgahları (Mengeneli)",
+  "category": "Atölye Tezgahları ve Kaynak Masaları",
+  "description": "Kalıpçı, bakımcı ve talaşlı imalat ustaları için ağır çelik konstrüksiyonlu çalışma masası. Dövme çelik mengene montajı, kilitli rulmanlı çekmeceler, takım asma panosu ve darbelere dayanıklı masif üst tabla.",
+  "details": [
+    "Darbeye ve ağır yüke dayanıklı çelik sac üst tabla",
+    "Rulmanlı raylı kilitli çekmece üniteleri",
+    "Dövme çelik mengene ve aydınlatmalı takım panosu seçeneği"
+  ],
+  "uses": [
+    "Kalıp bakım ve montaj atölyeleri",
+    "Talaşlı imalat ve makine montaj hatları",
+    "Fabrika ve garaj bakım alanları"
+  ],
+  "checks": [
+    {
+      "title": "Tezgah ölçüsü ve yük kapasitesi",
+      "text": "Tezgahın boyunu (1500 mm, 2000 mm, 2500 mm vb.) ve üzerine binecek maksimum kalıp/parça ağırlığını belirtin."
+    },
+    {
+      "title": "Çekmece ve dolap düzeni",
+      "text": "Kaç adet çekmece ve dolap ünitesine ihtiyaç duyduğunuzu paylaşın."
+    },
+    {
+      "title": "Mengene ve pano aksesuarları",
+      "text": "Döner tablalı mengene, takım asma askı panosu, LED aydınlatma ve priz kanalı talebinizi belirtin."
+    }
+  ],
+  "fields": [
+    {
+      "id": "benchDimensions",
+      "label": "Tezgah boyu ve eni",
+      "kind": "text",
+      "hint": "Örn: 2000 × 800 × 900 mm"
+    },
+    {
+      "id": "drawerLayout",
+      "label": "Çekmece ve dolap sayısı",
+      "kind": "text",
+      "hint": "Örn: 4 çekmeceli blok + 1 kapaklı dolap"
+    },
+    {
+      "id": "viseRequirement",
+      "label": "Mengene tercihi",
+      "kind": "text",
+      "hint": "150 mm veya 175 mm dövme çelik mengene dahil"
+    },
+    {
+      "id": "backPanel",
+      "label": "Takım asma panosu ve aydınlatma",
+      "kind": "text",
+      "hint": "Delikli sac pano, takım kancaları ve LED armatür"
+    }
+  ],
+  "note": "Elektrostatik toz boyalı, çizilmeye ve kimyasallara dayanıklı gövde ile ömürlük mukavemet sağlanır.",
+  "source": "",
+  "href": "/calisma-tezgahi",
+  "status": "active"
+},
+{
+  "id": "hidrolik-atolye-presi",
+  "title": "Ağır hizmet hidrolik atölye presleri (10 - 50 Ton)",
+  "category": "Atölye Tezgahları ve Kaynak Masaları",
+  "description": "Rulman, burç, dişli çakma ve parça doğrultma işlemleri için H tipi çelik konstrüksiyon hidrolik atölye presi. Ayarlanabilir tabla yüksekliği, çift kademeli el pompası veya motorlu hidrolik güç ünitesi ve gliserinli manometre.",
+  "details": [
+    "H tipi rijit çelik konstrüksiyon gövde",
+    "10 tondan 50 tona kadar kapasite seçenekleri",
+    "Hassas basınç göstergeli (gliserinli manometre)"
+  ],
+  "uses": [
+    "Rulman, bilya ve burç sökme/takma",
+    "Mil ve şaft doğrultma işlemleri",
+    "Büküm, zımbalama ve presleme işleri"
+  ],
+  "checks": [
+    {
+      "title": "Tonaj ihtiyacı",
+      "text": "İşleyeceğiniz en ağır parçaya göre 10 ton, 20 ton, 30 ton veya 50 ton kuvvet ihtiyacını belirtin."
+    },
+    {
+      "title": "Tahrik şekli",
+      "text": "Manuel el pompalı, havalı (pnömatik) veya trifaze elektrik motorlu hidrolik ünite tercihini belirtin."
+    },
+    {
+      "title": "Çalışma aralığı",
+      "text": "Kolonlar arası net genişlik ve strok (piston hareket mesafesi) ihtiyacınızı paylaşın."
+    }
+  ],
+  "fields": [
+    {
+      "id": "pressCapacity",
+      "label": "Talep edilen tonaj",
+      "kind": "text",
+      "hint": "Örn: 20 Ton / 30 Ton / 50 Ton"
+    },
+    {
+      "id": "driveType",
+      "label": "Pompa / Tahrik türü",
+      "kind": "text",
+      "hint": "Manuel el pompalı / Havalı / Motorlu hidrolik güç ünitesi"
+    },
+    {
+      "id": "clearanceWidth",
+      "label": "İç kolon açıklığı",
+      "kind": "text",
+      "hint": "Biliyorsanız yazın (örn: 750 mm)"
+    }
+  ],
+  "note": "Yüksek kaliteli honlanmış silindir borusu ve krom kaplı sertleştirilmiş piston milleriyle uzun ömürlü sızdırmazlık sağlanır.",
+  "source": "",
+  "href": "/hidrolik-atolye-presi",
+  "status": "active"
+},
+{
+  "id": "fidan-burgusu",
+  "title": "Traktör ve mini ekskavatör hidrolik fidan burgusu",
+  "category": "Tarım, Sera ve Bahçe Mekanizasyonu",
+  "description": "Meyve bahçeleri, ceviz, fındık, zeytin ve bağ dikimlerinde hızlı çukur açmak için traktör 3 nokta askı veya ekskavatör uyumlu hidrolik toprak burgusu. Aşınmaya dayanıklı değiştirilebilir HARDOX uç bıçakları ve farklı çapta helezonlar.",
+  "details": [
+    "Yüksek torklu hidrolik motor veya şaftlı redüktör tahriki",
+    "Ø20 cm'den Ø60 cm'ye kadar değiştirilebilir helezon uçları",
+    "Aşınmaya dayanıklı HARDOX uç ve kılavuz delici bıçak"
+  ],
+  "uses": [
+    "Fidan, ağaç ve çalı dikim çukuru açma",
+    "Tel örgü, çit ve direk montaj delikleri",
+    "Sera direği ve temel ankraj çukurları"
+  ],
+  "checks": [
+    {
+      "title": "Traktör veya makine uyumu",
+      "text": "Kullanılacak traktörün beygir gücünü (HP) veya mini ekskavatör/beko loder modelini belirtin."
+    },
+    {
+      "title": "Çukur çapı ve derinliği",
+      "text": "Açılacak çukurun çapını (20 cm, 30 cm, 40 cm, 50 cm) ve derinliğini (80 cm, 100 cm, 120 cm) belirtin."
+    },
+    {
+      "title": "Toprak yapısı",
+      "text": "Arazinin taşlı, killi, sert veya yumuşak toprak durumunu paylaşın."
+    }
+  ],
+  "fields": [
+    {
+      "id": "machineModel",
+      "label": "Traktör / Makine tipi ve gücü",
+      "kind": "text",
+      "hint": "Örn: 50 HP Traktör / Mini Kepçe"
+    },
+    {
+      "id": "augerDiameter",
+      "label": "Burgu helezon çapı",
+      "kind": "text",
+      "hint": "Örn: Ø30 cm ve Ø40 cm helezon"
+    },
+    {
+      "id": "diggingDepth",
+      "label": "Maksimum delme derinliği",
+      "kind": "number",
+      "unit": "cm",
+      "hint": "Örn: 100 cm"
+    },
+    {
+      "id": "soilCondition",
+      "label": "Toprak ve arazi durumu",
+      "kind": "text",
+      "hint": "Killi, taşlı, sert toprak vb."
+    }
+  ],
+  "note": "Merzifon atölyemizde imal edilir; tüm aşınan bıçaklar civatalı olup sahada kolayca değiştirilebilir.",
+  "source": "",
+  "href": "/fidan-burgusu",
+  "status": "active"
+},
+{
+  "id": "dal-ogutme-makinesi",
+  "title": "Dal öğütme ve budama artığı parçalama makinesi",
+  "category": "Tarım, Sera ve Bahçe Mekanizasyonu",
+  "description": "Meyve bahçeleri, park-bahçeler ve seralarda budama sonrası dalları organik gübre ve malç talaşına dönüştüren ağır hizmet dal parçalama makinesi. Traktör kuyruk mili (PTO) veya bağımsız benzinli motorlu seçenekler.",
+  "details": [
+    "Özel alaşımlı çift taraflı bilenebilir çelik bıçaklar",
+    "Geniş besleme hunisi ve 360° yönlendirilebilir tahliye bacası",
+    "Ø8 cm ile Ø12 cm kalınlığa kadar dal öğütme kapasitesi"
+  ],
+  "uses": [
+    "Meyve bahçesi budama artıklarının temizliği",
+    "Organik kompost ve peyzaj malç talaşı üretimi",
+    "Belediye ve park bakım temizlik işleri"
+  ],
+  "checks": [
+    {
+      "title": "Güç kaynağı",
+      "text": "Traktör kuyruk milinden mi (PTO şaftlı) yoksa tekerlekli şase üzerinde benzinli motorlu mu tercih ettiğinizi belirtin."
+    },
+    {
+      "title": "Maksimum dal kalınlığı",
+      "text": "Öğüteceğiniz dalların ortalama ve en büyük çapını (5 cm, 8 cm, 10 cm vb.) paylaşın."
+    }
+  ],
+  "fields": [
+    {
+      "id": "powerSource",
+      "label": "Tahrik türü",
+      "kind": "text",
+      "hint": "Traktör PTO (Şaftlı) veya 15 HP Benzinli Motor"
+    },
+    {
+      "id": "maxBranchDiameter",
+      "label": "Maksimum dal çapı",
+      "kind": "text",
+      "hint": "Örn: Ø8 cm veya Ø10 cm"
+    },
+    {
+      "id": "chassisOption",
+      "label": "Şase ve taşıma tipi",
+      "kind": "text",
+      "hint": "Traktör 3 nokta askı veya çekilebilir tekerlekli araba"
+    }
+  ],
+  "note": "Dalların yakılmasını önler, toprağa organik madde kazandırır ve yangın riskini ortadan kaldırır.",
+  "source": "",
+  "href": "/dal-ogutme-makinesi",
+  "status": "active"
+},
+{
+  "id": "motosiklet-lifti",
+  "title": "Motosiklet ve ATV hidrolik bakım lifti",
+  "category": "Atölye Tezgahları ve Kaynak Masaları",
+  "description": "Motosiklet, scooter ve ATV tamir, bakım ve temizlik işleri için ayak pedallı hidrolik makaslı kaldırma platformu. Çentikli kaymaz çelik tabla, ön tekerlek sıkıştırma mengenesi, emniyet kilitleme pimleri ve çıkarılabilir arka teker kapağı.",
+  "details": [
+    "500 kg - 1000 kg kaldırma kapasitesi",
+    "Ayak pedallı hidrolik pompa ve mekanik emniyet kilidi",
+    "Çıkarılabilir arka rampa ve arka tekerlek bakım penceresi"
+  ],
+  "uses": [
+    "Motosiklet ve scooter tamir servisleri",
+    "ATV ve küçük arazi araçları bakımı",
+    "Garaj ve hobi meraklılarının atölyeleri"
+  ],
+  "checks": [
+    {
+      "title": "Kaldırma kapasitesi ve tabla boyu",
+      "text": "Kaldırılacak en ağır motosiklet/ATV ağırlığını ve aks mesafesini paylaşın."
+    },
+    {
+      "title": "Kaldırma yüksekliği",
+      "text": "Maksimum çalışma yüksekliği (genellikle 80 - 100 cm) ihtiyacınızı belirtin."
+    }
+  ],
+  "fields": [
+    {
+      "id": "liftCapacity",
+      "label": "Kaldırma kapasitesi",
+      "kind": "text",
+      "hint": "500 kg veya 800 kg (ATV uyumlu)"
+    },
+    {
+      "id": "tableLength",
+      "label": "Platform tabla boyu",
+      "kind": "text",
+      "hint": "Örn: 2200 × 700 mm"
+    },
+    {
+      "id": "wheelClamp",
+      "label": "Ön tekerlek mengene tipi",
+      "kind": "text",
+      "hint": "Manuel vidalı kilit veya otomatik kavrama"
+    }
+  ],
+  "note": "Rijit makas sistemi ve mekanik düşme önleyici kilitler sayesinde altında güvenle çalışabilirsiniz.",
+  "source": "",
+  "href": "/motosiklet-lifti",
+  "status": "active"
+},
+{
+  "id": "damperli-tasima-kasasi",
+  "title": "Traktör ve çapa arkası damperli taşıma kasası",
+  "category": "Tarım, Sera ve Bahçe Mekanizasyonu",
+  "description": "Bahçe, sera ve tarla işlerinde gübre, odun, mahsul ve malzeme taşımak için traktör 3 nokta askı kollarına bağlanan mekanik damperli çelik kasa. Açılabilir arka kapak, güçlendirilmiş taban sacı ve kolay boşaltma mandalı.",
+  "details": [
+    "Mekanik mandallı pratik damperli boşaltma sistemi",
+    "Traktör 3 nokta askı uyumlu sağlam çelik şase",
+    "Açılabilir ve sökülebilir arka yükleme kapağı"
+  ],
+  "uses": [
+    "Bağ, bahçe ve sera içi malzeme taşımacılığı",
+    "Gübre, toprak, çakıl ve odun nakli",
+    "Hasat edilen meyve ve sebze kasalarının sevki"
+  ],
+  "checks": [
+    {
+      "title": "Kasa iç ölçüsü",
+      "text": "Traktörünüzün genişliğine uygun en (120 cm, 150 cm, 180 cm vb.) ve derinlik ihtiyacını belirtin."
+    },
+    {
+      "title": "Kapak yapısı",
+      "text": "Üstten veya alttan menteşeli çift yönlü kapak ihtiyacınızı paylaşın."
+    }
+  ],
+  "fields": [
+    {
+      "id": "boxDimensions",
+      "label": "Kasa genişliği ve boyu",
+      "kind": "text",
+      "hint": "Örn: 150 × 100 × 50 cm"
+    },
+    {
+      "id": "tractorHp",
+      "label": "Kullanılacak traktör gücü",
+      "kind": "text",
+      "hint": "Örn: 40-60 HP"
+    },
+    {
+      "id": "dumpMechanism",
+      "label": "Damper tercihi",
+      "kind": "text",
+      "hint": "Mekanik mandallı veya hidrolik pistonlu"
+    }
+  ],
+  "note": "Merzifon sanayisinde üretilir; rijit taban takviyeleri sayesinde ağır yüklerde bel vermez.",
+  "source": "",
+  "href": "/damperli-tasima-kasasi",
+  "status": "active"
+},
+{
+  "id": "fason-talasli-imalat",
+  "title": "Fason talaşlı imalat (CNC torna ve freze parça üretimi)",
+  "category": "Fason İmalat ve Mühendislik",
+  "description": "Numune veya teknik resme göre tekli, adetli ve seri CNC torna ve dik işleme freze fason parça üretimi. Çelik, paslanmaz, alüminyum, pirinç ve kestamid malzemelerde mikron düzeyinde toleranslı talaşlı imalat.",
+  "details": [
+    "CNC torna ve CNC dik işleme merkezi fason kapasitesi",
+    "Çelik, paslanmaz, döküm, alüminyum ve mühendislik plastikleri",
+    "3D CAD/CAM programlama ve hassas kalite kontrol"
+  ],
+  "uses": [
+    "Makine yedek parçaları ve miller",
+    "Flanş, dişli taslakları, burç ve yataklar",
+    "Aparatlar, kalıp elemanları ve prototip parçalar"
+  ],
+  "checks": [
+    {
+      "title": "Teknik resim veya numune",
+      "text": "Parçanın 2D teknik resmini (PDF/DXF), 3D modelini (STEP) veya numune fotoğrafını WhatsApp'tan paylaşın."
+    },
+    {
+      "title": "Adet ve malzeme",
+      "text": "İstenen sipariş adedini ve malzeme cinsini (Ç-1040, Ç-4140, AISI 304, Alüminyum 6000 serisi vb.) belirtin."
+    },
+    {
+      "title": "Isıl işlem veya yüzey kaplama",
+      "text": "Varsa sertleştirme (ısıl işlem), taşlama, galvaniz veya eloksal ihtiyacını belirtin."
+    }
+  ],
+  "fields": [
+    {
+      "id": "drawingOrSample",
+      "label": "Parça bilgisi",
+      "kind": "text",
+      "hint": "Teknik resim var mı, numuneden mi işlenecek?"
+    },
+    {
+      "id": "materialType",
+      "label": "Malzeme tercihi",
+      "kind": "text",
+      "hint": "İmalat çeliği, ıslah çeliği, paslanmaz, alüminyum vb."
+    },
+    {
+      "id": "orderQuantity",
+      "label": "Talep edilen adet",
+      "kind": "number",
+      "hint": "1 adet prototip veya seri adet"
+    },
+    {
+      "id": "finishingNeeds",
+      "label": "Ek işlemler (Isıl işlem, taşlama vb.)",
+      "kind": "text",
+      "hint": "Varsa belirtin; yoksa boş bırakabilirsiniz"
+    }
+  ],
+  "note": "Merzifon ve çevre illerden kargo veya elden numune teslim alıyoruz. Çiziminiz olmasa da ölçülendirip üretiyoruz.",
+  "source": "",
+  "href": "/fason-talasli-imalat",
+  "status": "active"
+},
+{
+  "id": "fason-kaynak-isleri",
+  "title": "Fason gazaltı ve TIG kaynaklı çelik imalat",
+  "category": "Fason İmalat ve Mühendislik",
+  "description": "Makine şaseleri, platformlar, çelik konstrüksiyon karkaslar ve paslanmaz sac montajları için fason gazaltı (MIG/MAG) ve argon (TIG) kaynak işleri. Projenize uygun fikstürleme ve hatasız kaynak dikişleri.",
+  "details": [
+    "Gazaltı (MIG/MAG) ve TIG (Argon) paslanmaz kaynağı",
+    "Şasi, karkas, tank ve konstrüksiyon montajı",
+    "Temiz kaynak dikişleri, çapak alma ve boyaya hazır teslimat"
+  ],
+  "uses": [
+    "Makine ana gövdeleri ve taşıyıcı şaseler",
+    "Konveyör şaseleri, sehpalar ve platformlar",
+    "Paslanmaz gıda ve kimya ekipman gövdeleri"
+  ],
+  "checks": [
+    {
+      "title": "Proje ve malzeme",
+      "text": "Kaynatılacak profil, boru veya sac kalınlıklarını ve çelik/paslanmaz sınıfını paylaşın."
+    },
+    {
+      "title": "Ölçü ve tolerans",
+      "text": "Toplam konstrüksiyon dış ölçülerini ve varsa kritik montaj yüzeylerini belirtin."
+    }
+  ],
+  "fields": [
+    {
+      "id": "weldType",
+      "label": "Kaynak türü ve malzeme",
+      "kind": "text",
+      "hint": "Gazaltı çelik kaynağı veya TIG paslanmaz kaynağı"
+    },
+    {
+      "id": "overallSize",
+      "label": "Konstrüksiyon ölçüleri",
+      "kind": "text",
+      "hint": "En × Boy × Yükseklik yaklaşık ebatlar"
+    },
+    {
+      "id": "surfacePrep",
+      "label": "Yüzey temizlik ve astar boya",
+      "kind": "text",
+      "hint": "Sadece kaynaklı montaj mı, astar/toz boyalı teslim mi?"
+    }
+  ],
+  "note": "Kaynak deformasyonlarını önleyici özel fikstürler ve yüksek mukavemetli kaynak telleriyle çalışılır.",
+  "source": "",
+  "href": "/fason-kaynak-isleri",
+  "status": "active"
+},
+{
+  "id": "ozel-mil-ve-saftlar",
+  "title": "Özel ölçü miller, şaftlar ve transmisyon parçaları",
+  "category": "Talaşlı İmalat & Hassas Parçalar",
+  "description": "Kademeli miller, kamalı şaftlar, yivli/dişli miller ve sertleştirilmiş transmisyon milleri. İmalat çeliği (Ç-1040, Ç-1050), ıslah çeliği (4140/42CrMo4) ve paslanmaz malzemeden mikron toleranslı CNC torna ve taşlama üretimi.",
+  "details": [
+    "Kademeli, kamalı, dişli ve delikli mil imalatı",
+    "Rulman ve keçe oturma yüzeyleri için hassas taşlama",
+    "İndüksiyon ile yüzey sertleştirme ve kama kanalı açma"
+  ],
+  "uses": [
+    "Elektrik motoru, redüktör ve pompa şaftları",
+    "Konveyör tambur ve aktarma milleri",
+    "Aşınmış veya kırılmış makine transmisyon milleri"
+  ],
+  "checks": [
+    {
+      "title": "Çap, boy ve kademeler",
+      "text": "Maksimum mil çapını ve toplam boyunu belirtin. Kademeler, yatak yerleri ve kama kanalları numune veya teknik resme göre işlenir."
+    },
+    {
+      "title": "Malzeme ve çalışma şartı",
+      "text": "Ç-1050, 4140 ıslah çeliği, transmisyon çeliği veya paslanmaz (AISI 304/316) malzeme tercihinizi belirtin."
+    },
+    {
+      "title": "Isıl işlem ve taşlama",
+      "text": "Rulman yerlerinde sertlik (55-60 HRC) veya hassas yüzey taşlama (Ra 0.8) ihtiyacını paylaşın."
+    }
+  ],
+  "fields": [
+    {
+      "id": "shaftDiameterLength",
+      "label": "Mil çapı ve toplam boy",
+      "kind": "text",
+      "hint": "Örn: Ø50 mm × 800 mm (kademeli)"
+    },
+    {
+      "id": "steelGrade",
+      "label": "Malzeme türü",
+      "kind": "text",
+      "hint": "4140 Islah / Ç-1050 / İmalat çeliği / Paslanmaz"
+    },
+    {
+      "id": "features",
+      "label": "Kama kanalı, diş veya delik",
+      "kind": "text",
+      "hint": "Kama kanalı, metrik vida dişi veya segman kanalı var mı?"
+    },
+    {
+      "id": "requestedQuantity",
+      "label": "Talep edilen adet",
+      "kind": "number",
+      "hint": "1 adet numune/yedek parça veya seri üretim"
+    }
+  ],
+  "note": "Elinizde çizim yoksa kırık veya aşınmış eski mili atölyemize ulaştırabilirsiniz; kumpas ve mikrometreyle ölçülendirip birebir yenisini üretiriz.",
+  "source": "",
+  "href": "/ozel-mil-ve-saftlar",
+  "status": "active"
+},
+{
+  "id": "bronz-ve-celik-burclar",
+  "title": "Hassas burçlar, rulman yatakları ve flanş imalatı",
+  "category": "Talaşlı İmalat & Hassas Parçalar",
+  "description": "Aşınmaya dayanıklı fosfor bronz (sarı), pirinç, kızıl, alaşımlı çelik ve kestamid (poliamid) kaymalı yatak burçları. Flanşlı burçlar, yağ kanallı burçlar ve özel makine yatak bileşenleri.",
+  "details": [
+    "Fosfor bronz (CuSn8, CuSn12), pirinç, çelik ve kestamid",
+    "İç ve dış spiral/düz yağ kanalı işleme",
+    "H7 / h6 sıkı geçme ve çalışma toleransları"
+  ],
+  "uses": [
+    "Ekskavatör, kepçe ve iş makinesi mafsal burçları",
+    "Pres, giyotin ve takım tezgahı kaymalı yatakları",
+    "Gıda, tarım ve tekstil makineleri döner aksamları"
+  ],
+  "checks": [
+    {
+      "title": "İç çap, dış çap ve boy",
+      "text": "Burcun iç çapını (mil ölçüsü), dış çapını (yuva ölçüsü) ve toplam boyunu paylaşın."
+    },
+    {
+      "title": "Malzeme seçimi",
+      "text": "Yüksek sürtünme ve yük için fosfor bronz, kuru çalışma için kestamid veya çelik burç tercihinizi belirtin."
+    },
+    {
+      "title": "Yağ kanalı ve flanş",
+      "text": "Gresörlük deliği, iç yağ kanalı veya flanş (faturalı baş) ihtiyacını paylaşın."
+    }
+  ],
+  "fields": [
+    {
+      "id": "bushingDimensions",
+      "label": "İç çap × Dış çap × Boy",
+      "kind": "text",
+      "hint": "Örn: Ø40 × Ø50 × 60 mm (Flanşlı veya düz)"
+    },
+    {
+      "id": "material",
+      "label": "Malzeme tercihi",
+      "kind": "text",
+      "hint": "Fosfor Bronz (Sarı) / Çelik / Kestamid / Pirinç"
+    },
+    {
+      "id": "oilGroove",
+      "label": "Yağ kanalı / Yağlama deliği",
+      "kind": "text",
+      "hint": "İç spiral yağ kanalı var mı?"
+    },
+    {
+      "id": "requestedQuantity",
+      "label": "Sipariş adedi",
+      "kind": "number",
+      "hint": "Adet belirtin"
+    }
+  ],
+  "note": "Aşınmış mil ve yuva boşluğunu gidermek için standart dışı özel toleranslı tamir burçları üretilmektedir.",
+  "source": "",
+  "href": "/bronz-ve-celik-burclar",
+  "status": "active"
+},
+{
+  "id": "sanayi-bicaklari",
+  "title": "Özel sanayi, gıda ve kesim bıçakları imalatı",
+  "category": "Makine Restorasyonu & Parça Yenileme",
+  "description": "Gıda işleme (sebze doğrama, kıyma, dilimleme), ambalaj, plastik granül, geri dönüşüm ve sac giyotin bıçaklarının özel imalatı ve bilenmesi. Paslanmaz gıda çeliği ve yüksek alaşımlı takım çeliği (1.2379 / D2) kullanımı.",
+  "details": [
+    "Paslanmaz gıda sınıfı çelik ve yüksek karbonlu takım çelikleri",
+    "Vakum ısıl işlem ile 58-62 HRC yüksek aşınma direnci",
+    "Ayna parlaklığında hassas taşlanmış kesici ağız yapısı"
+  ],
+  "uses": [
+    "Endüstriyel sebze ve gıda doğrama makineleri",
+    "Plastik granül kırma ve geri dönüşüm tesisleri",
+    "Matbaa, kağıt, ambalaj ve tekstil dilimleme bıçakları"
+  ],
+  "checks": [
+    {
+      "title": "Numune veya bıçak türü",
+      "text": "Elinizdeki körelmiş veya kırılmış bıçağın fotoğrafını veya numunesini ulaştırın. Bıçak formunu numuneden birebir çıkarıyoruz."
+    },
+    {
+      "title": "Kesilen malzeme",
+      "text": "Bıçağın kestiği ürünün gıda, plastik, kauçuk, kağıt veya sac olduğunu belirtin; çelik sınıfı buna göre seçilir."
+    }
+  ],
+  "fields": [
+    {
+      "id": "bladeType",
+      "label": "Bıçak türü ve makine bilgisi",
+      "kind": "text",
+      "hint": "Örn: Sebze doğrama diski / Granül kırma bıçağı / Dairesel dilimleme"
+    },
+    {
+      "id": "cuttingMaterial",
+      "label": "Kesilen malzeme",
+      "kind": "text",
+      "hint": "Gıda maddesi / Plastik / Kağıt / Kauçuk"
+    },
+    {
+      "id": "steelPreference",
+      "label": "Çelik türü",
+      "kind": "text",
+      "hint": "Paslanmaz çelik / 1.2379 Takım çeliği / HSS"
+    },
+    {
+      "id": "requestedQuantity",
+      "label": "Talep adedi",
+      "kind": "number",
+      "hint": "Takım veya adet bilgisi"
+    }
+  ],
+  "note": "Gerçek örneğimizi inceleyin: Sitemizdeki 'Örnek Çalışmalar' bölümünde sebze doğrama makinesi bıçak yenileme projemizi fotoğraflarıyla görebilirsiniz.",
+  "source": "",
+  "href": "/sanayi-bicaklari",
+  "status": "active"
+}
+,
+{
+  "id": "d28-kilitleme-pimi",
+  "href": "/d28-kilitleme-pimi",
+  "title": "D28 Modüler Kaynak Masası Bilyeli Hızlı Kilitleme Pimi",
+  "category": "Atölye Tezgahları ve İmalat Destek Ekipmanları",
+  "description": "3D delikli D28 kaynak ve fikstür masaları için 3 bilyeli hızlı kilitleme ve sabitleme pimi. Çevir-kilitle mekanizması, sertleştirilmiş 4140 çelik gövde ve hassas taşlanmış dış çap. 10'lu ve 20'li takım paketleri.",
+  "details": [
+    "4140 ıslah çeliği gövde (ısıl işlem görmüş)",
+    "3 adet sertleştirilmiş radyal çelik bilya",
+    "Çapak yapışmasını önleyen karartma / nitrasyon kaplama"
+  ],
+  "uses": [
+    "D28 delikli 3D kaynak masalarında fikstür bağlama",
+    "Dayama gönyeleri ve köşe takozlarını masaya kilitleme",
+    "Kaynak esnasında iş parçası sabitleme"
+  ],
+  "checks": [
+    {
+      "title": "Masa delik çapı standardı",
+      "text": "Masanızın delik çapının standart D28 (Ø28.00 mm) olup olmadığını belirtin. D16 sistemler için de özel pim imalatımız mevcuttur."
+    },
+    {
+      "title": "Sıkma boyu ve plaka kalınlığı",
+      "text": "Masa tablası kalınlığı ile bağlanacak aparatın et kalınlığı toplamını paylaşın (örn: 25 mm masa + 20 mm gönye = 45 mm sıkma boyu)."
+    }
+  ],
+  "fields": [
+    {
+      "id": "systemType",
+      "label": "Sistem delik çapı",
+      "kind": "text",
+      "hint": "D28 (Standart) veya D16"
+    },
+    {
+      "id": "clampingRange",
+      "label": "Bağlama boyu aralığı",
+      "kind": "text",
+      "hint": "Örn. 0-50 mm ayarlanabilir"
+    },
+    {
+      "id": "requestedQuantity",
+      "label": "Talep adedi",
+      "kind": "number",
+      "hint": "10'lu veya 20'li paket"
+    }
+  ],
+  "note": "Atölyemizde CNC tornada hassas toleranslarla işlenip ısıl işlemden geçirilerek üretilir.",
+  "source": "",
+  "status": "active"
+},
+{
+  "id": "cnc-torna-yumusak-ayak",
+  "href": "/cnc-torna-yumusak-ayak",
+  "title": "8 İnç CNC Torna Yumuşak Ayak Takımı (Kitagawa B-208 Uyumlu 3'lü Set)",
+  "category": "Talaşlı İmalat & Hassas Parçalar (Torna, Freze, CNC)",
+  "description": "8 inç hidrolik CNC torna aynaları için 1.5mm x 60° çentikli C45 çelik yumuşak ayak seti (3 adet). Kitagawa B-208, BB-08, Samchully ve muadili standart aynalarla tam uyumlu. Yüksek eşmerkezlilik ve hassas tornalama için atölye sarf malzemesi.",
+  "details": [
+    "Kitagawa B-208, BB-08, Howa ve Samchully standart 8 inç hidrolik aynalarla tam uyum",
+    "1.5 mm x 60° hassas açılmış çentik dişi (serration) ve 14 mm T-kanal",
+    "C45 (1040/1050) sıcak çekme kaliteli imalat çeliğinden CNC frezelenmiş gövde",
+    "2 x M12 imbus cıvata için havşalı montaj delikleri (25 mm delik eksen aralığı)",
+    "Standart 38 mm veya yüksek profil 50 mm opsiyonu (3 adetlik takım paket)"
+  ],
+  "uses": [
+    "CNC torna tezgahlarında hassas 2. operasyon parçası sıkma",
+    "İşlenmiş dış çap veya iç çap tornalama ve salgısız bağlama",
+    "Seri imalat torna işlerinde özel çapa göre ayak boşaltma"
+  ],
+  "checks": [
+    {
+      "title": "Ayna markası ve inç ölçüsü",
+      "text": "CNC torna tezgahınızın ayna çapını (6 inç, 8 inç, 10 inç veya 12 inç) ve marka/modelini (Kitagawa, Samchully, Strong vb.) kontrol edin. En yaygın kullanılan ölçü 8 inçtir."
+    },
+    {
+      "title": "Diş adımı ve kanal ölçüsü",
+      "text": "Aynanızın ana çene üzerindeki diş adımının 1.5 mm x 60° ve T-kanal genişliğinin 14 mm olduğunu doğrulayın (Japon ve Kore ayna standardı)."
+    },
+    {
+      "title": "Ayak yüksekliği tercihi",
+      "text": "Standart derinlikte parçalar için 38 mm yükseklik yeterlidir; kademeli veya derin bağlama gerektiren parçalar için 50 mm yüksek tip ayak tercih edebilirsiniz."
+    }
+  ],
+  "fields": [
+    {
+      "id": "chuckSize",
+      "label": "Ayna ölçüsü",
+      "kind": "text",
+      "hint": "8 inç (Standart) / 6 inç / 10 inç"
+    },
+    {
+      "id": "jawHeight",
+      "label": "Ayak yüksekliği",
+      "kind": "text",
+      "hint": "Standart (38 mm) veya Yüksek (50 mm)"
+    },
+    {
+      "id": "quantitySets",
+      "label": "Takım adedi",
+      "kind": "number",
+      "hint": "Takım (1 Takım = 3 Adet Ayak)"
+    }
+  ],
+  "note": "Merzifon atölyemizde CNC dik işlemede sertifikalı C45 lamadan sıfır toleransla üretilir. Stoktan aynı gün kargolanır.",
+  "source": "https://jp.misumi-ec.com/vona2/detail/223000625357/",
+  "status": "active"
+},
+{
+  "id": "sim-racing-pedal-plakasi",
+  "href": "/sim-racing-pedal-plakasi",
+  "title": "Sim-Racing Evrensel Pedal & El Freni Adaptör Plakası (CNC Alüminyum)",
+  "category": "Talaşlı İmalat & Hassas Parçalar (Torna, Freze, CNC)",
+  "description": "Yarış simülatörleri ve alüminyum sigma profil kokpitler için 5mm kalınlığında CNC işlenmiş üniversal pedal ve el freni taban plakası. Moza, Fanatec, Heusinkveld, Logitech ve Thrustmaster pedal setleriyle tam uyumlu çoklu montaj slotları.",
+  "details": [
+    "5 mm et kalınlığında 6061-T6 veya 5083 havacılık sınıfı rijit alüminyum plaka",
+    "Sert frenaj ve Load Cell pedallarda esnemeyi önleyen masif rijit yapı",
+    "Moza CRP/SR-P, Fanatec V3/CSL, Heusinkveld Sprint, Logitech G29/PRO uyumlu slotlar",
+    "40x40 ve 40x80 sigma profil riglere doğrudan M8 bağlantı kanalları",
+    "Pah kırılmış kenarlar, kumlama ve mat siyah eloksal yüzey koruması"
+  ],
+  "uses": [
+    "Alüminyum profil simülasyon kokpitlerinde pedal montajı",
+    "Masaüstü ve rig üzeri USB vites / el freni açılı sabitleme",
+    "Load cell fren pedallarında sıfır esneme ile tur zamanı geliştirme"
+  ],
+  "checks": [
+    {
+      "title": "Pedal ve kokpit uyumu",
+      "text": "Kullandığınız pedal setinin modelini ve kokpitinizin profil aralığını (genellikle 400-500 mm arası) belirtin."
+    },
+    {
+      "title": "Eğim ve kızak ihtiyacı",
+      "text": "Açılı montaj kulakları veya ileri-geri hareketli kızak adaptörü isteyip istemediğinizi seçebilirsiniz."
+    }
+  ],
+  "fields": [
+    {
+      "id": "pedalModel",
+      "label": "Pedal setiniz",
+      "kind": "text",
+      "hint": "Örn. Moza CRP, Fanatec CSL LC, Heusinkveld vb."
+    },
+    {
+      "id": "rigType",
+      "label": "Kokpit / Rig profil tipi",
+      "kind": "text",
+      "hint": "Örn. 40x80 sigma profil veya masa montajı"
+    }
+  ],
+  "note": "CNC frezede hassas slotlarla açılır, çapakları alınır ve çizilmeye dayanıklı mat siyah kaplamayla paketlenir.",
+  "source": "https://sim-lab.eu/en-tr/products/pedal-slider-baseplate",
+  "status": "active"
+},
+{
+  "id": "motosiklet-paddock-bobini",
+  "href": "/motosiklet-paddock-bobini",
+  "title": "CNC Motosiklet Arka Paddock Sehpa Kaldırma & Koruma Takozu (M6 / M8 / M10)",
+  "category": "Talaşlı İmalat & Hassas Parçalar (Torna, Freze, CNC)",
+  "description": "Motosiklet arka maşa kaldırma sehpası (paddock stand) yuvasına takılan CNC torna işleme 6061-T6 alüminyum ve Kestamid koruma takozu seti (2 adet). Zincir yağlama, lastik değişimi ve olası düşmelerde maşa koruması sağlar. Paslanmaz çelik imbus cıvata dahil.",
+  "details": [
+    "CNC tornada hassas işlenmiş 6061-T6 kütük alüminyum veya darbe emici Kestamid gövde",
+    "V-tipi arka kaldırma sehpası çatallarına tam oturan 12 mm derin güvenlik kanalı",
+    "A2 paslanmaz çelik M6, M8 veya M10 metrik cıvata takımı dahil",
+    "Yamaha (M6), Honda/Suzuki/Kawasaki (M8), KTM (M10) model uyumluluk seçenekleri",
+    "Çizilmeye ve UV ışınlarına dayanıklı mat siyah eloksal kaplama"
+  ],
+  "uses": [
+    "Motosiklet arka tekerini paddock sehpası ile askıya alma",
+    "Periyodik zincir temizliği, yağlama ve teker bakım işleri",
+    "Pistte ve yolda olası yana yatmalarda arka maşa ve salıncak koruması"
+  ],
+  "checks": [
+    {
+      "title": "Motosiklet marka, model ve cıvata dişi",
+      "text": "Motosikletinizin arka salıncak üzerindeki diş ölçüsünü kontrol edin (Yamaha: M6, Honda/Kawasaki/BMW: M8, KTM: M10)."
+    }
+  ],
+  "fields": [
+    {
+      "id": "motoModel",
+      "label": "Motosiklet marka & model",
+      "kind": "text",
+      "hint": "Örn. Yamaha MT-07, Honda CBR 650R, Kawasaki Ninja"
+    },
+    {
+      "id": "threadSize",
+      "label": "Cıvata diş ölçüsü",
+      "kind": "text",
+      "hint": "M6 / M8 / M10"
+    }
+  ],
+  "note": "CNC torna tezgahımızda tek operasyonda salgısız üretilir; cıvatası ve puluyla çift olarak kutulanır.",
+  "source": "https://evotech-performance.com/collections/paddock-stand-bobbins",
+  "status": "active"
+},
+
+{
+  "id": "d28-kaynak-iskencesi",
+  "href": "/d28-kaynak-iskencesi",
+  "title": "D28 Kaynak Masası Hızlı Sıkma İşkencesi (T-Bar Vidalı Kelepçe)",
+  "category": "Atölye Tezgahları ve İmalat Destek Ekipmanları",
+  "description": "D28 delikli kaynak masalarında iş parçalarını masaya dikey ve yatay baskıyla sabitlemek için profesyonel hızlı sıkma işkencesi. Yüksek torklu trapez vida ve masaya direkt geçen kılavuz mil.",
+  "details": [
+    "D28 deliklere tam oturan masif çelik taşıyıcı mil",
+    "Lazer kesim/dövme kayar kol ve kilit mekanizması",
+    "Kaynak çapağı tutmayan trapez dişli sıkma mili ve mafsallı baskı pabucu"
+  ],
+  "uses": [
+    "Modüler kaynak masasında profilleri ve sacları sabitleme",
+    "Kaynak sırasında ısıdan kaynaklanan çarpılmaları engelleme",
+    "Hassas şasi montajı"
+  ],
+  "checks": [
+    {
+      "title": "Boğaz derinliği ve yükseklik",
+      "text": "Sıkılacak parçanın yüksekliğini ve tabladan olan çalışma mesafesini belirtin (Standart boğaz: 150-200 mm, yükseklik: 300 mm)."
+    }
+  ],
+  "fields": [
+    {
+      "id": "height",
+      "label": "Çalışma yüksekliği (mil boyu)",
+      "kind": "text",
+      "hint": "Örn. 300 mm veya 500 mm"
+    },
+    {
+      "id": "throatDepth",
+      "label": "Boğaz derinliği",
+      "kind": "text",
+      "hint": "Örn. 150 mm veya 200 mm"
+    },
+    {
+      "id": "requestedQuantity",
+      "label": "Sipariş adedi",
+      "kind": "number",
+      "hint": "Kaç adet işkence gerekiyor?"
+    }
+  ],
+  "note": "İthal Avrupa işkencelere kıyasla doğrudan yerli üretimle ekonomik ve dayanıklı çözüm.",
+  "source": "",
+  "status": "active"
+},
+{
+  "id": "d28-v-blok-kaynak-yatagi",
+  "href": "/d28-v-blok-kaynak-yatagi",
+  "title": "D28 & D16 V-Blok Boru Kaynak Yatağı ve Prizması (Çiftli Takım)",
+  "category": "Atölye Tezgahları ve İmalat Destek Ekipmanları",
+  "description": "Silindirik boru, mil ve yuvarlak profilleri kaynak masasında 90° ve 45° açılarda tam merkezleyerek sabitleyen frezelenmiş çelik V-blok kaynak prizması. Alttan D28 pim geçmeli montaj.",
+  "details": [
+    "S355 yapısal çelik masif freze gövde",
+    "90 derece hassas V prizma yatağı (Ø20 - Ø220 mm boru kapasitesi)",
+    "Tabanda D28 kaynak masası geçme pimi ve yan tespit delikleri"
+  ],
+  "uses": [
+    "Boru alın kaynağı ve dirsek/flanş montajı",
+    "Silindirik şaft ve boruların kaynak öncesi gönyelenmesi",
+    "Rollcage ve şasi boru fikstürleri"
+  ],
+  "checks": [
+    {
+      "title": "Boru çapı aralığı",
+      "text": "Yatak üzerine koyacağınız boru veya millerinizin çap aralığını paylaşın."
+    }
+  ],
+  "fields": [
+    {
+      "id": "pipeRange",
+      "label": "Boru çap aralığı",
+      "kind": "text",
+      "hint": "Örn. Ø20 - Ø150 mm"
+    },
+    {
+      "id": "setCount",
+      "label": "Takım adedi",
+      "kind": "number",
+      "hint": "Kaç çift V-blok talep ediyorsunuz?"
+    }
+  ],
+  "note": "Frezede tek bağlamada hassas işlenerek eksen kaçıklığı sıfıra indirilmiştir.",
+  "source": "",
+  "status": "active"
+},
+{
+  "id": "boru-kurt-agzi-aparati",
+  "href": "/boru-kurt-agzi-aparati",
+  "title": "Matkap Uyumlu Boru Kurtağzı Açma Aparatı (Bihol Testereli)",
+  "category": "Atölye Tezgahları ve İmalat Destek Ekipmanları",
+  "description": "Standart sütunlu matkap veya el matkabı ile borularda kusursuz kurtağzı (kaynak ağzı) açmak için açı ayarlı profesyonel aparat. 0-60 derece açı taksimatı, çift rulmanlı taşlanmış mil ve sağlam mengene gövdesi.",
+  "details": [
+    "0-60 derece hassas açı ayar taksimatı",
+    "Standart bihol (bimetal delik testeresi) diş adaptörü",
+    "Çift rulman yataklı taşlanmış çelik tahrik mili ve boru sıkma mengenesi"
+  ],
+  "uses": [
+    "Motosiklet şasisi, rollcage ve buggy boru konstrüksiyonu",
+    "Ferforje, bisiklet ve çelik çatı/sera boru birleştirmeleri",
+    "Tesisat ve mobilya boru kaynak ağızları"
+  ],
+  "checks": [
+    {
+      "title": "Maksimum boru çapı",
+      "text": "Kullanacağınız maksimum boru çapını belirtin (Standart mengene kapasitesi Ø76 mm boruya kadardır)."
+    }
+  ],
+  "fields": [
+    {
+      "id": "maxPipeDiameter",
+      "label": "Maksimum boru çapı",
+      "kind": "text",
+      "hint": "Örn. 2 inç (Ø60 mm) veya Ø76 mm"
+    },
+    {
+      "id": "drillType",
+      "label": "Kullanılacak matkap",
+      "kind": "text",
+      "hint": "Sütunlu matkap veya Güçlü el matkabı"
+    }
+  ],
+  "note": "Büyük tezgahlara 150 bin TL harcamadan atölyenizdeki matkapla seri boru çentikleme yapmanızı sağlar.",
+  "source": "",
+  "status": "active"
+},
+{
+  "id": "manuel-boru-bukme",
+  "href": "/manuel-boru-bukme",
+  "title": "3 Makaralı Manuel Profil ve Boru Bükme Makinesi (Tezgah Tipi Vals)",
+  "category": "Atölye Tezgahları ve İmalat Destek Ekipmanları",
+  "description": "Boru, profil, lama ve köşebentleri istenen radüste dairesel ve yay şeklinde bükmek için 3 valsli manuel bükme makinesi. C45 çelikten tornalanmış makaralar, trapez vida baskı ve çevirme kolu.",
+  "details": [
+    "C45 ıslah çeliğinden tornalanmış 3 adet modüler vals makarası",
+    "Trapez dişli ağır hizmet üst baskı mili ve el çarkı",
+    "Lazer kesim kalın çelik gövde ve tezgah/stand montaj ayakları"
+  ],
+  "uses": [
+    "Sera boruları, tente ve branda kavis bükümleri",
+    "Ferforje korkuluk, masa/sandalye mobilya boru bükümleri",
+    "Reklam panosu ve çelik yay konstrüksiyonları"
+  ],
+  "checks": [
+    {
+      "title": "Bükülecek profil ve boru ölçüleri",
+      "text": "Bükmek istediğiniz boru çaplarını (örn: Ø25, Ø32 mm) veya kutu profil ebatlarını (örn: 30x30 mm) belirtin. Uygun makara setleri hazırlanır."
+    }
+  ],
+  "fields": [
+    {
+      "id": "profileDimensions",
+      "label": "Profil / Boru ölçüleri",
+      "kind": "text",
+      "hint": "Örn. 30x30 mm profil veya 1 inç boru"
+    },
+    {
+      "id": "wallThickness",
+      "label": "Et kalınlığı",
+      "kind": "text",
+      "hint": "Örn. 1.5 mm - 2.5 mm"
+    }
+  ],
+  "note": "Redüktör ve motor takılarak ileride motorlu sisteme çevrilebilir esnek modüler şasi.",
+  "source": "",
+  "status": "active"
+},
+{
+  "id": "devirmeli-talas-arabasi-forklift",
+  "href": "/devirmeli-talas-arabasi-forklift",
+  "title": "Sıvı Tahliyeli ve Forklift Cepli Devirmeli Talaş Arabası (250L / 350L)",
+  "category": "Atölye Tezgahları ve İmalat Destek Ekipmanları",
+  "description": "CNC işleme merkezleri ve torna tezgahları için boryağı/soğutma sıvısı süzme ızgaralı, 1 inç tahliye vanalı ve forkliftle konteynere devirmeli damperli talaş arabası.",
+  "details": [
+    "Tabanda delikli süzgeç sacı ve boryağı tahliye küresel vanası",
+    "Forklift çatal kılıf cepleri ve emniyetli yaylı devirme kilidi",
+    "Ağır yük poliüretan/döküm sanayi tekerlekleri ve yön tutamağı"
+  ],
+  "uses": [
+    "CNC torna ve frezelerde talaş biriktirme ve taşıma",
+    "Kıymetli boryağını talaştan süzüp geri kazanma",
+    "Forkliftle talaş konteynerine tek hamlede devirip boşaltma"
+  ],
+  "checks": [
+    {
+      "title": "Kapasite ve tezgah altı yüksekliği",
+      "text": "Tezgah talaş konveyörü çıkış yüksekliğinizi ve işletmenize uygun hacmi (250L / 350L / 500L) paylaşın."
+    }
+  ],
+  "fields": [
+    {
+      "id": "volume",
+      "label": "Hacim seçeneği",
+      "kind": "text",
+      "hint": "250 Litre veya 350 Litre"
+    },
+    {
+      "id": "drainType",
+      "label": "Sıvı tahliye vanası",
+      "kind": "text",
+      "hint": "1 inç küresel vana (Standart)"
+    }
+  ],
+  "note": "Lazer sac büküm ve sızdırmaz gazaltı kaynakla talaşlı imalat için özel olarak üretilir.",
+  "source": "",
+  "status": "active"
+},
+{
+  "id": "bant-zimpara-makinesi",
+  "href": "/bant-zimpara-makinesi",
+  "title": "50x2000 mm Tezgah Tipi Metal Bant Zımpara & Çapak Alma Makinesi",
+  "category": "Atölye Tezgahları ve İmalat Destek Ekipmanları",
+  "description": "Lazer, plazma, testere kesim sonrası parçalardaki çapakları temizlemek, kaynak dikişlerini düzeltmek ve metal şekillendirmek için 50x2000 mm tezgah tipi bant zımpara makinesi.",
+  "details": [
+    "1.5 kW veya 2.2 kW 2800 d/dk güçlü elektrik motoru",
+    "Tornalanmış alüminyum tahrik ve ayarlanabilir avare makaralar",
+    "Hızlı bant gerdirme amortisörü ve 0-90° yatay/dikey çalışma açısı"
+  ],
+  "uses": [
+    "Metal ve sac parçaların çapak alma ve kenar kırma işlemleri",
+    "Kaynak dikişi taşlama ve polisaj ön hazırlığı",
+    "Bıçak imalatı ve genel metal taşlama işleri"
+  ],
+  "checks": [
+    {
+      "title": "Elektrik beslemesi",
+      "text": "Atölyenizde 220V Monofaze mi yoksa 380V Trifaze elektrik mi bulunduğunu belirtin."
+    }
+  ],
+  "fields": [
+    {
+      "id": "voltage",
+      "label": "Elektrik voltajı",
+      "kind": "text",
+      "hint": "220V Monofaze veya 380V Trifaze"
+    },
+    {
+      "id": "beltSize",
+      "label": "Bant ölçüsü",
+      "kind": "text",
+      "hint": "50x2000 mm (Standart) veya 75x2000 mm"
+    }
+  ],
+  "note": "Titreşimsiz masif çelik gövde tasarımı ile uzun ömürlü atölye yardımcısı.",
+  "source": "",
+  "status": "active"
+},
+{
+  "id": "cnc-taret-reduksiyon-kovani",
+  "href": "/cnc-taret-reduksiyon-kovani",
+  "title": "CNC Torna Taret Redüksiyon Kovanları & Mors Adaptörleri",
+  "category": "Talaşlı İmalat & Hassas Parçalar (Torna, Freze, CNC)",
+  "description": "CNC torna taret deliklerinde delik barası, rayba, kovan ve mors konik takımları hassas ve salgısız bağlamak için boyuna esneme yarıklı redüksiyon kovanları. D40 ve D32 standart dış çaplar.",
+  "details": [
+    "4140 ıslah çeliği gövde, taşlanmış dış çap ve H7 iç delik",
+    "Salgısız takım sıkma sağlayan tek taraflı boyuna esneme yarığı",
+    "Flanşlı alın tasarımı ve tespit cıvata yuvaları"
+  ],
+  "uses": [
+    "CNC torna taretine farklı çapta delik barası ve matkap bağlama",
+    "MK1, MK2, MK3 mors şaftlı takımları tarete adapte etme",
+    "Titreşimsiz ve rijit talaş kaldırma"
+  ],
+  "checks": [
+    {
+      "title": "Dış çap ve iç çap ölçüsü",
+      "text": "Taretinizin delik çapını (örn: D40 mm) ve bağlayacağınız takımın sap çapını (örn: Ø20, Ø25 mm) belirtin."
+    }
+  ],
+  "fields": [
+    {
+      "id": "outerDiameter",
+      "label": "Taret dış çapı",
+      "kind": "text",
+      "hint": "D32, D40 veya D50 mm"
+    },
+    {
+      "id": "innerDiameter",
+      "label": "İç takım delik çapı / Mors",
+      "kind": "text",
+      "hint": "Örn. Ø20 mm, Ø25 mm veya MK2"
+    }
+  ],
+  "note": "Hassas toleranslarda taşlanarak salgı değeri 0.01 mm altına indirilmiştir.",
+  "source": "",
+  "status": "active"
+},
+{
+  "id": "konik-kilit-saft-kilitleme",
+  "href": "/konik-kilit-saft-kilitleme",
+  "title": "Kamasız Şaft Kilitleme Elemanları (Konik Kilit / Tollok Muadili)",
+  "category": "Talaşlı İmalat & Hassas Parçalar (Torna, Freze, CNC)",
+  "description": "Kasnak, dişli, volan ve tamburları transmisyon miline kamasız olarak, yüksek tork ile kilitleyen çift konik sıkma bilezikleri. Kamadan kaynaklı mil zayıflamasını ve boşluk oluşumunu engeller.",
+  "details": [
+    "C45 çelik iç ve dış konik açılı yarık bilezikler",
+    "12.9 yüksek mukavemetli DIN 912 alyan cıvata grubu",
+    "Yüksek tork ve eksenel kuvvet taşıma kapasitesi"
+  ],
+  "uses": [
+    "Konveyör tamburları ve redüktör çıkış milleri bağlantısı",
+    "Triger kasnak, zincir dişli ve volan sabitleme",
+    "Kamasız hassas açısal senkronizasyon gerektiren mekanizmalar"
+  ],
+  "checks": [
+    {
+      "title": "Mil çapı ve göbek dış çapı",
+      "text": "Milinizin dış çapını (d) ve dişli/kasnak göbeğinizin iç çapını (D) belirtin (örn: 30x55 mm)."
+    }
+  ],
+  "fields": [
+    {
+      "id": "shaftDiameter",
+      "label": "Mil iç çapı (d)",
+      "kind": "text",
+      "hint": "Örn. Ø25, Ø30, Ø40 mm"
+    },
+    {
+      "id": "hubDiameter",
+      "label": "Gövde dış çapı (D)",
+      "kind": "text",
+      "hint": "Örn. Ø50, Ø55, Ø65 mm"
+    }
+  ],
+  "note": "Montajı ve demontajı son derece pratiktir; millerde kama kanalı maliyetini sıfırlar.",
+  "source": "",
+  "status": "active"
+},
+{
+  "id": "bk-bf-vidali-mil-yataklari",
+  "href": "/bk-bf-vidali-mil-yataklari",
+  "title": "BK12 / BF12 ve BK15 / BF15 Vidalı Mil Uç Yatakları Takımı",
+  "category": "Talaşlı İmalat & Hassas Parçalar (Torna, Freze, CNC)",
+  "description": "CNC router, otomasyon eksenleri ve vidalı mil mekanizmaları için motor tarafı sabit yatak (BK) ve karşı serbest yatak (BF) takımı. Hassas frezelenmiş çelik gövde ve açılı temaslı rulmanlar.",
+  "details": [
+    "BK Sabit Yatak: Karşılıklı çift sıra eğik temaslı bilyeli rulman (eksenel boşluksuz)",
+    "BF Serbest Yatak: Milin termal genleşmesini tolere eden derin oluklu rulman",
+    "C45 çelik frezelenmiş gövde, segman ve conta kapakları"
+  ],
+  "uses": [
+    "CNC router ve freze eksen vidalı milleri",
+    "3D yazıcı, kartezyen robot ve lineer modüller",
+    "Endüstriyel pozisyonlama tablaları"
+  ],
+  "checks": [
+    {
+      "title": "Vidalı mil tipi",
+      "text": "Kullanacağınız vidalı mil kodunu belirtin (Standart SFU1605/1610 için BK12/BF12, SFU2005/2010 için BK15/BF15)."
+    }
+  ],
+  "fields": [
+    {
+      "id": "modelType",
+      "label": "Yatak modeli",
+      "kind": "text",
+      "hint": "BK12/BF12 veya BK15/BF15"
+    },
+    {
+      "id": "setCount",
+      "label": "Takım adedi",
+      "kind": "number",
+      "hint": "Kaç takım gerekiyor?"
+    }
+  ],
+  "note": "Eksenel boşluğu sıfırlayarak CNC ve otomasyon projelerinde yüksek tekrarlanabilirlik sağlar.",
+  "source": "",
+  "status": "active"
+},
+{
+  "id": "cektirmeli-tespit-pimi-din7979",
+  "href": "/cektirmeli-tespit-pimi-din7979",
+  "title": "DIN 7979 / ISO 8735 Çektirmeli İçten Dişli Taşlanmış Tespit Pimleri",
+  "category": "Talaşlı İmalat & Hassas Parçalar (Torna, Freze, CNC)",
+  "description": "Kalıp, fikstür ve makine gövdelerinde kör deliklere çakılan ve gerektiğinde cıvata ile geri çekilerek zahmetsizce sökülen hava kanallı içten dişli taşlanmış tespit pimleri. 10'lu paket.",
+  "details": [
+    "16MnCr5 veya 4140 çelik malzeme, 60 HRC sementasyon/ısıl işlem",
+    "m6 ve h7 hassas dış çap taşlama toleransı",
+    "Alından metrik iç kılavuz dişi (M6/M8) ve kör delik hava tahliye kanalı"
+  ],
+  "uses": [
+    "Kesme, bükme ve enjeksiyon kalıplarında plaka merkezleme",
+    "Kör delik fikstür ve aparat montajları",
+    "Sökülüp takılması gereken makine parçaları"
+  ],
+  "checks": [
+    {
+      "title": "Pim çapı ve boyu",
+      "text": "İhtiyacınız olan pim çapını ve boyunu belirtin (Örn: Ø10x50 mm M6 iç dişli)."
+    }
+  ],
+  "fields": [
+    {
+      "id": "pinDiameter",
+      "label": "Pim çapı (d)",
+      "kind": "text",
+      "hint": "Örn. Ø8, Ø10, Ø12 mm"
+    },
+    {
+      "id": "pinLength",
+      "label": "Pim boyu (L)",
+      "kind": "text",
+      "hint": "Örn. 40, 50, 60 mm"
+    }
+  ],
+  "note": "Kör delikte kalan pimi çıkartmak için kalıbı bozma derdine son veren standart çözüm.",
+  "source": "",
+  "status": "active"
+},
+{
+  "id": "forklift-varil-tasima-atasmani",
+  "href": "/forklift-varil-tasima-atasmani",
+  "title": "Forklift Mekanik Otomatik Varil Taşıma Ataşmanı (Kıskaçlı)",
+  "category": "Atölye Tezgahları ve İmalat Destek Ekipmanları",
+  "description": "200 litrelik standart saç ve plastik varilleri forklift çatallarına geçerek hidrolik tesisat gerektirmeden, tamamen mekanik yerçekimi kilit sistemiyle taşıyan kıskaçlı ataşman. Tekli ve çiftli seçenekler.",
+  "details": [
+    "Forklift çatal kılıfları ve emniyet zincir kilidi",
+    "Varil çemberini otomatik kavrayan yaylı mekanik kilit çenesi",
+    "Ağır hizmet lazer kesim sac konstrüksiyon (500 kg taşıma kapasitesi)"
+  ],
+  "uses": [
+    "Kimya, boya, gıda ve madeni yağ tesislerinde varil yükleme",
+    "Kamyon veya konteyner içi varil istifleme",
+    "İşletme içi tek operatörle varil transferi"
+  ],
+  "checks": [
+    {
+      "title": "Varil tipi ve adedi",
+      "text": "Taşınacak varilin saç (çemberli) mi yoksa plastik mi olduğunu ve tekli mi çiftli mi ataşman istediğinizi belirtin."
+    }
+  ],
+  "fields": [
+    {
+      "id": "drumCount",
+      "label": "Ataşman tipi",
+      "kind": "text",
+      "hint": "Tek varilli veya Çift varilli"
+    },
+    {
+      "id": "drumMaterial",
+      "label": "Varil türü",
+      "kind": "text",
+      "hint": "Saç varil veya Plastik varil"
+    }
+  ],
+  "note": "Operatör forkliftten inmeden varili kavrar ve bırakır; forklift hidroliğine ekstra valf gerektirmez.",
+  "source": "",
+  "status": "active"
+},
+{
+  "id": "forklift-vinc-bomu-atasmani",
+  "href": "/forklift-vinc-bomu-atasmani",
+  "title": "Forklift Teleskopik Vinç Bomu Ataşmanı (2.5m - 3m)",
+  "category": "Atölye Tezgahları ve İmalat Destek Ekipmanları",
+  "description": "Forkliftinizi anında seyyar bir vince dönüştüren teleskopik uzatmalı bom kolu. Tavan vinci bulunmayan açık alanlarda, kamyon kasasından makine indirmede ve yüksek raflara malzeme yerleştirmede kullanılır.",
+  "details": [
+    "İç içe geçen ağır hizmet kutu profil teleskopik konstrüksiyon",
+    "Fırdöndülü 360 derece döner emniyet mandallı çelik vinç kancası",
+    "Kademeli pim kilitleme sistemi (1.5 metreden 3 metreye uzatma)"
+  ],
+  "uses": [
+    "Tavan vinci olmayan fabrikalarda makine yükleme/indirme",
+    "Geniş ebatlı kalıp ve sac yüklerini askıda taşıma",
+    "Yüksek raflara ve derin araç kasalarına erişim"
+  ],
+  "checks": [
+    {
+      "title": "Forklift tonajı ve çatal ölçüsü",
+      "text": "Forkliftinizin taşıma kapasitesini ve çatal en/kalınlık ölçülerini paylaşın."
+    }
+  ],
+  "fields": [
+    {
+      "id": "forkliftTonnage",
+      "label": "Forklift tonajı",
+      "kind": "text",
+      "hint": "Örn. 2.5 Ton veya 3.5 Ton"
+    },
+    {
+      "id": "maxExtension",
+      "label": "Maksimum uzatma boyu",
+      "kind": "text",
+      "hint": "Örn. 2.5 metre veya 3.0 metre"
+    }
+  ],
+  "note": "Statik mukavemet hesaplarına uygun St52 çelik profil ve takviye saclarıyla imal edilir.",
+  "source": "",
+  "status": "active"
+},
+{
+  "id": "hidrolik-pres-rulman-cektirme-seti",
+  "href": "/hidrolik-pres-rulman-cektirme-seti",
+  "title": "Hidrolik Pres İçin Kademeli Burç ve Rulman Çektirme/Basma Adaptör Seti",
+  "category": "Atölye Tezgahları ve İmalat Destek Ekipmanları",
+  "description": "Atölye preslerinde rulman, burç, keçe ve bilyeleri parçaya zarar vermeden düzgünce basmak ve sökmek için kademeli çelik disk ve saplama takımı. Ø18 mm'den Ø65 mm'ye kadar 2'şer mm aralıklı diskler.",
+  "details": [
+    "İmalat çeliğinden hassas tornalanmış çift taraflı kademeli diskler",
+    "Sertleştirilmiş çekme/basma merkezleme saplaması ve somun grubu",
+    "Darbelere ve yüksek pres basıncına dayanıklı ısıl işlem"
+  ],
+  "uses": [
+    "Oto ve traktör tamir atölyelerinde tekerlek poyra rulmanı basma",
+    "Salıncak burçları ve şanzıman bilyeleri sökme-takma",
+    "Sanayi makinelerinde burç montajı"
+  ],
+  "checks": [
+    {
+      "title": "Çap aralığı tercihi",
+      "text": "En çok çalıştığınız rulman ve burç çapı aralığını belirtin."
+    }
+  ],
+  "fields": [
+    {
+      "id": "diameterRange",
+      "label": "Disk çap aralığı",
+      "kind": "text",
+      "hint": "Ø18 - Ø65 mm (Standart Set)"
+    },
+    {
+      "id": "pressTonnage",
+      "label": "Kullanılacak pres tonajı",
+      "kind": "text",
+      "hint": "Örn. 10 Ton, 20 Ton, 30 Ton"
+    }
+  ],
+  "note": "Preste parça arama ve uydurma takoz kullanma tehlikesini ortadan kaldıran profesyonel takım.",
+  "source": "",
+  "status": "active"
+},
+{
+  "id": "hidrolik-pres-mil-dogrultma-v-blok",
+  "href": "/hidrolik-pres-mil-dogrultma-v-blok",
+  "title": "Hidrolik Atölye Presi Mil Doğrultma V-Blok ve Baskı Kaması Takımı",
+  "category": "Atölye Tezgahları ve İmalat Destek Ekipmanları",
+  "description": "Eğilmiş transmisyon millerini, aksları, boru ve hidrolik piston kollarını hidrolik pres altında hassas doğrultmak için 2 adet V yatak bloğu ve 1 adet kavisli pres ucu baskı kaması takımı.",
+  "details": [
+    "S355 yapısal çelik masif freze gövde V-bloklar",
+    "Pres tablası T-kanalına veya düz zemine oturan kaymaz taban",
+    "Pres pistonu ucuna bağlanan yarıçaplı kavisli baskı kaması"
+  ],
+  "uses": [
+    "Tornaya girmeden önce eğri milleri ve şaftları doğrultma",
+    "Aks milleri ve traktör transmisyon kolları pres doğrultması",
+    "Bükülmüş boru ve profilleri düzeltme"
+  ],
+  "checks": [
+    {
+      "title": "Pres tablası ve mil çapı",
+      "text": "Presinizin tabla genişliğini ve doğrultulacak maksimum mil çapını belirtin."
+    }
+  ],
+  "fields": [
+    {
+      "id": "maxShaftDiameter",
+      "label": "Maksimum mil çapı",
+      "kind": "text",
+      "hint": "Örn. Ø80 mm veya Ø120 mm"
+    },
+    {
+      "id": "pressCapacity",
+      "label": "Pres kapasitesi",
+      "kind": "text",
+      "hint": "Örn. 20 Ton veya 50 Ton"
+    }
+  ],
+  "note": "Millerin yüzeyini ezmeden ve çizmeden dengeli kuvvet uygulayarak hassas düzeltme sağlar.",
+  "source": "",
+  "status": "active"
 }
 ];

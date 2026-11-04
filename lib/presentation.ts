@@ -3,49 +3,92 @@ import { additionalProducts, type InquiryProduct } from './additional-products';
 
 export const categories = [
   {
-    id: 'fabrika-tasima',
-    title: 'Fabrika ve atölye içi taşıma arabaları',
-    description: 'Talaş ve hurda arabaları, metal taşıma kasaları, profil ve sac taşıma arabaları.',
+    id: 'talasli-imalat',
+    title: 'Talaşlı İmalat & Hassas Parçalar (Torna, Freze, CNC)',
+    description: 'Özel transmisyon milleri, kademeli şaftlar, fosfor bronz ve çelik burçlar, flanşlar ve CNC fason parça işleme.',
   },
   {
-    id: 'kalip-atolye',
-    title: 'Kalıp, profil ve işleme destek ekipmanları',
-    description: 'Abkant kalıp taşıma arabaları ve rulolu boru/profil destek sehpaları.',
+    id: 'tersine-muhendislik-restorasyon',
+    title: 'Tersine Mühendislik, CAD Modelleme & Bıçak / Parça Yenileme',
+    description: 'Kırık veya aşınmış numuneden ölçü alma, 3D CAD modelleme, teknik resim ve sanayi / gıda bıçakları yenileme.',
   },
   {
-    id: 'sektorel-guvenlik',
-    title: 'Sektörel ve iş güvenliği taşıma çözümleri',
-    description: 'Tüp taşıma arabaları ve sabit depolama kafesleri.',
-  },
-  {
-    id: 'tarim-makineleri',
-    title: 'Tarım, sera ve açık kaynak bahçe mekanizasyonu',
-    description: 'MicroTrac mini bahçe traktörleri, hidrolik fidan burguları ve toprak işleme ataşmanları.',
+    id: 'atolye-ekipman',
+    title: 'Atölye Tezgahları ve İmalat Destek Ekipmanları',
+    description: '3D delikli kaynak masaları, ağır hizmet kalıpçı tezgahları, talaş arabaları ve kaynak pozisyonerleri.',
   },
 ];
 
 const groups: Record<string, string> = {
-  'talas-hurda-arabasi': 'fabrika-tasima',
-  'metal-tasima-kasasi': 'fabrika-tasima',
-  'profil-tasima-arabasi': 'fabrika-tasima',
-  'sac-levha-tasima-arabasi': 'fabrika-tasima',
-  'abkant-kalip-arabasi': 'kalip-atolye',
-  'rulolu-destek-sehpasi': 'kalip-atolye',
-  'motorlu-boru-dondurme-sehpasi': 'kalip-atolye',
-  'tup-tasima-kafesi': 'sektorel-guvenlik',
-  'microtrac-mini-bahce-traktoru': 'tarim-makineleri',
-  // İkincil / pasif ürünlerin grup referansları
-  'tekstil-tasima-arabasi': 'sektorel-guvenlik',
-  'konveyor-rulosu': 'kalip-atolye',
-  'parca-yikama-sepeti': 'kalip-atolye',
-  'sac-stoklama-rafi': 'kalip-atolye',
-  'forklift-catal-uzatma': 'fabrika-tasima',
-  'palet-tasima-arabasi': 'fabrika-tasima',
-  'konteyner-tasima-arabasi': 'fabrika-tasima',
-  'fileli-palet-kasasi': 'fabrika-tasima',
+  // Talaşlı İmalat
+  'fason-talasli-imalat': 'talasli-imalat',
+  'ozel-mil-ve-saftlar': 'talasli-imalat',
+  'bronz-ve-celik-burclar': 'talasli-imalat',
+
+  // Tersine Mühendislik & Restorasyon
+  'sanayi-bicaklari': 'tersine-muhendislik-restorasyon',
+
+  // Atölye Ekipmanları & Kaynak
+  'kaynak-masasi': 'atolye-ekipman',
+  'calisma-tezgahi': 'atolye-ekipman',
+  'talas-hurda-arabasi': 'atolye-ekipman',
+  'rulolu-destek-sehpasi': 'atolye-ekipman',
+  'motorlu-boru-dondurme-sehpasi': 'atolye-ekipman',
+  'fason-kaynak-isleri': 'atolye-ekipman',
+
+  // Yeni Doğrulanmış Ürünler & Makineler
+  'cnc-torna-yumusak-ayak': 'talasli-imalat',
+  'sim-racing-pedal-plakasi': 'talasli-imalat',
+  'motosiklet-paddock-bobini': 'talasli-imalat',
+  'd28-kilitleme-pimi': 'atolye-ekipman',
+  'd28-kaynak-iskencesi': 'atolye-ekipman',
+  'd28-v-blok-kaynak-yatagi': 'atolye-ekipman',
+  'boru-kurt-agzi-aparati': 'atolye-ekipman',
+  'manuel-boru-bukme': 'atolye-ekipman',
+  'devirmeli-talas-arabasi-forklift': 'atolye-ekipman',
+  'bant-zimpara-makinesi': 'atolye-ekipman',
+  'cnc-taret-reduksiyon-kovani': 'talasli-imalat',
+  'konik-kilit-saft-kilitleme': 'talasli-imalat',
+  'bk-bf-vidali-mil-yataklari': 'talasli-imalat',
+  'cektirmeli-tespit-pimi-din7979': 'talasli-imalat',
+  'forklift-varil-tasima-atasmani': 'atolye-ekipman',
+  'forklift-vinc-bomu-atasmani': 'atolye-ekipman',
+  'hidrolik-pres-rulman-cektirme-seti': 'atolye-ekipman',
+  'hidrolik-pres-mil-dogrultma-v-blok': 'atolye-ekipman',
 };
 
-export const priorityOrder: string[] = [];
+export const priorityOrder: string[] = [
+  'cnc-torna-yumusak-ayak',
+  'd28-kilitleme-pimi',
+  'sim-racing-pedal-plakasi',
+  'motosiklet-paddock-bobini',
+  'sac-levha-tasima-arabasi',
+  'fason-talasli-imalat',
+  'ozel-mil-ve-saftlar',
+  'bronz-ve-celik-burclar',
+  'sanayi-bicaklari',
+  'kaynak-masasi',
+  'calisma-tezgahi',
+  'fason-kaynak-isleri',
+  'talas-hurda-arabasi',
+  'rulolu-destek-sehpasi',
+  'motorlu-boru-dondurme-sehpasi',
+  'd28-kilitleme-pimi',
+  'd28-kaynak-iskencesi',
+  'd28-v-blok-kaynak-yatagi',
+  'boru-kurt-agzi-aparati',
+  'manuel-boru-bukme',
+  'devirmeli-talas-arabasi-forklift',
+  'bant-zimpara-makinesi',
+  'cnc-taret-reduksiyon-kovani',
+  'konik-kilit-saft-kilitleme',
+  'bk-bf-vidali-mil-yataklari',
+  'cektirmeli-tespit-pimi-din7979',
+  'forklift-varil-tasima-atasmani',
+  'forklift-vinc-bomu-atasmani',
+  'hidrolik-pres-rulman-cektirme-seti',
+  'hidrolik-pres-mil-dogrultma-v-blok',
+];
 
 const allItems = [...products, ...additionalProducts];
 
@@ -53,6 +96,6 @@ export const catalogItems = allItems
   .filter((product): product is InquiryProduct => 'uses' in product && product.status !== 'inactive' && priorityOrder.includes(product.id))
   .map((product) => ({
     ...product,
-    group: groups[product.id] || 'fabrika-tasima',
+    group: groups[product.id] || 'talasli-imalat',
   }))
   .sort((a, b) => priorityOrder.indexOf(a.id) - priorityOrder.indexOf(b.id));

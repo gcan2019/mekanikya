@@ -1,5 +1,5 @@
-const { execSync } = require('child_process');
-const fs = require('fs');
+import { execSync } from 'node:child_process';
+import fs from 'node:fs';
 
 console.log("Fetching current D1 site_content...");
 const raw = execSync('npx wrangler d1 execute ofirma-db --config dist/server/wrangler.json --remote --json --command "SELECT content FROM site_content WHERE id = 1"');

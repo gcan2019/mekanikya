@@ -1,5 +1,3 @@
-import type { EditableProduct } from './site-content';
-
 export type ProductPriceInfo = {
   price: number;
   currency: string;
@@ -29,6 +27,37 @@ export const DEFAULT_PRODUCT_PRICES: Record<string, number> = {
   'forklift-catal-uzatma': 7200,
   'parca-yikama-sepeti': 4800,
   'microtrac-mini-bahce-traktoru': 89000,
+  'kaynak-masasi': 16500,
+  'calisma-tezgahi': 14000,
+  'hidrolik-atolye-presi': 24000,
+  'motosiklet-lifti': 19500,
+  'fidan-burgusu': 22000,
+  'dal-ogutme-makinesi': 32000,
+  'damperli-tasima-kasasi': 12500,
+  'fason-talasli-imalat': 1500,
+  'ozel-mil-ve-saftlar': 1800,
+  'bronz-ve-celik-burclar': 1200,
+  'sanayi-bicaklari': 2200,
+  'fason-kaynak-isleri': 2500,
+  // Yeni Doğrulanmış Hedef Ürün ve Makineler (Google Shopping & Sanayi Piyasası)
+  'cnc-torna-yumusak-ayak': 2650,
+  'sim-racing-pedal-plakasi': 2250,
+  'motosiklet-paddock-bobini': 850,
+  'd28-kilitleme-pimi': 1250,
+  'd28-kaynak-iskencesi': 2600,
+  'd28-v-blok-kaynak-yatagi': 1850,
+  'boru-kurt-agzi-aparati': 8500,
+  'manuel-boru-bukme': 19500,
+  'devirmeli-talas-arabasi-forklift': 21500,
+  'bant-zimpara-makinesi': 22500,
+  'cnc-taret-reduksiyon-kovani': 1450,
+  'konik-kilit-saft-kilitleme': 850,
+  'bk-bf-vidali-mil-yataklari': 1150,
+  'cektirmeli-tespit-pimi-din7979': 3200,
+  'forklift-varil-tasima-atasmani': 34500,
+  'forklift-vinc-bomu-atasmani': 26000,
+  'hidrolik-pres-rulman-cektirme-seti': 8500,
+  'hidrolik-pres-mil-dogrultma-v-blok': 5500,
 };
 
 export function getProductPriceInfo(product: { id: string; price?: number; sku?: string }): ProductPriceInfo {

@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next';
 import { getCatalogItems, getBusinessContent } from '@/lib/site-content';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [business, catalog] = await Promise.all([
+  const [, catalog] = await Promise.all([
     getBusinessContent(),
     getCatalogItems(),
   ]);

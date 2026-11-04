@@ -160,7 +160,7 @@ export default function FactoryProductOptions({ id, customOptions }: { id: strin
           <p>{intro}</p>
         </div>
         <div className="profile-cart-grid">
-          {models.map(([title, tag, text, imgSrc, imgAlt]) => (
+          {models.map(([title, tag, text, imgSrc]) => (
             <article className="profile-cart-card" key={title}>
               {imgSrc && (
                 <figure className="profile-cart-image factory-option-photo">
@@ -205,4 +205,3 @@ export default function FactoryProductOptions({ id, customOptions }: { id: strin
     </>
   );
 }
-

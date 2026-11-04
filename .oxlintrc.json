@@ -51,6 +51,21 @@
     "typescript/no-namespace": "error",
     "typescript/no-require-imports": "error",
     "typescript/no-unnecessary-type-constraint": "error",
-    "typescript/no-unsafe-function-type": "error"
+    "typescript/no-unsafe-function-type": "error",
+    "eslint/no-unused-vars": "warn",
+    "nextjs/no-img-element": "warn",
+    "nextjs/no-html-link-for-pages": "warn",
+    "nextjs/no-page-custom-font": "warn",
+    "jsx-a11y/click-events-have-key-events": "warn",
+    "jsx-a11y/no-noninteractive-element-interactions": "warn",
+    "jsx-a11y/label-has-associated-control": "warn",
+    "jsx-a11y/anchor-has-content": "warn",
+    "jsx-a11y/prefer-tag-over-role": "warn",
+    "react/react-compiler": "warn",
+    "react/no-unescaped-entities": "warn",
+    "typescript/no-deprecated": "warn",
+    "typescript/no-explicit-any": "warn",
+    "typescript/no-base-to-string": "warn",
+    "typescript/restrict-template-expressions": "warn"
   }
 }

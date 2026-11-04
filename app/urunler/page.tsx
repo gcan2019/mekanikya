@@ -6,9 +6,9 @@ import { getCatalogItems } from '@/lib/site-content';
 import ProductCards from '@/components/product-cards';
 
 export const metadata: Metadata = {
-  title: 'Ürünlerimiz | Mekanikya',
+  title: 'İmalat ve Ürünlerimiz | Mekanikya',
   description:
-    'Fabrika içi taşıma, malzeme yönetimi, kalıp ve atölye yardımcı ekipmanları. Fotoğraf, numune veya ölçülerle Mekanikya’dan teklif alın.',
+    'Hassas talaşlı imalat parçaları, transmisyon milleri, burçlar, sanayi bıçakları ve atölye ekipmanları. Fotoğraf, numune veya teknik resimle Mekanikya’dan teklif alın.',
   alternates: { canonical: business.siteUrl + '/urunler' },
 };
 
@@ -19,11 +19,11 @@ export default async function Products() {
     <main id="main">
       <section className="page-banner">
         <div className="wrap">
-          <p className="overline">ANA SAYFA / ÜRÜNLERİMİZ</p>
-          <h1>Taşıma ve üretim ekipmanları</h1>
+          <p className="overline">ANA SAYFA / İMALAT VE ÜRÜNLERİMİZ</p>
+          <h1>Ana ürün grupları ve alt ürünler</h1>
           <p>
-            Fabrikanızdaki yük, parça ve üretim akışına uygun ekipmanı inceleyin; fotoğraf, numune veya bildiğiniz
-            ölçülerle teklif isteyin.
+            Ana ürün grubunu seçin; alt ürünlerin teknik bilgilerini, kullanım alanlarını ve ürün bazlı teklif formlarını
+            aynı katalog içinde inceleyin.
           </p>
         </div>
       </section>

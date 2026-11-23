@@ -3,7 +3,10 @@ export const rollerOptions = ['Bilmiyorum','Avare / serbest dönen','Tahrikli','
 export const shaftOptions = ['Bilmiyorum','Düz mil','İç dişli','Dış dişli','Pim delikli','Anahtar ağızlı','Diğer'];
 
 export function quoteMessage(data: FormData, material: string): string {
-  const value = (key: string) => String(data.get(key) || '').trim();
+  const value = (key: string) => {
+    const entry = data.get(key);
+    return typeof entry === 'string' ? entry.trim() : '';
+  };
   if (!value('name') || value('name').length > 120) throw new Error('Ad veya firma adını girin.');
   const quantity = Number(value('quantity'));
   if (!Number.isInteger(quantity) || quantity < 1 || quantity > 1000000) throw new Error('Adet pozitif bir tam sayı olmalıdır.');

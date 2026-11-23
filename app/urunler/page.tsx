@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { categories } from '@/lib/presentation';
 import { business } from '@/lib/catalog';
@@ -52,9 +53,9 @@ export default async function Products() {
               Çiziminiz olmasa da numune veya parça fotoğrafıyla başlayabiliriz.
             </p>
           </div>
-          <a className="cta" href="/hizmetler" style={{ whiteSpace: 'nowrap', fontSize: '14px', padding: '10px 18px' }}>
+          <Link className="cta" href="/hizmetler" style={{ whiteSpace: 'nowrap', fontSize: '14px', padding: '10px 18px' }}>
             Hizmetlerimizi inceleyin <ArrowUpRight size={16} />
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -79,9 +80,9 @@ export default async function Products() {
                   <h2>{category.title}</h2>
                   <p>{category.description}</p>
                   {category.id === 'fabrika-tasima' && (
-                    <a className="text-link" href="/fabrika-ici-tasima">
+                    <Link className="text-link" href="/fabrika-ici-tasima">
                       Taşıma düzenleri ve seçim rehberi →
-                    </a>
+                    </Link>
                   )}
                 </div>
                 <ProductCards items={catalogItems.filter((p) => p.group === category.id)} />
@@ -105,9 +106,9 @@ export default async function Products() {
               <a href="https://wa.me/905302068714" className="cta cta-primary" target="_blank" rel="noopener noreferrer">
                 Özel İmalat veya Çizim Talebi İçin WhatsApp: 0530 206 87 14
               </a>
-              <a href="/hizmetler" className="cta cta-secondary">
+              <Link href="/hizmetler" className="cta cta-secondary">
                 Makine Restorasyonu ve Tersine Mühendislik
-              </a>
+              </Link>
             </div>
           </div>
         </section>

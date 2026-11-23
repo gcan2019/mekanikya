@@ -44,7 +44,7 @@ export default function QuoteForm(){
     return ()=>lifecycle.abort();
   },[]);
   function clearDraft(){setDraft('');setStatus('');setCopyStatus('');}
-  function submit(event:React.FormEvent<HTMLFormElement>){
+  function submit(event:React.SubmitEvent<HTMLFormElement>){
     event.preventDefault();
     let message:string;
     try {message=currentMessage(event.currentTarget);} catch(error){setDraft('');setStatus(error instanceof Error?error.message:'Bilgileri kontrol edin.');return;}

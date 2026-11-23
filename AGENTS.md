@@ -1,8 +1,7 @@
 # ofirma — Ortak Çalışma Kuralları (ChatGPT, Antigravity & OpenCode Ajanları)
 
-Bu klasör mevcut ofirma sitesinin ana çalışma kopyasıdır.
-- Ana proje kökü: `C:\Users\DELL\.codex\.chatgpt-projects\g-p-6a903f8fbc88819194eb6b0434a37eab\firsat-sitesi`
-- Site uygulama klasörü: `C:\Users\DELL\.codex\.chatgpt-projects\g-p-6a903f8fbc88819194eb6b0434a37eab\firsat-sitesi\site\uygulama`
+Bu klasör mevcut Mekanikya sitesinin tek ana çalışma kopyasıdır.
+- Ana proje ve uygulama klasörü: `c:\Users\DELL\Documents\antigravity\ben ol`
 
 Bu proje ana geliştiriciler (**ChatGPT ajanı** ve **Antigravity**) ile OpenCode yardımcı uzman ajanları tarafından ortak geliştirilmektedir. Amaç: Bir ajan çalışmayı bıraktığında diğerinin aynı klasör ve aynı Git çalışma alanı üzerinden güvenli biçimde kaldığı yerden devam edebilmesidir.
 
@@ -24,7 +23,7 @@ Her ajan yeni bir göreve başlamadan önce sırasıyla:
 - Önceki ajanın commit edilmemiş değişikliklerini kendi çalışması sanmaz; bu değişiklikleri korur ve üzerine inşa eder.
 
 ## 2. Tek Fiziksel Klasör Kullanımı
-- Tüm ajanlar aynı fiziksel proje klasörünü (`site/uygulama`) kullanır.
+- Tüm ajanlar aynı fiziksel proje klasörünü (`c:\Users\DELL\Documents\antigravity\ben ol`) kullanır.
 - Ayrı site kopyası oluşturulmaz.
 - Yeni veya paralel bir proje klasörü açılmaz.
 - Kullanıcı açıkça talep etmedikçe git worktree, branch veya başka bir kopya üretilmez.

@@ -1,7 +1,10 @@
 import type { InquiryProduct } from './additional-products';
 
 export function productInquiryMessage(product:InquiryProduct, data:FormData):string {
-  const value=(key:string)=>String(data.get(key)||'').trim();
+  const value = (key: string) => {
+    const entry = data.get(key);
+    return typeof entry === 'string' ? entry.trim() : '';
+  };
   if(!value('customer') || value('customer').length>120) throw new Error('Ad veya firma adınızı girin.');
   const quantity=Number(value('quantity'));
   if(!Number.isInteger(quantity) || quantity<1 || quantity>1000000) throw new Error('Ürün adedini pozitif bir tam sayı olarak girin.');

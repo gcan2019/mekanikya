@@ -18,7 +18,7 @@ export default function ProductInquiry({product}:{product:InquiryProduct}){
    try {void Promise.resolve(context.registerTool({name:'read_product_inquiry',description:'Read the currently entered product-specific inquiry. Does not send a message or open WhatsApp.',inputSchema:{type:'object',properties:{},additionalProperties:false},annotations:{readOnlyHint:true,untrustedContentHint:true},execute(input:unknown){if(!input || typeof input!=='object' || Array.isArray(input) || Object.keys(input).length) throw new Error('Expected an empty object.');if(!formRef.current) throw new Error('Form unavailable.');return {product:product.id,message:productInquiryMessage(product,new FormData(formRef.current)),sent:false};}},{signal:lifecycle.signal})).catch(()=>{});}catch{/* The form works without WebMCP. */}
    return ()=>lifecycle.abort();
  },[product]);
- function submit(event:React.FormEvent<HTMLFormElement>){
+ function submit(event:React.SubmitEvent<HTMLFormElement>){
    event.preventDefault();let message:string;
    try{message=productInquiryMessage(product,new FormData(event.currentTarget));}catch(error){setError(error instanceof Error?error.message:'Bilgileri kontrol edin.');setDraft('');return;}
    setError('');setDraft(message);setCopied('');

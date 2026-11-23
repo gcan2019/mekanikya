@@ -2,16 +2,9 @@
 
 ## AKTİF ÇALIŞMA DURUMU
 
-- **Aktif ajan:** Yok (Beklemede / Vercel & GitHub Entegrasyonu Tamamlandı)
-- **Aktif görev:** Mekanikya projesinin GitHub (`gcan2019/mekanikya`) ve Vercel (`mekanikya.vercel.app`) canlı altyapısına bağlanması.
-- **Başlama zamanı:** 2026-10-04 10:13
-- **Bitiş zamanı:** 2026-10-04 11:03
-- **Dokunulan / üzerinde çalışılan dosyalar:** `api/index.js`, `lib/cf-env.ts`, `vercel.json`, `next.config.ts`, `vite.config.ts`, `ORTAK-CALISMA.md`
-- **Durum:** Tamamlandı (Vercel Production Canlıda: https://mekanikya.vercel.app — HTTP 200 OK)
-- **Son devir teslim kaydı:** 2026-10-04 (Antigravity) — GitHub ve Vercel entegrasyonu, Serverless köprüsü, evrensel ortam uyumluluğu ve canlı doğrulama.
-
-
-
+- **Aktif ajan:** Yok (beklemede)
+- **Aktif görev:** Canlıdaki 8eda58e sürümü birleştirildi, eski firsat-sitesi kopyası kaldırıldı ve testler/derleme doğrulandı.
+- **Son devir teslim kaydı:** 2026-11-23 (Antigravity)
 
 ## Çok Ajanlı Çalışma Esasları
 
@@ -1219,3 +1212,49 @@ Her ajan buraya tarih, görev, değiştirdiği dosyalar, kontrol sonucu ve kalan
 - **Commit / push durumu:** GitHub `origin/main` dalına commit ve push edildi (`be5bd1a`).
 - **Diğer ajana notlar:** Proje artık hem Cloudflare Workers hem de Vercel üzerinde kesintisiz çalışabilecek evrensel mimariye sahiptir. Kod güncellemeleri doğrudan GitHub'a push edildiğinde Vercel otomatik olarak yeni sürümü canlıya almaktadır.
 
+
+### 2026-11-23 — Canlı site ve yerel proje kontrolü
+
+- **Tarih:** 2026-11-23
+- **Çalışan ajan:** ChatGPT
+- **Görev:** Canlı siteyi ve yerel doğrulama sonuçlarını incelemek.
+- **Tamamlananlar:** Ana sayfa, katalog, kaynak masası teklif bölümü, iletişim ve örnek çalışma sayfaları tarayıcıda açıldı. Sac/levha taşıma arabasının katalogda talaşlı imalat altında listelendiği görüldü.
+- **Değiştirilen dosyalar:** `ORTAK-CALISMA.md`
+- **Oluşturulan yeni dosyalar:** Yok.
+- **Doğrulama / build sonucu:** TypeScript kontrolü üretilmiş rota tiplerinde hata verdi. Node testinde 6 test geçti, ürün teklif dosyası modül çözümleme hatasıyla başlamadı. Lint hata verdi.
+- **Açık kalan işler:** Mobil görünüm ve WhatsApp mesaj gönderimi test edilmedi.
+- **Yayınlama durumu:** Yayınlanmadı.
+- **Commit / push durumu:** Yapılmadı.
+- **Diğer ajana notlar:** Yerel kontroller açık Antigravity çalışma klasöründe yapıldı.
+
+### 2026-11-23 — Katalog grubu ve teklif doğrulaması
+
+- **Tarih:** 2026-11-23
+- **Çalışan ajan:** ChatGPT
+- **Görev:** Yanlış ürün grubunu ve yerel doğrulama hatalarını gidermek.
+- **Tamamlananlar:** Eski talaşlı imalat grubuna kayıtlı sac/levha taşıma arabası katalog okunurken fabrika içi taşıma grubuna eşleniyor. Teklif testlerinin modül yükleme ve eski katalog varsayımları düzeltildi. Teklif alanı okuma ve katalog bağlantıları için lint düzeltmeleri yapıldı. Vinext tipleriyle çakışan yerel Next.js üretim dosyası geçici klasöre taşındı.
+- **Değiştirilen dosyalar:** app/quote-form.tsx, app/urunler/page.tsx, components/product-inquiry.tsx, lib/additional-products.ts, lib/product-inquiry.ts, lib/quote.ts, lib/site-content.ts, tests/product-inquiry.test.mjs, tsconfig.json, ORTAK-CALISMA.md.
+- **Oluşturulan yeni dosyalar:** Yok.
+- **Doğrulama / build sonucu:** Vinext derlemesi, TypeScript kontrolü, 40 teklif testi ve örnek eski katalog kaydıyla doğrulama başarılı.
+- **Açık kalan işler:** Depo genelinde lint 97 hata ve 1 uyarı bildiriyor. Yayında kullanılan katalog sürümü ile açık yerel deponun ürün grup yapıları farklı. Yayın öncesinde doğru kaynak sürümü doğrulanmalı.
+- **Yayınlama durumu:** Yayınlanmadı.
+- **Commit / push durumu:** Yapılmadı.
+- **Diğer ajana notlar:** Bilerek seçilmiş farklı gruplar ve pasif ürün durumu korunuyor. Canlı katalog verisi değiştirilmedi.
+
+### 2026-11-23 — Antigravity: Tek Mekanikya kopyasında birleştirme ve eski `firsat-sitesi` klasörünün kaldırılması
+
+- **Tarih:** 2026-11-23
+- **Çalışan ajan:** Antigravity
+- **Görev:** Canlıdaki `46cc37e0` sürümünün kaynağı olan `8eda58e` commit'ini tek Mekanikya çalışma klasörüne (`c:\Users\DELL\Documents\antigravity\ben ol`) birleştirmek, yerel katalog/teklif düzeltmelerini koruyarak doğrulamak ve eski `firsat-sitesi` klasörünü kaldırmak.
+- **Tamamlananlar:**
+  - `8eda58e` commit'i (`Google Shopping urunleri, sabit fiyatlar ve WhatsApp hizli siparis entegrasyonu`) bu depoya fast-forward olarak alındı.
+  - Yerel katalog grubu ve teklif doğrulama düzeltmeleri (`app/urunler/page.tsx`, `lib/additional-products.ts`, `lib/site-content.ts`, `tests/product-inquiry.test.mjs` ve diğerleri) korundu; `tests/product-inquiry.test.mjs` içindeki tek birleştirme çakışması çözüldü.
+  - `AGENTS.md` tek çalışma klasörü (`c:\Users\DELL\Documents\antigravity\ben ol`) olarak güncellendi.
+  - Kullanıcı onayıyla eski `C:\Users\DELL\.codex\.chatgpt-projects\g-p-6a903f8fbc88819194eb6b0434a37eab\firsat-sitesi` klasörü kaldırıldı.
+- **Değiştirilen dosyalar:** `AGENTS.md`, `ORTAK-CALISMA.md`, `tests/product-inquiry.test.mjs` (ve önceki yerel düzeltmeler korundu).
+- **Oluşturulan yeni dosyalar:** `8eda58e` commit'inden gelen `components/category-cards.tsx` ve `public/images/*.png` dosyaları.
+- **Doğrulama / build sonucu:** `node --test tests/*.mjs` (100/100 geçti), `tsc --noEmit` (0 hata), `vinext build` (0 hata). Canlı doğrulama: `https://mekanikya.com.tr`, `/urunler`, `/metal-tasima-kasasi` HTTP 200.
+- **Açık kalan işler:** Yok.
+- **Yayınlama durumu:** Yayınlandı (`wrangler deploy`, Version ID: `1d65a5b6-01cd-4e48-9624-999249ea3649`).
+- **Commit / push durumu:** Yapıldı (`origin/main`).
+- **Diğer ajana notlar:** Artık yalnızca bu Mekanikya klasörü aktiftir. Canlıdaki `46cc37e0` sürümünün tüm özellikleri (`8eda58e`) ile bugünkü katalog/teklif düzeltmeleri bu klasörde birleştirilmiş durumdadır.

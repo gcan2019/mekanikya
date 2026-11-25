@@ -3,8 +3,9 @@
 ## AKTİF ÇALIŞMA DURUMU
 
 - **Aktif ajan:** Yok (beklemede)
-- **Aktif görev:** Metal Şekillendirme Makineleri ailesi (3 ürün) canlıda. Temsilî özgün prensip çizimleri kullanıldı; iki eski CAD bağlantısı ve izinli fotomontaj kaynakları bekliyor.
-- **Son devir teslim kaydı:** 2026-11-25 (ChatGPT)
+- **Son ek görev:** ChatGPT Sohbet Aktarıcı v1.0.0, kullanıcı isteğiyle site dışında `../chatgpt-sohbet-aktarici` klasöründe ve ZIP olarak hazırlandı. Chrome kurulumu ve gerçek hesap kabul testi kullanıcıda; site kaynakları değişmedi.
+- **Aktif görev:** Metal Şekillendirme Makineleri ailesindeki 3 ürünün CAD referanslarına sadık Mekanikya stüdyo konsept görselleri, yapılandırma seçenekleri ve CAD kaynak bağlantıları yerel depoya commit edildi; push ve canlı yayın için kullanıcı talimatı bekleniyor.
+- **Son devir teslim kaydı:** 2026-11-25 (Antigravity)
 
 ## Çok Ajanlı Çalışma Esasları
 
@@ -1302,3 +1303,36 @@ Her ajan buraya tarih, görev, değiştirdiği dosyalar, kontrol sonucu ve kalan
 - **Yayınlama durumu:** Yayınlandı. https://mekanikya.com.tr/metal-sekillendirme-makineleri — Cloudflare Workers sürümü e670de3b-5289-4a00-a256-c2891e682d77.
 - **Commit / push durumu:** Yapıldı. Uygulama commit: 8ac9ba3, origin/main üzerine gönderildi.
 - **Diğer ajana notlar:** Kullanıcı bu görevde açıkça commit, push ve yayına izin verdi. Branch/worktree/kopya oluşturulmadı. Önceki docs/standart-urun-taslaklari.md çalışma alanında korunuyor; bu ürün ailesinin parçası değildir.
+
+### 2026-11-25 — ChatGPT: Site dışı kişisel ChatGPT Sohbet Aktarıcı
+
+- **Tarih:** 2026-11-25
+- **Çalışan ajan:** ChatGPT
+- **Görev:** Kullanıcının açık isteğiyle Mekanikya'dan ayrı yerel Manifest V3 Chrome eklentisi geliştirmek.
+- **Tamamlananlar:** Özgün kod; kontrollü ve durdurulabilir sohbet tarama, tamlık uyarısı, kopyalama, Markdown/TXT/JSON, popup, erişilebilir sayfa düğmesi, değiştirilebilir Ctrl+Shift+Y, yalnızca clipboardWrite izni. Kurulum rehberi, MIT lisansı, testler ve ZIP/SHA256 oluşturuldu.
+- **Değiştirilen dosyalar:** Bu projede yalnızca ORTAK-CALISMA.md koordinasyon kaydı. Mevcut docs/standart-urun-taslaklari.md dosyasına dokunulmadı.
+- **Oluşturulan yeni dosyalar:** Site dışında C:\Users\DELL\Documents\antigravity\chatgpt-sohbet-aktarici altında extension/, tests/, test-results/, README.md, LICENSE, TEST-SONUCLARI.md; üst klasörde chatgpt-sohbet-aktarici-v1.0.0.zip ve .sha256.txt.
+- **Doğrulama / build sonucu:** Node temel testleri 6/6; Chrome 158 yerel örnek DOM testleri 10/10; dört JS sözdizimi kontrolü başarılı; ZIP 15 dosya birebir kaynak karşılaştırması ve CRC kontrolü başarılı. Bağımlılık kurulmadı; site build'i gerekmedi. Test Chrome süreci ve yerel test sunucusu kapatıldı.
+- **Açık kalan işler:** Kullanıcı Chrome'da paketlenmemiş extension klasörünü yükleyip gerçek ChatGPT hesabında kabul kontrolü yapmalı. Testlerde runtime/pano/indirme tıklaması taklit edildi; gerçek hesap uyumluluğu iddia edilmiyor. Gemini/Claude, PDF ve toplu proje aktarımı sonraki sürümde.
+- **Yayınlama durumu:** Yayınlanmadı
+- **Commit / push durumu:** Yapılmadı
+- **Diğer ajana notlar:** Eklenti site projesi değildir, siteye taşımayın. Test profili geçici dizinde bırakıldı (konumu chrome-results.json içinde); başka Chrome profillerine dokunulmadı. Eski site görev bağlamı korunmuştur.
+
+### 2026-11-25 — Antigravity: Metal Şekillendirme Makineleri Ailesi Mekanikya Konsept Görselleri, Yapılandırma Seçenekleri ve CAD Kaynakları
+
+- **Tarih:** 2026-11-25
+- **Çalışan ajan:** Antigravity
+- **Görev:** Kullanıcının paylaştığı “Ürünleri Tartışalım” sohbet dökümü ve örnek Mekanikya stüdyo görseli (`talas-hurda-arabasi.png`) doğrultusunda `Masaüstü Manuel Silindir Sac Kıvırma Makinesi`, `Manuel Boru ve Profil Bükme Makinesi` ve `Manuel Ferforje Spiral Bükme Makinesi` ürünlerinin Mekanikya stüdyo tasarım konsepti görsellerini oluşturmak, yapılandırma/kalıp seçeneklerini ve eksik kalan CAD kaynak bağlantılarını ürün sayfalarına işlemek.
+- **Tamamlananlar:**
+  1. Üç makine için CAD/teknik referans ürünlerin gerçek mekanik geometrilerine (`SJ-300 / S-300` alçak profilli 3 toplu sac kıvırma, `TR1 — ТР1.00000 СБ` kademeli delikli çift trapez plaka + flanşlı yatak + zincir tahrikli profil bükme, `SBG-30 / MPB-10` yatay mafsallı kollu ve parçalı kademeli kalıp setli ferforje spiral bükme) birebir sadık, `#122d40` kurumsal çelik mavisi gövde, fırçalanmış paslanmaz `MEKANİKYA` plakası ve saf beyaz `#FFFFFF` stüdyo arka planlı 3 özgün stüdyo konsept görseli üretildi ve `public/images/metal-forming/*.jpg` altına yerleştirildi (önceki `.svg` şemalar geçmiş çalışma olarak diskte korundu).
+  2. Görseller gerçek atölye üretimi iddiası taşımayacak biçimde “Mekanikya tasarım konsepti · Özel teklif” alt yazısıyla sunuldu; OpenGraph ve sayfa görsel meta verileri güncellendi.
+  3. “Ürünleri Tartışalım” dökümünden daha önce erişilemeyen CAD kaynakları (Ürün 14 ForgeTechDesigns `etsy.com/listing/4509853191`, Ürün 16 Free3D `TR1` ve `rorty.net/product/tube-bender-1/`) ile Ürün 30 kaynakları (`Cults3D` ve `GizmoPlans`) hem `lib/metal-forming-products.ts` / ürün referans akordeonuna hem de `docs/metal-sekillendirme-kaynaklari.md` kaydına eklendi.
+  4. Her makine sayfasına 3'er yapılandırma ve kalıp/makara seçeneği kartı (`#secenekler`) ile seçeneğe özel WhatsApp ön-dolgulu mesaj bağlantıları eklendi; sac kıvırma başlığı `Masaüstü Manuel Silindir Sac Kıvırma Makinesi` olarak güncellendi (rota adresi `/manuel-silindir-sac-kivirma-makinesi` korundu).
+  5. Ürünler varsayılan fiyat, stok, `Offer` şeması ve `/merchant-feed.xml` akışının dışında tutulmaya devam etti.
+- **Değiştirilen dosyalar:** `lib/metal-forming-products.ts`, `components/metal-forming-product.tsx`, `components/product-image.tsx`, `app/metal-sekillendirme-makineleri/page.tsx`, `app/[product]/page.tsx`, `app/globals.css`, `docs/metal-sekillendirme-kaynaklari.md`, `ORTAK-CALISMA.md`.
+- **Oluşturulan yeni dosyalar:** `public/images/metal-forming/manuel-silindir-sac-kivirma-makinesi.jpg`, `public/images/metal-forming/manuel-boru-ve-profil-bukme-makinesi.jpg`, `public/images/metal-forming/manuel-ferforje-spiral-bukme-makinesi.jpg`.
+- **Doğrulama / build sonucu:** `node --test tests/product-inquiry.test.mjs tests/quote.test.mjs` 106/106 başarılı; `tsc --noEmit` 0 hata; `vinext build` 0 hata. Yerel geliştirme sunucusunda (`localhost:3099`) `/`, `/urunler`, `/metal-sekillendirme-makineleri`, 3 ürün rotası, `/merchant-feed.xml`, `/sitemap.xml` ve 3 `.jpg` dosyası HTTP 200 ile doğrulandı (`Offer` şeması yok, Merchant feed sızıntısı yok). Sunucu kapatıldı (`Port 3099 listening: False`).
+- **Açık kalan işler:** Kullanıcının yerel incelemesi ve yayın/commit talimatı veya onaylı listedeki sıradaki ürün ailesine geçiş.
+- **Yayınlama durumu:** Yayınlanmadı (AGENTS.md Kural 8 gereği kullanıcı talimatı bekleniyor).
+- **Commit / push durumu:** Yerel commit yapıldı (push yapılmadı; kullanıcı yalnızca commit talep etti).
+- **Diğer ajana notlar:** Önceki `ORTAK-CALISMA.md` notları ve `docs/standart-urun-taslaklari.md` aynen korunmuştur.

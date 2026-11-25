@@ -12,7 +12,7 @@ export default function ProductImage({
   id: string;
   title: string;
   priority?: boolean;
-  image?: { src: string; alt: string; verified?: boolean };
+  image?: { src: string; alt: string; caption?: string; verified?: boolean };
   imageHidden?: boolean;
   verified?: boolean;
 }) {
@@ -21,12 +21,13 @@ export default function ProductImage({
   if (!image) return null;
   const isVerified = verified ?? (custom ? custom.verified === true : false);
   const isMisumi = !custom && Boolean(verifiedProductImages[id]);
+  const captionText = 'caption' in image && typeof image.caption === 'string' ? image.caption : image.alt;
   return (
     <figure className="catalog-photo">
       <img src={image.src} alt={image.alt || title} width={1200} height={900} loading={priority ? 'eager' : 'lazy'} />
       {isVerified && <figcaption className="verified-badge">✓ Atölyemizden gerçek üretim / uygulama fotoğrafı</figcaption>}
       {!isVerified && isMisumi && <figcaption>Mekanikya örnek ürün düzeni</figcaption>}
-      {!isVerified && !isMisumi && image.alt && image.alt !== title && <figcaption>{image.alt}</figcaption>}
+      {!isVerified && !isMisumi && captionText && captionText !== title && <figcaption>{captionText}</figcaption>}
     </figure>
   );
 }

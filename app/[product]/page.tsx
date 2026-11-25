@@ -11,7 +11,7 @@ import { hasVerifiedProductImage, verifiedProductImages } from '@/lib/verified-p
 import { getBusinessContent, getProductContent } from '@/lib/site-content';
 import { getProductPriceInfo } from '@/lib/product-pricing';
 import MetalFormingProduct from '@/components/metal-forming-product';
-import { isMetalFormingProduct } from '@/lib/metal-forming-products';
+import { isMetalFormingProduct, metalFormingImage } from '@/lib/metal-forming-products';
 import { getCatalogItems } from '@/lib/site-content';
 import RollerSupportGuide, { rollerSupportTitle, rollerSupportDescription } from '@/components/roller-support-guide';
 
@@ -37,7 +37,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: (id === 'rulolu-destek-sehpasi' ? rollerSupportTitle : product.title) + ' | Mekanikya',
     description: id === 'rulolu-destek-sehpasi' ? rollerSupportDescription : product.description,
     alternates: { canonical: business.siteUrl + product.href },
-    ...(isMetalFormingProduct(id) ? { openGraph: { title: product.title, description: product.description, url: business.siteUrl + product.href, type: 'website' as const } } : {}),
+    ...(isMetalFormingProduct(id)
+      ? {
+          openGraph: {
+            title: product.title,
+            description: product.description,
+            url: business.siteUrl + product.href,
+            type: 'website' as const,
+            images: [{ url: business.siteUrl + metalFormingImage(id).src, alt: metalFormingImage(id).alt }],
+          },
+        }
+      : {}),
   };
 }
 

@@ -4,7 +4,7 @@
 
 - **Aktif ajan:** Yok (beklemede)
 - **Son ek görev:** ChatGPT Sohbet Aktarıcı v1.0.0, kullanıcı isteğiyle site dışında `../chatgpt-sohbet-aktarici` klasöründe ve ZIP olarak hazırlandı. Chrome kurulumu ve gerçek hesap kabul testi kullanıcıda; site kaynakları değişmedi.
-- **Aktif görev:** Metal Şekillendirme Makineleri ailesindeki 3 ürünün CAD referanslarına sadık Mekanikya stüdyo konsept görselleri, yapılandırma seçenekleri ve CAD kaynak bağlantıları yerel depoya commit edildi; push ve canlı yayın için kullanıcı talimatı bekleniyor.
+- **Aktif görev:** Metal Şekillendirme Makineleri ailesindeki 3 ürünün CAD referanslarına sadık Mekanikya stüdyo konsept görselleri, yapılandırma seçenekleri ve CAD kaynak bağlantıları canlıya (`https://mekanikya.com.tr`, Version ID: `6be6319a-7bf0-4bfe-a55b-75e11aac2082`) yayınlandı ve `origin/main` ile senkronize edildi.
 - **Son devir teslim kaydı:** 2026-11-25 (Antigravity)
 
 ## Çok Ajanlı Çalışma Esasları
@@ -1333,6 +1333,6 @@ Her ajan buraya tarih, görev, değiştirdiği dosyalar, kontrol sonucu ve kalan
 - **Oluşturulan yeni dosyalar:** `public/images/metal-forming/manuel-silindir-sac-kivirma-makinesi.jpg`, `public/images/metal-forming/manuel-boru-ve-profil-bukme-makinesi.jpg`, `public/images/metal-forming/manuel-ferforje-spiral-bukme-makinesi.jpg`.
 - **Doğrulama / build sonucu:** `node --test tests/product-inquiry.test.mjs tests/quote.test.mjs` 106/106 başarılı; `tsc --noEmit` 0 hata; `vinext build` 0 hata. Yerel geliştirme sunucusunda (`localhost:3099`) `/`, `/urunler`, `/metal-sekillendirme-makineleri`, 3 ürün rotası, `/merchant-feed.xml`, `/sitemap.xml` ve 3 `.jpg` dosyası HTTP 200 ile doğrulandı (`Offer` şeması yok, Merchant feed sızıntısı yok). Sunucu kapatıldı (`Port 3099 listening: False`).
 - **Açık kalan işler:** Kullanıcının yerel incelemesi ve yayın/commit talimatı veya onaylı listedeki sıradaki ürün ailesine geçiş.
-- **Yayınlama durumu:** Yayınlanmadı (AGENTS.md Kural 8 gereği kullanıcı talimatı bekleniyor).
-- **Commit / push durumu:** Yerel commit yapıldı (push yapılmadı; kullanıcı yalnızca commit talep etti).
+- **Yayınlama durumu:** Yayınlandı (`https://mekanikya.com.tr/metal-sekillendirme-makineleri` — Cloudflare Workers Version ID: `6be6319a-7bf0-4bfe-a55b-75e11aac2082`; canlıda 9 rota ve görsel HTTP 200 ile doğrulandı).
+- **Commit / push durumu:** Yapıldı (`9e0fd02` ve yayın kaydı `origin/main` üzerine gönderildi).
 - **Diğer ajana notlar:** Önceki `ORTAK-CALISMA.md` notları ve `docs/standart-urun-taslaklari.md` aynen korunmuştur.

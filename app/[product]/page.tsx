@@ -10,6 +10,10 @@ import FactoryProductOptions, { hasFactoryGuide } from '@/components/factory-pro
 import { hasVerifiedProductImage, verifiedProductImages } from '@/lib/verified-product-images';
 import { getBusinessContent, getProductContent } from '@/lib/site-content';
 import { getProductPriceInfo } from '@/lib/product-pricing';
+import MetalFormingProduct from '@/components/metal-forming-product';
+import { isMetalFormingProduct } from '@/lib/metal-forming-products';
+import { getCatalogItems } from '@/lib/site-content';
+import RollerSupportGuide, { rollerSupportTitle, rollerSupportDescription } from '@/components/roller-support-guide';
 
 type Props = { params: Promise<{ product: string }> };
 
@@ -30,9 +34,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
   return {
-    title: product.title + ' | Mekanikya',
-    description: product.description,
+    title: (id === 'rulolu-destek-sehpasi' ? rollerSupportTitle : product.title) + ' | Mekanikya',
+    description: id === 'rulolu-destek-sehpasi' ? rollerSupportDescription : product.description,
     alternates: { canonical: business.siteUrl + product.href },
+    ...(isMetalFormingProduct(id) ? { openGraph: { title: product.title, description: product.description, url: business.siteUrl + product.href, type: 'website' as const } } : {}),
   };
 }
 
@@ -41,6 +46,13 @@ export default async function ProductPage({ params }: Props) {
   const [originalProduct, business] = await Promise.all([getProductContent(id), getBusinessContent()]);
   if (!originalProduct) notFound();
   if (originalProduct.status === 'inactive') notFound();
+
+  if (isMetalFormingProduct(id)) {
+    const related = (await getCatalogItems()).filter(item => isMetalFormingProduct(item.id) && item.id !== id);
+    return <MetalFormingProduct product={originalProduct} business={business} related={related} />;
+  }
+
+  if (id === 'rulolu-destek-sehpasi') return <RollerSupportGuide whatsapp={business.whatsapp} />;
 
   const hasGuide = hasFactoryGuide(id, originalProduct.options);
   const product = hasGuide

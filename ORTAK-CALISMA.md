@@ -3,8 +3,8 @@
 ## AKTİF ÇALIŞMA DURUMU
 
 - **Aktif ajan:** Yok (beklemede)
-- **Aktif görev:** Canlıdaki 8eda58e sürümü birleştirildi, eski firsat-sitesi kopyası kaldırıldı ve testler/derleme doğrulandı.
-- **Son devir teslim kaydı:** 2026-11-23 (Antigravity)
+- **Aktif görev:** Metal Şekillendirme Makineleri ailesi (3 ürün) canlıda. Temsilî özgün prensip çizimleri kullanıldı; iki eski CAD bağlantısı ve izinli fotomontaj kaynakları bekliyor.
+- **Son devir teslim kaydı:** 2026-11-25 (ChatGPT)
 
 ## Çok Ajanlı Çalışma Esasları
 
@@ -1258,3 +1258,47 @@ Her ajan buraya tarih, görev, değiştirdiği dosyalar, kontrol sonucu ve kalan
 - **Yayınlama durumu:** Yayınlandı (`wrangler deploy`, Version ID: `1d65a5b6-01cd-4e48-9624-999249ea3649`).
 - **Commit / push durumu:** Yapıldı (`origin/main`).
 - **Diğer ajana notlar:** Artık yalnızca bu Mekanikya klasörü aktiftir. Canlıdaki `46cc37e0` sürümünün tüm özellikleri (`8eda58e`) ile bugünkü katalog/teklif düzeltmeleri bu klasörde birleştirilmiş durumdadır.
+
+### 2026-11-24 — İki standart ürünün inceleme taslakları
+
+- **Tarih:** 2026-11-24
+- **Çalışan ajan:** ChatGPT
+- **Görev:** Önce 2 metre şerit testere/profil dayama sehpası, ardından 3 metre motorsuz rulolu kasa/koli konveyörü için güvenli ürün metinleri hazırlamak.
+- **Tamamlananlar:** SEO başlıkları, meta açıklamaları, özgün sayfa metinleri, teknik inceleme alanları ve WhatsApp mesajları hazırlandı. Bölgesel kapsam Türkiye geneli taleplere açık tutuldu. Çuval uygunluğu vaat edilmedi. Canlı iletişim sayfasında https://wa.me/905302068714 doğrulandı. Fiyat ve 24 saat teklif taahhüdü için gerekli bilgiler listelendi.
+- **Değiştirilen dosyalar:** ORTAK-CALISMA.md.
+- **Oluşturulan yeni dosyalar:** docs/standart-urun-taslaklari.md.
+- **Doğrulama / build sonucu:** İçerik ve bağlantı kaynağı kontrol edildi; git diff --check başarılı. Yalnızca dokümantasyon değiştiği için build çalıştırılmadı. Yeni ürün rotası oluşturulmadı.
+- **Açık kalan işler:** Kullanıcının sıralı ürün incelemesi; teknik tasarım, maliyet/satış koşulları, net fiyat ve 24 saat teklif hizmetinin doğrulanması. Mevcut fiyat yardımcısı bilinmeyen ürünlere 5000 TL, stokta ve 3–5 iş günü atıyor; taslaklar bu akışa bağlanmadı. Satışa açmadan önce bu davranış ele alınmalı.
+- **Yayınlama durumu:** Yayınlanmadı.
+- **Commit / push durumu:** Yapılmadı.
+- **Diğer ajana notlar:** Önceden değişmiş lib/presentation.ts ve lib/site-content.ts korundu. Taslakları katalog, sitemap, Merchant feed veya Offer şemasına doğrulama tamamlanmadan eklemeyin. Fotoğraf ve kapasite uydurulmadı; mevcut diğer ürünlerin satış iddiaları bu görevde değiştirilmedi.
+
+### 2026-11-24 — MISUMI referanslarının sehpa sayfasına uygulanması
+
+- **Tarih:** 2026-11-24
+- **Çalışan ajan:** ChatGPT
+- **Görev:** Kullanıcı talimatıyla araştırılan bilgi ve görselleri yerel siteye uygulamak; maliyet ve üretim süresini teklif aşamasına bırakmak.
+- **Tamamlananlar:** /rulolu-destek-sehpasi sayfası 2 metre şerit testere/profil dayama sehpası incelemesine uyarlandı. Rulolu destek ve boy dayamalı destek seçenekleri, teknik seçim rehberi, bölge metni ve ürüne özel WhatsApp bağlantıları eklendi. Astage WRS-1 ve TRUSCO VR-K görselleri doğrudan doğrulanmış MISUMI ürün sayfalarının filigranlı CDN adreslerinden gösteriliyor. Ayak, stoper ve rulo seçim PDF bağlantıları eklendi. Bu ürünün varsayılan fiyat/stok/teslim ve Offer şeması devre dışı; Merchant feed'den çıkarıldı. Diğer ürünler korunuyor.
+- **Değiştirilen dosyalar:** app/[product]/page.tsx, app/merchant-feed.xml/route.ts, ORTAK-CALISMA.md.
+- **Oluşturulan yeni dosyalar:** components/roller-support-guide.tsx.
+- **Doğrulama / build sonucu:** tsc --noEmit başarılı. Vinext build tamamlandı. Yerel sayfa HTTP 200; Offer şeması yok; ürün Merchant feed'de yok. Tarayıcıda iki referans fotoğrafı, kaynak etiketleri ve WhatsApp hedefleri doğrulandı; dar ekranda kart düzeni düzeltildi. Açılan geliştirme sunucusu kontrol sonunda kapatıldı.
+- **Açık kalan işler:** Sıralı incelemede sonraki ürün 3 metre motorsuz kasa/koli konveyörü. Mevcut katalog kartı genel rulolu destek ailesi adıyla bu sayfaya yönlenmeye devam ediyor. Yeni sayfa içeriği özel bileşendedir; yönetim panelindeki genel ürün metinlerinden bağımsızdır.
+- **Yayınlama durumu:** Yayınlanmadı. Görseller yalnızca yerel referans kullanımı için eklendi; halka açık yayın öncesi görsel kullanım izni/lisansı ayrıca doğrulanmalı. Harici CDN erişimi gerekir.
+- **Commit / push durumu:** Yapılmadı.
+- **Diğer ajana notlar:** Önceden değişmiş lib/presentation.ts ve lib/site-content.ts korunmuştur. Kaynaklar: https://jp.misumi-ec.com/vona2/detail/223011218606/ ve https://jp.misumi-ec.com/vona2/detail/221005494872/. Kullanıcı bu aşamada fiyat ve süre doğrulamasının ilerlemeyi durdurmasını istemiyor; bunlar teklif aşamasında ele alınacak.
+- **Ek doğrulama notu:** İlk geliştirme açılışında next/link bağımlılık optimizasyonu sırasında geçici Invalid hook call kaydı görüldü. Yeni bileşenin iki iç bağlantısı mevcut sayfadaki gibi standart bağlantıya çevrildi; son kaynakla build tekrar başarılı. Tam yeniden başlatılmış tarayıcı kontrolü bu son değişiklikten sonra tekrarlanmadı.
+
+
+### 2026-11-25 — Metal şekillendirme ürün ailesinin entegrasyonu
+
+- **Tarih:** 2026-11-25
+- **Çalışan ajan:** ChatGPT
+- **Görev:** Üç manuel makineyi mevcut siteye, özel teklif odaklı kategori ve ürün sayfalarıyla eklemek; doğrulamak ve kullanıcı talimatıyla yayınlamak.
+- **Tamamlananlar:** Ferforje spiral bükme, silindir sac kıvırma, boru/profil bükme ürünleri; kategori, ana sayfa/katalog/iç bağlantılar, SEO canonical/Open Graph, sitemap, ürüne özel WhatsApp formu. Yeni ürünler fiyat/stok/teslim ve Merchant Offer akışına dahil edilmedi. Temsilî olarak etiketlenen üç özgün SVG prensip şeması eklendi. Önceki sehpa çalışması ve katalog grup düzeltmeleri korundu; sehpanın izni doğrulanmamış referans fotoğrafları yalnızca geliştirmede, kaynak bağlantıları canlıda gösterilir.
+- **Değiştirilen dosyalar:** app/[product]/page.tsx, app/globals.css, app/merchant-feed.xml/route.ts, app/sitemap.ts, app/urunler/page.tsx, components/category-cards.tsx, components/product-cards.tsx, components/product-image.tsx, lib/additional-products.ts, lib/presentation.ts, ORTAK-CALISMA.md. Önceden değişmiş lib/site-content.ts korunarak yayınlandı.
+- **Oluşturulan yeni dosyalar:** app/metal-sekillendirme-makineleri/page.tsx, components/metal-forming-product.tsx, lib/metal-forming-products.ts, public/images/metal-forming/ altındaki 3 SVG, docs/metal-sekillendirme-kaynaklari.md. Önceki yerel components/roller-support-guide.tsx yayın bağımlılığı olarak korundu.
+- **Doğrulama / build sonucu:** 106/106 test, tsc --noEmit ve vinext build başarılı. Masaüstü ve 390px mobil tarayıcı kontrolü; taşma yok, görseller yüklendi, WhatsApp taslağı ürüne özgü ve gönderilmedi. Canlıda 3 ürün, kategori, ana sayfa, katalog, sitemap, Merchant feed, sehpa ve metal kasa HTTP 200. Yeni ürünlerde fiyat/Offer yok; Merchant feed dışında. Sehpa dış fotoğrafları production HTML içinde yok.
+- **Açık kalan işler:** Ürünleri Tartışalım sohbetinden ferforje Cults3D ve GizmoPlans kaynakları geri alındı; araç yalnızca son 5 turu verdiğinden diğer iki eski CAD bağlantısına erişilemedi. Lisanslı CAD dosyaları/fotoğraflar bulunmadı; fotomontaj yapılmadı. Şemalar CAD modeli veya gerçek ürün fotoğrafı değildir. Kaynak ayrıntıları docs/metal-sekillendirme-kaynaklari.md içinde.
+- **Yayınlama durumu:** Yayınlandı. https://mekanikya.com.tr/metal-sekillendirme-makineleri — Cloudflare Workers sürümü e670de3b-5289-4a00-a256-c2891e682d77.
+- **Commit / push durumu:** Uygulama ve kaynak kaydı commit/push aşamasında; aşağıya sonuç eklenecek.
+- **Diğer ajana notlar:** Kullanıcı bu görevde açıkça commit, push ve yayına izin verdi. Branch/worktree/kopya oluşturulmadı. Önceki docs/standart-urun-taslaklari.md çalışma alanında korunuyor; bu ürün ailesinin parçası değildir.

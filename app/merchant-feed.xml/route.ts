@@ -1,5 +1,6 @@
 import { getCatalogItems, getBusinessContent } from '@/lib/site-content';
 import { getProductPriceInfo } from '@/lib/product-pricing';
+import { isMetalFormingProduct } from '@/lib/metal-forming-products';
 import { verifiedProductImages, hasVerifiedProductImage } from '@/lib/verified-product-images';
 
 function escapeXml(unsafe: string): string {
@@ -20,7 +21,8 @@ export async function GET() {
   const baseUrl = business.siteUrl || 'https://mekanikya.com.tr';
 
   const itemsXml = products
-    .filter((product) => product.status !== 'inactive')
+    // İnceleme aşamasındaki sehpa için doğrulanmış bir satış teklifi bulunmuyor.
+    .filter((product) => product.status !== 'inactive' && product.id !== 'rulolu-destek-sehpasi' && !isMetalFormingProduct(product.id))
     .map((product) => {
       const pricing = getProductPriceInfo(product);
       const link = `${baseUrl}/${product.id}`;

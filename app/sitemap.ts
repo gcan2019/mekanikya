@@ -14,6 +14,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/fabrika-ici-tasima',
     '/kurumsal',
     '/urunler',
+    '/metal-sekillendirme-makineleri',
     '/hizmetler',
     '/hizmetler/makine-restorasyonu',
     '/hizmetler/tersine-muhendislik-ve-teknik-cizim',

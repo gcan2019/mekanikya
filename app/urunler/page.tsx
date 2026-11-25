@@ -79,6 +79,9 @@ export default async function Products() {
                 <div className="catalog-group-title">
                   <h2>{category.title}</h2>
                   <p>{category.description}</p>
+                  {category.id === 'metal-sekillendirme-makineleri' && (
+                    <a className="text-link" href="/metal-sekillendirme-makineleri">Manuel makine ailesini inceleyin →</a>
+                  )}
                   {category.id === 'fabrika-tasima' && (
                     <Link className="text-link" href="/fabrika-ici-tasima">
                       Taşıma düzenleri ve seçim rehberi →

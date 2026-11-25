@@ -3,6 +3,11 @@ import { additionalProducts, type InquiryProduct } from './additional-products';
 
 export const categories = [
   {
+    id: 'metal-sekillendirme-makineleri',
+    title: 'Metal Şekillendirme Makineleri',
+    description: 'Ferforje spiral bükme, silindir sac kıvırma ve boru / profil bükme için talebe göre değerlendirilen manuel makine çözümleri.',
+  },
+  {
     id: 'talasli-imalat',
     title: 'Talaşlı İmalat & Hassas Parçalar (Torna, Freze, CNC)',
     description: 'Özel transmisyon milleri, kademeli şaftlar, fosfor bronz ve çelik burçlar, flanşlar ve CNC fason parça işleme.',
@@ -20,6 +25,9 @@ export const categories = [
 ];
 
 const groups: Record<string, string> = {
+  'manuel-ferforje-spiral-bukme-makinesi': 'metal-sekillendirme-makineleri',
+  'manuel-silindir-sac-kivirma-makinesi': 'metal-sekillendirme-makineleri',
+  'manuel-boru-ve-profil-bukme-makinesi': 'metal-sekillendirme-makineleri',
   // Talaşlı İmalat
   'fason-talasli-imalat': 'talasli-imalat',
   'ozel-mil-ve-saftlar': 'talasli-imalat',
@@ -32,6 +40,7 @@ const groups: Record<string, string> = {
   'kaynak-masasi': 'atolye-ekipman',
   'calisma-tezgahi': 'atolye-ekipman',
   'talas-hurda-arabasi': 'atolye-ekipman',
+  'sac-levha-tasima-arabasi': 'atolye-ekipman',
   'rulolu-destek-sehpasi': 'atolye-ekipman',
   'motorlu-boru-dondurme-sehpasi': 'atolye-ekipman',
   'fason-kaynak-isleri': 'atolye-ekipman',
@@ -58,6 +67,9 @@ const groups: Record<string, string> = {
 };
 
 export const priorityOrder: string[] = [
+  'manuel-ferforje-spiral-bukme-makinesi',
+  'manuel-silindir-sac-kivirma-makinesi',
+  'manuel-boru-ve-profil-bukme-makinesi',
   'cnc-torna-yumusak-ayak',
   'd28-kilitleme-pimi',
   'sim-racing-pedal-plakasi',

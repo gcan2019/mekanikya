@@ -485,6 +485,18 @@ p.lead {
 }
 
 /* 5. Golden Rectangle Utilities */
+.metal-forming-actions { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 24px; }
+.metal-forming-actions .text-link { display: inline-flex; align-items: center; gap: 8px; }
+.metal-forming-reference { margin-top: 28px; padding: 20px; border: 1px solid #d0dbe3; }
+.metal-forming-reference summary { cursor: pointer; font-weight: 600; }
+.metal-forming-reference p { margin: 16px 0; }
+.metal-forming-card .catalog-photo figcaption,
+.metal-forming-page .manufacturer-product .catalog-photo figcaption { position: static; padding: 10px 14px; font: 12px/1.6 var(--font-sans); color: #526977; background: #fff; }
+.metal-forming-card .photo-product-copy > div { flex-wrap: wrap; gap: 6px; }
+@media (max-width: 600px) {
+  .photo-product-grid:has(.metal-forming-card) { grid-template-columns: 1fr; }
+}
+
 .golden-rectangle {
   aspect-ratio: 1.618 / 1;
 }

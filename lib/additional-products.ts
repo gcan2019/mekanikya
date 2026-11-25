@@ -1,8 +1,10 @@
 import { factoryProducts } from './factory-products.ts';
+import { metalFormingProducts } from './metal-forming-products.ts';
 export type InquiryField = {id:string;label:string;kind:'text'|'number';unit?:string;hint:string};
 export type InquiryProduct = {id:string;href:string;title:string;category:string;description:string;details:string[];uses:string[];checks:{title:string;text:string}[];fields:InquiryField[];note:string;source:string;status?:'active'|'inactive'};
 export const additionalProducts:InquiryProduct[] = [
 ...factoryProducts,
+...metalFormingProducts,
 {
   "id": "motorlu-boru-dondurme-sehpasi",
   "title": "Motorlu boru ve silindir döndürme sehpası (Kaynak çevirici)",

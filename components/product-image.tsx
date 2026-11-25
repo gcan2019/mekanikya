@@ -1,4 +1,5 @@
 import { verifiedProductImages } from '@/lib/verified-product-images';
+import { isMetalFormingProduct, metalFormingImage } from '@/lib/metal-forming-products';
 
 export default function ProductImage({
   id,
@@ -16,7 +17,7 @@ export default function ProductImage({
   verified?: boolean;
 }) {
   if (imageHidden) return null;
-  const image = custom ?? verifiedProductImages[id];
+  const image = custom ?? (isMetalFormingProduct(id) ? metalFormingImage(id) : verifiedProductImages[id]);
   if (!image) return null;
   const isVerified = verified ?? (custom ? custom.verified === true : false);
   const isMisumi = !custom && Boolean(verifiedProductImages[id]);

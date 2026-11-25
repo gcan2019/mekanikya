@@ -3,15 +3,16 @@ import { catalogItems } from '@/lib/presentation';
 import type { EditableProduct } from '@/lib/site-content';
 import ProductImage from './product-image';
 import { hasVerifiedProductImage } from '@/lib/verified-product-images';
+import { isMetalFormingProduct } from '@/lib/metal-forming-products';
 
 export default function ProductCards({ items = catalogItems }: { items?: EditableProduct[] }) {
   return (
     <div className="photo-product-grid">
       {items.map((product) => {
-        const hasImage = !product.imageHidden && Boolean(product.image || hasVerifiedProductImage(product.id));
+        const hasImage = !product.imageHidden && Boolean(product.image || hasVerifiedProductImage(product.id) || isMetalFormingProduct(product.id));
         return (
           <article
-            className={'photo-product-card' + (hasImage ? '' : ' photo-product-card-no-image')}
+            className={'photo-product-card' + (hasImage ? '' : ' photo-product-card-no-image') + (isMetalFormingProduct(product.id) ? ' metal-forming-card' : '')}
             key={product.id}
           >
             {hasImage && (

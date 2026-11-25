@@ -416,8 +416,9 @@ function normalizeProduct(value: unknown, index: number): EditableProduct | null
     checks: normalizeChecks(input.checks, base.checks),
     fields: normalizeFields(input.fields, base.fields),
     status: input.status === 'inactive' ? 'inactive' : 'active',
-    group: id === 'sac-levha-tasima-arabasi' && input.group === 'talasli-imalat'
-      ? 'fabrika-tasima'
+    group: id === 'sac-levha-tasima-arabasi'
+      && (input.group === 'talasli-imalat' || input.group === 'fabrika-tasima')
+      ? base.group
       : cleanText(input.group, base.group, 80),
     sortOrder: typeof input.sortOrder === 'number' ? input.sortOrder : index + 1,
     image,

@@ -3,6 +3,7 @@ import type { EditableProduct } from '@/lib/site-content';
 import { categories } from '@/lib/presentation';
 
 const categoryIcons = {
+  'metal-sekillendirme-makineleri': Wrench,
   'talasli-imalat': Cog,
   'tersine-muhendislik-restorasyon': FileCode,
   'atolye-ekipman': Wrench,
@@ -16,7 +17,7 @@ export default function CategoryCards({ items }: { items: EditableProduct[] }) {
         const count = items.filter((item) => item.group === category.id).length;
 
         return (
-          <a className="category-card" href={'/urunler#' + category.id} key={category.id}>
+          <a className="category-card" href={category.id === 'metal-sekillendirme-makineleri' ? '/' + category.id : '/urunler#' + category.id} key={category.id}>
             <div className="category-card-icon">
               <Icon size={26} />
               <span>{String(index + 1).padStart(2, '0')}</span>
